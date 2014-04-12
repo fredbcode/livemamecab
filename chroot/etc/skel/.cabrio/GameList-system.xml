@@ -1,0 +1,15 @@
+
+<cabrio-config>
+  ...
+  <game-list>
+    <games> 
+      <game>
+  	<name>shutdown</name>
+ 	<platform>System</platform>
+  	<rom-image>/games/mamelive/scripts/shutdown.sh</rom-image>
+  	<emulator>system</emulator>
+      </game>
+  </games>
+  </game-list>
+  ...
+</cabrio-config>

@@ -1,0 +1,13 @@
+[Entry 0]
+Name=USB
+Comment=USB
+Icon=usbkey
+Exec=thunar
+Path=/media
+Terminal=false
+StartupNotify=false
+
+[Global]
+MoveFirst=false
+ArrowPosition=0
+

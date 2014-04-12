@@ -1,0 +1,11 @@
+
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Halt
+Comment=
+Icon=xfsm-shutdown
+Exec=sudo halt
+Path=
+Terminal=false
+StartupNotify=false

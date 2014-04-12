@@ -1,0 +1,14 @@
+
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Name=Save_configuration
+Type=Application
+Terminal=false
+Exec=/games/mamelive/scripts/save_me.sh
+Name=Save_me
+Comment=Save configuration
+Icon=/usr/share/pixmaps/synaptic.png
+GenericName=Save_configuration
+
+

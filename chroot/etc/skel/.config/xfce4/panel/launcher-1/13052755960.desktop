@@ -1,0 +1,11 @@
+
+[Desktop Entry]
+Type=Application
+Name=Wahcade
+Comment=
+Icon=/usr/local/share/games/wahcade/pixmaps/wahcade-logo-192.png
+Exec='/usr/local/bin/wahcade'
+Path=/usr/local/bin
+Terminal=false
+StartupNotify=false
+

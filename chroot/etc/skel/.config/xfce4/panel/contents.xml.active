@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<Xfce xmlversion="2">
+  <Panel orientation="1" size="0" popupposition="2" icontheme="Rodent">
+    <Position monitor="0" side="1" posstate="2" x="992" y="0"/>
+  </Panel>
+  <Groups>
+    <Group>
+      <Control id="-1" filename="libdesktopmenu.so" use_default_menu="1" menu_file="/root/.config/xfce4/desktop/menu.xml" icon_file="/usr/share/pixmaps/xfce4_xicon1.png" show_menu_icons="1" button_title="Xfce Menu"/>
+    </Group>
+  </Groups>
+</Xfce>

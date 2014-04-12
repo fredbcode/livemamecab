@@ -1,0 +1,11 @@
+
+[Desktop Entry]
+Type=Application
+Name=USB
+Comment=USB
+Icon=usbpendrive_unmount
+Exec=thunar
+Path=/media
+Terminal=false
+StartupNotify=false
+

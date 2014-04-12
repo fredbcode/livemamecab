@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<Xfce xmlversion="2">
+  <Panel orientation="0" size="2" popupposition="1" icontheme="Rodent">
+    <Position monitor="0" side="3" posstate="1" x="300" y="715"/>
+  </Panel>
+  <Groups>
+    <Group>
+      <Control id="-2" popup="0">
+        <Command term="0" sn="0">xfterm4</Command>
+        <Tooltip>Terminal</Tooltip>
+        <Icon id="-1">/usr/share/pixmaps/terminal.png</Icon>
+      </Control>
+    </Group>
+    <Group>
+      <Control id="-2" popup="0">
+        <Command term="0" sn="0">firefox</Command>
+        <Tooltip>Mozilla Web Browser</Tooltip>
+        <Icon id="-1">/usr/share/pixmaps/firefox.png</Icon>
+      </Control>
+    </Group>
+    <Group>
+      <Control id="-2" popup="0">
+        <Command term="0" sn="0">gaim</Command>
+        <Tooltip>Instant Messaging Client</Tooltip>
+        <Icon id="-1">/usr/share/pixmaps/licq.png</Icon>
+      </Control>
+    </Group>
+    <Group>
+      <Control id="-2" popup="0">
+        <Command term="0" sn="0">gmplayer -vo x11 -ao oss -zoom</Command>
+        <Tooltip>Video Player</Tooltip>
+        <Icon id="-1">/usr/share/pixmaps/noatun.png</Icon>
+      </Control>
+    </Group>
+    <Group>
+      <Control id="-2" popup="0">
+        <Command term="0" sn="0">beep-media-player</Command>
+        <Tooltip>Music player</Tooltip>
+        <Icon id="-1">/usr/share/pixmaps/cdaudio_unmount.png</Icon>
+      </Control>
+    </Group>
+    <Group>
+      <Control id="-2" popup="0">
+        <Command term="0" sn="0">abiword</Command>
+        <Tooltip>AbiWord text editor</Tooltip>
+        <Icon id="-1">/usr/share/pixmaps/openoffice.png</Icon>
+      </Control>
+    </Group>
+    <Group>
+      <Control id="-1" filename="libseparator.so"/>
+    </Group>
+    <Group>
+      <Control id="-1" filename="libclock.so">
+        <XfceClock Clock_type="2" Toggle_military="1" Toggle_am_pm="1" Toggle_secs="0"/>
+      </Control>
+    </Group>
+    <Group>
+      <Control id="-1" filename="libseparator.so"/>
+    </Group>
+    <Group>
+      <Control id="-1" filename="libsystembuttons.so" button1="1" button2="2" showtwo="1"/>
+    </Group>
+  </Groups>
+</Xfce>

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=jstest-gtk
+Comment=Joystick testing and configuration tool
+Exec=jstest-gtk
+Terminal=false
+Type=Application
+Icon=jstest-gtk.png
+Categories=GTK;System;
+X-XFCE-Source=file:///usr/share/applications/jstest-gtk.desktop

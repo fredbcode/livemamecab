@@ -1,0 +1,137 @@
+
+** LOGGING STARTED AT Sun Nov 15 15:02:21 2009
+
+Initializing Gtk+
+Setting up libSAD
+Loading configuration
+Initializing signal handlers
+Handling commandline options, part #1
+Non-headless operation setup
+(Gtk) GtkSpinButton: setting an adjustment with non-zero page size is deprecated
+(Gtk) GtkSpinButton: setting an adjustment with non-zero page size is deprecated
+(Gtk) GtkSpinButton: setting an adjustment with non-zero page size is deprecated
+Initializing D-Bus
+Trying to initialize D-Bus
+D-Bus RC
+Registering remote D-Bus interfaces
+D-Bus MPRIS root
+D-Bus MPRIS player
+in mpris_player_init object->proxy == NULL, not adding some signals.
+result=0x85922d0
+D-Bus MPRIS tracklist
+D-Bus support has been activated
+Initializing plugin subsystems...
+Loaded plugin (/usr/lib/audacious/Input/wma.so)
+Loaded plugin (/usr/lib/audacious/Input/modplug.so)
+Loaded plugin (/usr/lib/audacious/Input/xsf.so)
+Loaded plugin (/usr/lib/audacious/Input/vtx.so)
+Loaded plugin (/usr/lib/audacious/Input/demac.so)
+Loaded plugin (/usr/lib/audacious/Input/console.so)
+Loaded plugin (/usr/lib/audacious/Input/tonegen.so)
+Loaded plugin (/usr/lib/audacious/Input/cdaudio-ng.so)
+Loaded plugin (/usr/lib/audacious/Input/vorbis.so)
+Loaded plugin (/usr/lib/audacious/Input/madplug.so)
+Loaded plugin (/usr/lib/audacious/Input/wavpack.so)
+Loaded plugin (/usr/lib/audacious/Input/timidity.so)
+Loaded plugin (/usr/lib/audacious/Input/cuesheet_ng.so)
+Loaded plugin (/usr/lib/audacious/Input/amidi-plug.so)
+Loaded plugin (/usr/lib/audacious/Input/adplug.so)
+Loaded plugin (/usr/lib/audacious/Input/metronom.so)
+Loaded plugin (/usr/lib/audacious/Input/alac.so)
+Loaded plugin (/usr/lib/audacious/Input/tta.so)
+Loaded plugin (/usr/lib/audacious/Input/sndfile.so)
+Loaded plugin (/usr/lib/audacious/Input/aac.so)
+Loaded plugin (/usr/lib/audacious/Input/flacng.so)
+Loaded plugin (/usr/lib/audacious/Input/sid.so)
+Loaded plugin (/usr/lib/audacious/Input/psf2.so)
+Loaded plugin (/usr/lib/audacious/Output/filewriter.so)
+Loaded plugin (/usr/lib/audacious/Output/null.so)
+Loaded plugin (/usr/lib/audacious/Output/jackout.so)
+Loaded plugin (/usr/lib/audacious/Output/ALSA.so)
+Loaded plugin (/usr/lib/audacious/Output/crossfade.so)
+Loaded plugin (/usr/lib/audacious/Output/pulse_audio.so)
+Loaded plugin (/usr/lib/audacious/Output/icecast.so)
+Loaded plugin (/usr/lib/audacious/Output/ESD.so)
+Loaded plugin (/usr/lib/audacious/Output/OSS.so)
+Loaded plugin (/usr/lib/audacious/Effect/crystalizer.so)
+Loaded plugin (/usr/lib/audacious/Effect/ladspa.so)
+Loaded plugin (/usr/lib/audacious/Effect/echo.so)
+Loaded plugin (/usr/lib/audacious/Effect/audiocompress.so)
+Loaded plugin (/usr/lib/audacious/Effect/stereo.so)
+Loaded plugin (/usr/lib/audacious/Effect/sndstretch.so)
+Loaded plugin (/usr/lib/audacious/Effect/voice_removal.so)
+Loaded plugin (/usr/lib/audacious/General/streambrowser.so)
+Loaded plugin (/usr/lib/audacious/General/lirc.so)
+Loaded plugin (/usr/lib/audacious/General/evdev-plug.so)
+Loaded plugin (/usr/lib/audacious/General/alarm.so)
+Loaded plugin (/usr/lib/audacious/General/mtp_up.so)
+Loaded plugin (/usr/lib/audacious/General/statusicon.so)
+Loaded plugin (/usr/lib/audacious/General/scrobbler.so)
+Loaded plugin (/usr/lib/audacious/General/vfstrace.so)
+Loaded plugin (/usr/lib/audacious/General/gnomeshortcuts.so)
+Loaded plugin (/usr/lib/audacious/General/skins.so)
+Loaded plugin (/usr/lib/audacious/General/gtkui.so)
+Loaded plugin (/usr/lib/audacious/General/hotkey.so)
+Loaded plugin (/usr/lib/audacious/General/song_change.so)
+Loaded plugin (/usr/lib/audacious/General/aosd.so)
+Loaded plugin (/usr/lib/audacious/Visualization/paranormal.so)
+Loaded plugin (/usr/lib/audacious/Visualization/rocklight.so)
+Loaded plugin (/usr/lib/audacious/Visualization/spectrum.so)
+Loaded plugin (/usr/lib/audacious/Visualization/projectm-1.0.so)
+Loaded plugin (/usr/lib/audacious/Visualization/blur_scope.so)
+Loaded plugin (/usr/lib/audacious/Container/m3u.so)
+Loaded plugin (/usr/lib/audacious/Container/xspf.so)
+Loaded plugin (/usr/lib/audacious/Container/pls.so)
+Loaded plugin (/usr/lib/audacious/Transport/mms.so)
+Loaded plugin (/usr/lib/audacious/Transport/gio.so)
+Loaded plugin (/usr/lib/audacious/Transport/lastfm.so)
+Loaded plugin (/usr/lib/audacious/Transport/neon.so)
+Using libshout 2.2.2
+Could not open file:///root/.adplug/adplug.db for reading or writing: Erreur à l'ouverture du fichier : Aucun fichier ou dossier de ce type
+Populating included interfaces
+Handling commandline options, part #2
+Setting default icon
+Selecting interface skinned
+Running interface skinned@0x54db6e0
+(Gtk) gtk_menu_item_set_submenu: assertion `GTK_IS_MENU_ITEM (menu_item)' failed
+(Gtk) gtk_container_remove: assertion `GTK_IS_TOOLBAR (container) || widget->parent == GTK_WIDGET (container)' failed
+(Gtk) Attempting to add a widget with type GtkFixed to a container of type SkinnedWindow, but the widget is already inside a container of type SkinnedWindow, the GTK+ FAQ at http://library.gnome.org/devel/gtk-faq/stable/ explains how to reparent a widget.
+skin_pixmap_free: assertion `p->pixbuf != NULL' failed
+skin_pixmap_free: assertion `p->pixbuf != NULL' failed
+skin_pixmap_free: assertion `p->pixbuf != NULL' failed
+skin_pixmap_free: assertion `p->pixbuf != NULL' failed
+skin_pixmap_free: assertion `p->pixbuf != NULL' failed
+skin_pixmap_free: assertion `p->pixbuf != NULL' failed
+skin_pixmap_free: assertion `p->pixbuf != NULL' failed
+skin_pixmap_free: assertion `p->pixbuf != NULL' failed
+skin_pixmap_free: assertion `p->pixbuf != NULL' failed
+skin_pixmap_free: assertion `p->pixbuf != NULL' failed
+skin_pixmap_free: assertion `p->pixbuf != NULL' failed
+skin_pixmap_free: assertion `p->pixbuf != NULL' failed
+skin_pixmap_free: assertion `p->pixbuf != NULL' failed
+skin_pixmap_free: assertion `p->pixbuf != NULL' failed
+(Gtk) GtkSpinButton: setting an adjustment with non-zero page size is deprecated
+(Gtk) GtkSpinButton: setting an adjustment with non-zero page size is deprecated
+(Gtk) GtkSpinButton: setting an adjustment with non-zero page size is deprecated
+(Gtk) gtk_window_present_with_time: assertion `GTK_IS_WINDOW (window)' failed
+Received SaveYourself(SmSaveLocal, !Shutdown, SmInteractStyleNone, !Fast) in state start
+Setting initial properties
+Sending SaveYourselfDone(True) for initial SaveYourself
+Received SaveComplete message in state interact
+Saving configuration
+Shutting down user interface subsystem
+Plugin subsystem shutdown
+Shutting down plugin system
+(Gtk) gtk_container_remove: assertion `GTK_IS_WIDGET (widget)' failed
+(Gtk) gtk_container_remove: assertion `GTK_IS_WIDGET (widget)' failed
+(Gtk) gtk_container_remove: assertion `GTK_IS_WIDGET (widget)' failed
+(Gtk) gtk_container_remove: assertion `GTK_IS_WIDGET (widget)' failed
+(Gtk) gtk_container_remove: assertion `GTK_IS_WIDGET (widget)' failed
+(Gtk) gtk_container_remove: assertion `GTK_IS_WIDGET (widget)' failed
+(Gtk) gtk_widget_hide: assertion `GTK_IS_WIDGET (widget)' failed
+Playlist cleanup
+Playlist scanner shutdown
+Shutdown finished, bye.
+
+** LOGGING STOPPED AT Sun Nov 15 15:02:24 2009
+

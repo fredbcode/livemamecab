@@ -1,0 +1,12 @@
+<cabrio-config>
+  <game-list>
+    <name>megadrive</name>
+    <games>
+      <game>
+        <name>qbert</name>
+        <platform>genesis</platform>
+        <rom-image>/games/roms/genesis/qbert.bin</rom-image>
+      </game>
+    </games>
+  </game-list>
+</cabrio-config>

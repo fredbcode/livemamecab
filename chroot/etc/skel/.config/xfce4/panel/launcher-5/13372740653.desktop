@@ -1,0 +1,11 @@
+
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=wahcade-layout-editor
+Comment=wahcade-layout-editor
+Icon=applications-graphics
+Exec=wahcade-layout-editor
+Path=
+Terminal=false
+StartupNotify=false

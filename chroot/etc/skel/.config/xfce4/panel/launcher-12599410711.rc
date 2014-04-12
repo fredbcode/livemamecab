@@ -1,0 +1,12 @@
+[Global]
+MoveFirst=false
+ArrowPosition=0
+
+[Entry 0]
+Name=Wahcade-setup
+Icon=wahcade-setup
+Exec='/usr/local/bin/wahcade-setup'
+Path=/
+Terminal=false
+StartupNotify=false
+

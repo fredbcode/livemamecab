@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Name=Download arts
+Type=Application
+Terminal=false
+Exec=/games/mamelive/scripts/download_artworks.sh
+Name=Download_arts
+Comment=Download artworks
+Icon=/usr/share/pixmaps/synaptic.png
+GenericName=Download artworks

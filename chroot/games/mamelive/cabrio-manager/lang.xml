@@ -1,0 +1,90 @@
+<root>
+	<langs>
+		<lang name="English" code="en_GB">
+			<title>Cabrio lists manager</title>
+			<browseButton>Browse</browseButton>
+			<quitButton>Quit</quitButton>
+			<startButton>Start</startButton>
+			<editButton>Edit</editButton>
+			<deleteButton>Delete</deleteButton>
+			<saveButton>Save</saveButton>
+			<cancelButton>Cancel</cancelButton>
+			<okButton>OK</okButton>
+			<tabNew>New</tabNew>
+			<tabEdit>Edit</tabEdit>
+			<tabAbout>About</tabAbout>
+			<convertTitle>Convert an HyperSpin list</convertTitle>
+			<convertLabel>Convert an HyperSpin list to a Cabrio list</convertLabel>
+			<convertButton>Convert</convertButton>
+			<selectEmuLabel>Select the emulator to build a list for</selectEmuLabel>
+			<listNameLabel>Type the name of the list</listNameLabel>
+			<platformLabel>Type the name of the platform (e.g. NES)</platformLabel>
+			<browseHSXMLLabel>Select the HyperSpin list</browseHSXMLLabel>
+			<browseRomsLabel>Select the folder containing the roms files</browseRomsLabel>
+			<aboutLabel>2014 by Cucurbitacée</aboutLabel>
+			<versionLabel>version 0.3</versionLabel>
+			<translationLabel>English translation by Cucurbitacée</translationLabel>
+			<createLabel>Create a list from a folder containing roms</createLabel>
+			<createButton>Create</createButton>
+			<createTitle>Create a list from a folder</createTitle>
+			<extensionLabel>Type the extension of the rom files (e.g. zip)</extensionLabel>
+			<errorNoEmulator>You must select an emulator first</errorNoEmulator>
+			<errorNoPlatform>You must type the platform first</errorNoPlatform>
+			<errorNoList>You must type a name for the list first</errorNoList>
+			<errorNoXML>You must browse for an XML file first</errorNoXML>
+			<errorNoRoms>You must browse for a roms folder first</errorNoRoms>
+			<errorNoExtension>You must type the roms extension first</errorNoExtension>
+			<listSelectLabel>Select the list</listSelectLabel>
+			<editGameTitle>Edit Game</editGameTitle>
+			<emuEditLabel>Double-click on a game to edit it</emuEditLabel>
+			<nameLabel>Name</nameLabel>
+			<romLabel>Rom</romLabel>
+			<genreLabel>Genre</genreLabel>
+			<deleteConfirmLabel>Are you sure you want to delete this game from the list?</deleteConfirmLabel>
+			<deleteFileCheck>Delete the rom file too</deleteFileCheck>
+		</lang>
+		<lang name="Français" code="fr_FR">
+			<title>Gestionnaire de listes Cabrio</title>
+			<browseButton>Parcourir</browseButton>
+			<quitButton>Quitter</quitButton>
+			<startButton>Démarrer</startButton>
+			<editButton>Éditer</editButton>
+			<deleteButton>Supprimer</deleteButton>
+			<saveButton>Sauvegarder</saveButton>
+			<cancelButton>Annuler</cancelButton>
+			<okButton>OK</okButton>
+			<tabNew>Nouveau</tabNew>
+			<tabEdit>Éditer</tabEdit>
+			<tabAbout>À propos</tabAbout>
+			<convertTitle>Convertir une liste HyperSpin</convertTitle>
+			<convertLabel>Convertir une liste HyperSpin en liste Cabrio</convertLabel>
+			<convertButton>Convertir</convertButton>
+			<selectEmuLabel>Émulateur de base pour la liste</selectEmuLabel>
+			<listNameLabel>Nom de la liste</listNameLabel>
+			<platformLabel>Nom de la plate-forme (e.g. NES)</platformLabel>
+			<browseHSXMLLabel>Liste Hyperspin</browseHSXMLLabel>
+			<browseRomsLabel>Dossier contenant les roms</browseRomsLabel>
+			<aboutLabel>2014 par Cucurbitacée</aboutLabel>
+			<versionLabel>version 0.3</versionLabel>
+			<translationLabel>traduction française par Cucurbitacée</translationLabel>
+			<createLabel>Créer une liste à partir d'un dossier contenant les roms</createLabel>
+			<createButton>Créer</createButton>
+			<createTitle>Créer une liste à partir d'un dossier</createTitle>
+			<extensionLabel>Extension des roms (e.g. zip)</extensionLabel>
+			<errorNoEmulator>Aucun émulateur sélectionné</errorNoEmulator>
+			<errorNoPlatform>Aucun nom saisi pour la plate-forme</errorNoPlatform>
+			<errorNoList>Aucun nom saisi pour la liste</errorNoList>
+			<errorNoXML>Aucun fichier XML choisi</errorNoXML>
+			<errorNoRoms>Aucun dossier contenant les roms choisi</errorNoRoms>
+			<errorNoExtension>Aucun extension saisie</errorNoExtension>
+			<listSelectLabel>Liste à éditer</listSelectLabel>
+			<editGameTitle>Édition du jeu</editGameTitle>
+			<emuEditLabel>Double-cliquer sur un jeu pour l'éditer</emuEditLabel>
+			<nameLabel>Nom</nameLabel>
+			<romLabel>Rom</romLabel>
+			<genreLabel>Genre</genreLabel>
+			<deleteConfirmLabel>Êtes-vous sûr de vouloir effacer ce jeu de la liste ?</deleteConfirmLabel>
+			<deleteFileCheck>Supprimer également le fichier</deleteFileCheck>
+		</lang>
+	</langs>
+</root>

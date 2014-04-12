@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE config SYSTEM "config.dtd">
+<panels>
+	<panel>
+		<properties>
+			<property name="size" value="50"/>
+			<property name="monitor" value="0"/>
+			<property name="screen-position" value="8"/>
+			<property name="fullwidth" value="0"/>
+			<property name="xoffset" value="1322"/>
+			<property name="yoffset" value="177"/>
+			<property name="handlestyle" value="0"/>
+			<property name="autohide" value="0"/>
+			<property name="transparency" value="20"/>
+			<property name="activetrans" value="0"/>
+		</properties>
+		<items>
+			<item name="launcher" id="12599408880"/>
+			<item name="launcher" id="12599410711"/>
+			<item name="launcher" id="13024249280"/>
+			<item name="launcher" id="12630338570"/>
+			<item name="xfce4-mixer-plugin" id="12623446850"/>
+			<item name="launcher" id="13040086620"/>
+			<item name="launcher" id="13041625300"/>
+			<item name="launcher" id="11972263630"/>
+			<item name="launcher" id="12614000120"/>
+		</items>
+	</panel>
+</panels>

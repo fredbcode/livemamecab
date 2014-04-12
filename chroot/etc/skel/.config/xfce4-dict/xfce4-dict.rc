@@ -1,0 +1,13 @@
+mode_in_use=0
+mode_default=3
+show_panel_entry=false
+panel_entry_size=150
+port=2628
+server=dict.org
+dict=*
+spell_bin=/usr/bin/enchant
+spell_dictionary=fr_FR
+link_color=#0000FF
+phonetic_color=#006300
+geometry=456;432;500;300;0;
+

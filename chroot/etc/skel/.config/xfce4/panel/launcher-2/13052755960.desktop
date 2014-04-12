@@ -1,0 +1,11 @@
+
+[Desktop Entry]
+Type=Application
+Name=Wahcade-setup
+Comment=
+Icon=applications-electronics
+Exec='/usr/local/bin/wahcade-setup'
+Path=/
+Terminal=false
+StartupNotify=false
+

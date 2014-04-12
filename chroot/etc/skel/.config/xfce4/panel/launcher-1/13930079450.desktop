@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=cabrio
+Comment=
+Icon=applications-arcade
+Exec='cabrio'
+Path=
+Terminal=false
+StartupNotify=false
+

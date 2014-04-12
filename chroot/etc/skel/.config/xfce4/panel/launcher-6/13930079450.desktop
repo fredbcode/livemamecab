@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Roms
+Comment=
+Icon=applications-simulation
+Exec=thunar 
+Path=/games/roms
+Terminal=false
+StartupNotify=false
+

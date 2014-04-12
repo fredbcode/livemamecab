@@ -1,0 +1,4 @@
+card=HDAudioGenericAlsamixer
+track=Master
+command=xfce4-mixer
+

@@ -1,0 +1,12 @@
+<cabrio-config>
+  <game-list>
+    <name>snes</name>
+    <games>
+      <game>
+        <name>columns</name>
+        <platform>snes</platform>
+        <rom-image>/games/roms/snes/columns.smc</rom-image>
+      </game>
+    </games>
+  </game-list>
+</cabrio-config>

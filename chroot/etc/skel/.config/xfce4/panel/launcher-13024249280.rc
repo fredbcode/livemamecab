@@ -1,0 +1,12 @@
+[Global]
+MoveFirst=false
+ArrowPosition=0
+
+[Entry 0]
+Name=Mame
+Icon=gnome-settings
+Exec=mousepad /home/livemamecab/.mame/mame.ini
+Path=/tmp
+Terminal=false
+StartupNotify=false
+

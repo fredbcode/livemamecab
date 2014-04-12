@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mcs-option SYSTEM "mcs-option.dtd">
+
+<mcs-option>
+	<option name="XFCalendar/NormalMode" type="int" value="1"/>
+	<option name="XFCalendar/Pager" type="int" value="1"/>
+	<option name="XFCalendar/ShowStart" type="int" value="1"/>
+	<option name="XFCalendar/Systray" type="int" value="0"/>
+	<option name="XFCalendar/TaskBar" type="int" value="1"/>
+</mcs-option>

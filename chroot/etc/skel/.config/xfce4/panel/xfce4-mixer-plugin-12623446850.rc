@@ -1,0 +1,4 @@
+card=HDAATISBAlsamixer
+track=Volume général
+command=xfce4-mixer
+

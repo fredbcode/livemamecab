@@ -1,0 +1,14 @@
+
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Name=Kernel15khz
+Type=Application
+Terminal=false
+Exec=/games/mamelive/scripts/kernel15khz.sh
+Name=Kernel-15KHZ
+Comment=Kernel15khz
+Icon=/usr/share/pixmaps/synaptic.png
+GenericName=Kernel15khz
+
+

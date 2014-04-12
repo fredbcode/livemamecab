@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<xffstab>
+  <CONFIG_VERSION>0.8.8</CONFIG_VERSION>
+  <treeview_0 icon_size="1" preferences="-2147442912" name_size="100"/>
+  <treeview_1 icon_size="1" preferences="-2147475201" name_size="100"/>
+  <options preferences="1352484" recent_days="3" frequent_count="13" sidebar="single_selection_button"/>
+  <geometry width="600" height="500" hpane="0"/>
+</xffstab>

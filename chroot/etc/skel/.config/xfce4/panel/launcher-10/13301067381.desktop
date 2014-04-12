@@ -1,0 +1,15 @@
+
+[Desktop Entry]
+Version=1.0
+Name=Configurations
+Name[fr]=Gestionnaire de fichiers
+Comment=Configurations
+Comment[fr]=Configurations
+Exec=thunar
+Icon=gconf-editor
+Terminal=false
+Type=Application
+Categories=X-XFCE;Settings;DesktopSettings;X-XfceSettingsDialog;
+StartupNotify=true
+X-XFCE-Source=file:///usr/share/applications/thunar-settings.desktop
+Path=configurations

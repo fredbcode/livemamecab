@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Resolution
+Comment=
+Icon=gtk-fullscreen
+Exec=configurations/livemamecab/resolution.sh
+Path=~
+Terminal=false
+StartupNotify=false
+

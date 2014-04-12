@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Cabrio-config
+Comment=Cabrio setup
+Exec=python /games/mamelive/cabrio-manager/cabrio-config.py
+Icon=system-run
+Path=/games/mamelive/cabrio-manager
+Terminal=false
+StartupNotify=false

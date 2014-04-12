@@ -1,0 +1,12 @@
+[Global]
+MoveFirst=false
+ArrowPosition=0
+
+[Entry 0]
+Name=Resolution 1024x768
+Icon=gtk-fullscreen
+Exec=xrandr -s 1024x768
+Path=/
+Terminal=false
+StartupNotify=false
+

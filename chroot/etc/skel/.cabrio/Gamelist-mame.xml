@@ -1,0 +1,17 @@
+<cabrio-config>
+  <game-list>
+    <name>mame</name>
+    <games>
+      <game>
+        <name>looping</name>
+        <platform>Arcade</platform>
+        <rom-image>/games/roms/mame/looping.zip</rom-image>
+      </game>
+      <game>
+        <name>robby</name>
+        <platform>Arcade</platform>
+        <rom-image>/games/roms/mame/robby.zip</rom-image>
+      </game>
+    </games>
+  </game-list>
+</cabrio-config>

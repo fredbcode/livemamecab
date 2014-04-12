@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mcs-option SYSTEM "mcs-option.dtd">
+
+<mcs-option>
+	<option name="autohide" type="int" value="1"/>
+	<option name="layer" type="int" value="0"/>
+	<option name="orientation" type="int" value="1"/>
+	<option name="popupposition" type="int" value="2"/>
+	<option name="size" type="int" value="0"/>
+	<option name="theme" type="string" value="Rodent"/>
+</mcs-option>

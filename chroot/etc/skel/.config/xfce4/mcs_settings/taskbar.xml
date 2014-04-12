@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mcs-option SYSTEM "mcs-option.dtd">
+
+<mcs-option>
+	<option name="Taskbar/AutoHide" type="int" value="1"/>
+	<option name="Taskbar/GroupTasks" type="int" value="0"/>
+	<option name="Taskbar/Height" type="int" value="1"/>
+	<option name="Taskbar/HorizAlign" type="int" value="1"/>
+	<option name="Taskbar/Position" type="int" value="1"/>
+	<option name="Taskbar/ShowAllTasks" type="int" value="0"/>
+	<option name="Taskbar/ShowPager" type="int" value="0"/>
+	<option name="Taskbar/ShowText" type="int" value="0"/>
+	<option name="Taskbar/ShowTray" type="int" value="0"/>
+	<option name="Taskbar/WidthPercent" type="int" value="1"/>
+</mcs-option>

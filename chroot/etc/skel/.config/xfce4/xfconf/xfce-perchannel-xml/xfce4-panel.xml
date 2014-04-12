@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<channel name="xfce4-panel" version="1.0">
+  <property name="panels" type="uint" value="1">
+    <property name="panel-0" type="empty">
+      <property name="size" type="uint" value="50"/>
+      <property name="length" type="uint" value="0"/>
+      <property name="locked" type="bool" value="true"/>
+      <property name="autohide" type="bool" value="false"/>
+      <property name="plugin-ids" type="array">
+        <value type="int" value="1"/>
+        <value type="int" value="2"/>
+        <value type="int" value="10"/>
+        <value type="int" value="3"/>
+        <value type="int" value="8"/>
+        <value type="int" value="4"/>
+        <value type="int" value="6"/>
+        <value type="int" value="7"/>
+        <value type="int" value="5"/>
+        <value type="int" value="9"/>
+      </property>
+      <property name="position" type="string" value="p=3;x=1322;y=177"/>
+      <property name="leave-opacity" type="uint" value="80"/>
+      <property name="enter-opacity" type="uint" value="100"/>
+      <property name="mode" type="uint" value="1"/>
+      <property name="background-style" type="uint" value="1"/>
+      <property name="background-color" type="array">
+        <value type="uint" value="41120"/>
+        <value type="uint" value="42662"/>
+        <value type="uint" value="40092"/>
+        <value type="uint" value="65535"/>
+      </property>
+      <property name="background-alpha" type="uint" value="70"/>
+    </property>
+  </property>
+  <property name="plugins" type="empty">
+    <property name="plugin-1" type="string" value="launcher">
+      <property name="move-first" type="bool" value="false"/>
+      <property name="arrow-position" type="bool" value="false"/>
+      <property name="items" type="array">
+        <value type="string" value="13930079450.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-3" type="string" value="launcher">
+      <property name="move-first" type="bool" value="false"/>
+      <property name="arrow-position" type="bool" value="false"/>
+      <property name="items" type="array">
+        <value type="string" value="13930079450.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-4" type="string" value="launcher">
+      <property name="move-first" type="bool" value="false"/>
+      <property name="arrow-position" type="bool" value="false"/>
+      <property name="items" type="array">
+        <value type="string" value="13930079450.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-6" type="string" value="launcher">
+      <property name="move-first" type="bool" value="false"/>
+      <property name="arrow-position" type="bool" value="false"/>
+      <property name="items" type="array">
+        <value type="string" value="13930079450.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-7" type="string" value="launcher">
+      <property name="move-first" type="bool" value="false"/>
+      <property name="arrow-position" type="bool" value="false"/>
+      <property name="items" type="array">
+        <value type="string" value="13930079450.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-9" type="string" value="actions">
+      <property name="items" type="array">
+        <value type="string" value="-lock-screen"/>
+        <value type="string" value="-switch-user"/>
+        <value type="string" value="-separator"/>
+        <value type="string" value="-suspend"/>
+        <value type="string" value="-hibernate"/>
+        <value type="string" value="-separator"/>
+        <value type="string" value="+shutdown"/>
+        <value type="string" value="-restart"/>
+        <value type="string" value="+separator"/>
+        <value type="string" value="-logout"/>
+        <value type="string" value="-logout-dialog"/>
+      </property>
+      <property name="appearance" type="uint" value="0"/>
+    </property>
+    <property name="plugin-2" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="13966192731.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-5" type="string" value="mixer">
+      <property name="sound-card" type="string" value="HDAudioGenericAlsamixer"/>
+      <property name="track" type="string" value="Volume général"/>
+      <property name="command" type="string" value="xfce4-mixer"/>
+      <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
+    </property>
+    <property name="plugin-8" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="13972307181.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-10" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="13973035182.desktop"/>
+      </property>
+    </property>
+  </property>
+  <property name="configver" type="int" value="2"/>
+</channel>

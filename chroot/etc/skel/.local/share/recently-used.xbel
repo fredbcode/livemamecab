@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xbel version="1.0"
+      xmlns:bookmark="http://www.freedesktop.org/standards/desktop-bookmarks"
+      xmlns:mime="http://www.freedesktop.org/standards/shared-mime-info"
+>
+  <bookmark href="file:///games/mamelive/cabrio-manager/cabrio-manager.py" added="2014-04-04T13:54:35Z" modified="2014-04-04T13:54:35Z" visited="2014-04-04T13:54:36Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/x-python"/>
+        <bookmark:applications>
+          <bookmark:application name="exo-desktop-item-edit" exec="&apos;exo-desktop-item-edit %u&apos;" modified="2014-04-04T13:54:35Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///games/mamelive/cabrio-manager/cabrio-config.py" added="2014-04-12T11:52:33Z" modified="2014-04-12T11:52:33Z" visited="2014-04-12T11:52:33Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/x-python"/>
+        <bookmark:applications>
+          <bookmark:application name="exo-desktop-item-edit" exec="&apos;exo-desktop-item-edit %u&apos;" modified="2014-04-12T11:52:33Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///games/mamelive/cabrio-manager" added="2014-04-12T11:54:35Z" modified="2014-04-12T11:54:35Z" visited="2014-04-12T11:54:35.694638Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="inode/directory"/>
+        <bookmark:applications>
+          <bookmark:application name="exo-desktop-item-edit" exec="&apos;exo-desktop-item-edit %u&apos;" modified="2014-04-12T11:54:35Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+</xbel>

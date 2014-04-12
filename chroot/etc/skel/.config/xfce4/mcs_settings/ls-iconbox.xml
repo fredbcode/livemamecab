@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mcs-option SYSTEM "mcs-option.dtd">
+
+<mcs-option>
+	<option name="Config/Read" type="int" value="1"/>
+	<option name="Config/Write" type="int" value="1"/>
+</mcs-option>

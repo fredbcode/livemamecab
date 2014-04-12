@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mcs-option SYSTEM "mcs-option.dtd">
+
+<mcs-option>
+	<option name="Sound/Mixer/Useful:/dev/sound/mixer" type="string" value="@Vol@Pcm@Spkr@Line@Mic@CD@IGain@Line1@Digital1@PhoneIn@PhoneOut@Video@"/>
+</mcs-option>

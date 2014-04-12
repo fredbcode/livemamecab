@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Configurations
+Comment=
+Icon=gnome-settings
+Exec=thunar
+Path=configurations
+Terminal=false
+StartupNotify=false
+

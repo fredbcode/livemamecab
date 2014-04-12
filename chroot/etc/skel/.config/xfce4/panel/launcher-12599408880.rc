@@ -1,0 +1,12 @@
+[Global]
+MoveFirst=false
+ArrowPosition=0
+
+[Entry 0]
+Name=Wahcade
+Icon=wahcade
+Exec='/usr/local/bin/wahcade'
+Path=/usr/local/bin
+Terminal=false
+StartupNotify=false
+

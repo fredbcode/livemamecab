@@ -1,0 +1,16 @@
+
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Name=Mame Screensaver
+Type=Application
+Terminal=false
+Exec=/games/mamelive/scripts/screensaver.sh 
+Name=Show Mame Screensaver
+Comment=Mame Screensaver
+Icon=/usr/share/pixmaps/avidemux.png
+Comment=Mame Screensaver
+Icon=/usr/share/pixmaps/gksu-root-terminal.png
+GenericName=Mame Screensaver
+
+

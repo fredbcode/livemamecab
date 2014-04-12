@@ -1,0 +1,14 @@
+
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Name=Mame Screensaver config
+Type=Application
+Terminal=false
+Exec=/games/mamelive/scripts/screensaverconfig.sh
+Name=Mame Screensaver config
+Comment=Mame Screensaver config
+Icon=/usr/share/pixmaps/synaptic.png
+GenericName=Mame Screensaver config
+
+

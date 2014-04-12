@@ -1,0 +1,12 @@
+[Global]
+MoveFirst=false
+ArrowPosition=0
+
+[Entry 0]
+Name=Web\ 
+Icon=gnome-globe
+Exec=firefox
+Path=/
+Terminal=false
+StartupNotify=false
+

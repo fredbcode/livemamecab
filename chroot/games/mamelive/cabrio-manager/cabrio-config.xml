@@ -1,0 +1,110 @@
+<root>
+	<langs>
+		<lang name="English" code="en_GB">
+			<title>Cabrio configuration editor</title>
+			<browseButton>Browse</browseButton>
+			<quitButton>Quit</quitButton>
+			<startButton>Start</startButton>
+			<editButton>Edit</editButton>
+			<deleteButton>Delete</deleteButton>
+			<saveButton>Save</saveButton>
+			<cancelButton>Cancel</cancelButton>
+			<okButton>OK</okButton>
+			<setButton>Set</setButton>
+			<addButton>Add</addButton>
+			<addParameter>Add parameter</addParameter>
+			<delParameter>Remove parameter</delParameter>
+			<displayTab>Display</displayTab>
+			<controlsTab>Controls</controlsTab>
+			<emulatorsTab>Emulators</emulatorsTab>
+			<aboutTab>About</aboutTab>
+			<interfaceLabelFrame>Interface</interfaceLabelFrame>
+			<fullscreen>Fullscreen</fullscreen>
+			<framerate>Framerate</framerate>
+			<theme>Theme</theme>
+			<screenLabelFrame>Screen</screenLabelFrame>
+			<rotation>Rotation</rotation>
+			<width>Width</width>
+			<height>Heigth</height>
+			<flipHorizontal>Flip horizontal</flipHorizontal>
+			<flipVertical>Flip vertical</flipVertical>
+			<graphicsLabelFrame>Graphics</graphicsLabelFrame>
+			<qualityLabel>Quality</qualityLabel>
+			<qualityLow>Low</qualityLow>
+			<qualityMedium>Medium</qualityMedium>
+			<qualityHigh>High</qualityHigh>
+			<maxImageWidth>Max image width</maxImageWidth>
+			<maxImageHeight>Max image height</maxImageHeight>
+			<newEmulatorTitle>New emulator</newEmulatorTitle>
+			<newEmulatorLabel>Add an emulator</newEmulatorLabel>	
+			<browseEmulatorLabel>Type the name of the executable or browse for it</browseEmulatorLabel>
+			<createScriptLabel>Create script for RetroArch</createScriptLabel>
+			<createScriptButton>Create</createScriptButton>
+			<editEmulatorLabel>Double-click an emulator to edit it</editEmulatorLabel>
+			<emulatorNameLabel>Name of the emulator</emulatorNameLabel>
+			<emulatorDisplayNameLabel>Display name of the emulator</emulatorDisplayNameLabel>
+			<emulatorPlatformLabel>Emulated platform</emulatorPlatformLabel>
+			<editTitle>Edit emulator</editTitle>
+			<extraLabel>Extra parameters</extraLabel>
+			<videoLoop>Do not repeat video preview</videoLoop>
+			<errorNoDisplayName>You must type a display name</errorNoDisplayName>
+			<errorNoPlatform>You must type a platform name</errorNoPlatform>
+			<errorNoExecutable>You must specify an executable</errorNoExecutable>
+			<errorNoParameter>Parameter can't be empty</errorNoParameter>
+			<confirmDeleteLabel>Are you sure you want to delete this emulator?</confirmDeleteLabel>
+		</lang>
+		<lang name="Français" code="fr_FR">
+			<title>Éditeur de configuration Cabrio</title>
+			<browseButton>Parcourir</browseButton>
+			<quitButton>Quitter</quitButton>
+			<startButton>Démarrer</startButton>
+			<editButton>Éditer</editButton>
+			<deleteButton>Effacer</deleteButton>
+			<saveButton>Sauvegarder</saveButton>
+			<cancelButton>Annuler</cancelButton>
+			<okButton>OK</okButton>
+			<setButton>Définir</setButton>
+			<addButton>Ajouter</addButton>
+			<addParameter>Ajouter un paramètre</addParameter>
+			<delParameter>Supprimer un paramètre</delParameter>
+			<displayTab>Affichage</displayTab>
+			<controlsTab>Contrôles</controlsTab>
+			<emulatorsTab>Emulateurs</emulatorsTab>
+			<aboutTab>À propos</aboutTab>
+			<interfaceLabelFrame>Interface</interfaceLabelFrame>
+			<fullscreen>Plein écran</fullscreen>
+			<framerate>Taux d'affichage</framerate>
+			<theme>Thème</theme>
+			<screenLabelFrame>Écran</screenLabelFrame>
+			<rotation>Rotation</rotation>
+			<width>Largeur</width>
+			<height>Hauteur</height>
+			<flipHorizontal>Miroir horizontal</flipHorizontal>
+			<flipVertical>Miroir vertical</flipVertical>
+			<graphicsLabelFrame>Graphismes</graphicsLabelFrame>
+			<qualityLabel>Qualité</qualityLabel>
+			<qualityLow>Basse</qualityLow>
+			<qualityMedium>Moyenne</qualityMedium>
+			<qualityHigh>Élevée</qualityHigh>
+			<maxImageWidth>Largeur max. de l'image</maxImageWidth>
+			<maxImageHeight>Hauteur max. de l'image</maxImageHeight>
+			<newEmulatorLabel>jouter un émulateur</newEmulatorLabel>	
+			<browseEmulatorLabel>Saisir le nom de l'émulateur ou parcourir vers l'exécutable</browseEmulatorLabel>
+			<createScriptLabel>Créer un script pour RetroArch</createScriptLabel>
+			<createScriptButton>Créer</createScriptButton>
+			<editEmulatorLabel>Double-cliquer un émulateur pour l'éditer</editEmulatorLabel>
+			<newEmulatorTitle>Nouvel émulateur</newEmulatorTitle>
+			<emulatorNameLabel>Nom de l'émulateur</emulatorNameLabel>
+			<emulatorDisplayNameLabel>Nom d'affichage de l'émulateur</emulatorDisplayNameLabel>
+			<emulatorPlatformLabel>Plate-forme émulée</emulatorPlatformLabel>
+			<editTitle>Edition de l'émulateur</editTitle>
+			<extraLabel>Paramètres supplémentaires</extraLabel>
+			<videoLoop>Ne pas jouer la vidéo d'apercu en boucle</videoLoop>
+			<errorNoDisplayName>Un nom d'affichage est obligatoire</errorNoDisplayName>
+			<errorNoPlatform>La plate-forme est obligatoire</errorNoPlatform>
+			<errorNoExecutable>L'exécutable est obligatoire</errorNoExecutable>
+			<errorNoParameter>Un paramètre ne peut pas être vide</errorNoParameter>
+			<confirmDeleteLabel>Êtes-vous sûr de vouloir supprimer cet émulateur ?</confirmDeleteLabel>
+		</lang>
+	</langs>
+</root>

@@ -1,0 +1,15 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Exec=python /games/mamelive/cabrio-manager/cabrio-manager.py
+Icon=edit-find-replace
+StartupNotify=true
+Terminal=false
+Categories=Utility;X-XFCE;X-Xfce-Toplevel;
+OnlyShowIn=XFCE;
+Name=Run Program...
+Name[fr]=Cabrio list generator
+Comment=Run a program
+Comment[fr]=Cabrio list generator
+X-XFCE-Source=file:///usr/share/applications/xfce4-run.desktop
+Path=/games/mamelive/cabrio-manager/

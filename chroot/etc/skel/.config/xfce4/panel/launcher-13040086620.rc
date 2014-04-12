@@ -1,0 +1,12 @@
+[Global]
+MoveFirst=false
+ArrowPosition=0
+
+[Entry 0]
+Name=Roms
+Icon=input-gaming
+Exec=thunar\ 
+Path=/games/xmame/roms
+Terminal=false
+StartupNotify=false
+

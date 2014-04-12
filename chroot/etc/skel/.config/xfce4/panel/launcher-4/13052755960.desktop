@@ -1,0 +1,11 @@
+
+[Desktop Entry]
+Type=Application
+Name=Refresh resolution 
+Comment=
+Icon=system-config-display
+Exec=xrandr -s 1024x768
+Path=~configurations/livemamecab/resolution.sh
+Terminal=false
+StartupNotify=false
+

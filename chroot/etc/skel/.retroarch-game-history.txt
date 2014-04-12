@@ -1,0 +1,21 @@
+/games/roms/genesis/qbert.bin
+/usr/lib/libretro/genesis_plus_gx_libretro.so
+Genesis Plus GX
+/games/roms/snes/columns.smc
+/usr/lib/libretro/snes9x_libretro.so
+SNES9x
+/games/roms/snes/rockfall.smc
+/usr/lib/libretro/genesis_plus_gx_libretro.so
+Genesis Plus GX
+/games/roms/genesis/rom.bin
+/usr/lib/libretro/genesis_plus_gx_libretro.so
+Genesis Plus GX
+/games/roms/snes/Mario Kart.smc
+/usr/lib/libretro/snes9x_libretro.so
+SNES9x
+/games/roms/snes/Actraiser.smc
+/usr/lib/libretro/snes9x_libretro.so
+SNES9x
+/games/roms/genesis/Immortal, The (U) [!].zip
+/usr/lib/libretro/genesis_plus_gx_libretro.so
+Genesis Plus GX

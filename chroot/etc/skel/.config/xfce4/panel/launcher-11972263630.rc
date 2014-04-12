@@ -1,0 +1,13 @@
+[Entry 0]
+Name=Halt
+Comment=Quit
+Icon=application-exit
+Exec=/home/livemamecab/mamelive/scripts/shutdown.sh
+Path=/
+Terminal=false
+StartupNotify=false
+
+[Global]
+MoveFirst=false
+ArrowPosition=0
+

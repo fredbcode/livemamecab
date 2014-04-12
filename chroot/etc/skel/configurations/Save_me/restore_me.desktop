@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Name=Restore configuration
+Type=Application
+Terminal=false
+Exec=/games/mamelive/scripts/restore_me.sh
+Name=Restore_me
+Comment=Restore configuration
+Icon=/usr/share/pixmaps/synaptic.png
+GenericName=Restore configuration
