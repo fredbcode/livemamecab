@@ -38,12 +38,12 @@
       </hints>
       
       <snap>
-        <primary-offset>0.3</primary-offset>
+        <primary-offset>0.8</primary-offset>
         <secondary-offset>0</secondary-offset>
-        <size>1</size>
+        <size>1.1</size>
         <x-angle>0</x-angle>
-        <y-angle>0</y-angle>
-        <z-angle>0</z-angle>
+        <y-angle>5</y-angle>
+        <z-angle>5</z-angle>
       </snap>
       
       
