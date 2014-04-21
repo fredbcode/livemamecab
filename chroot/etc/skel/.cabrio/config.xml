@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <cabrio-config>
    <interface>
-    <theme>carousel</theme>
+    <theme>lmc</theme>
   </interface>
   <interface>
     <full-screen>true</full-screen>
@@ -206,7 +206,10 @@
             <type>screenshot</type>
             <directory>/games/artworks/system/snap</directory>
     </location>
-
+    <location>
+      <type>platform</type>
+      <directory>/usr/share/cabrio/pixmaps/platforms</directory>
+    </location>
    </locations>
 
 </cabrio-config>
