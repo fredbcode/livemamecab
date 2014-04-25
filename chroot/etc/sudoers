@@ -9,13 +9,14 @@
 Defaults	env_reset
 Defaults	mail_badpass
 Defaults	secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-Cmnd_Alias LIVEMAMECAB = /bin/halt
 
 # Host alias specification
 
 # User alias specification
 
 # Cmnd alias specification
+
+Cmnd_Alias LIVEMAMECAB = /sbin/halt
 
 # User privilege specification
 root	ALL=(ALL:ALL) ALL
@@ -25,7 +26,7 @@ root	ALL=(ALL:ALL) ALL
 
 # Allow members of group sudo to execute any command
 %sudo ALL=NOPASSWD: ALL
+ALL ALL=(ALL) NOPASSWD: LIVEMAMECAB
 
 # See sudoers(5) for more information on "#include" directives:
-ALL ALL=(ALL) NOPASSWD: LIVEMAMECAB 
 #includedir /etc/sudoers.d
