@@ -13,6 +13,4 @@
 
 chmod -Rf 777 /games &
 if [ ! -f /etc/resolv.conf ]; then echo "nameserver 8.8.8.8" >> /etc/resolv.conf ; fi  
-sudo sed -i 's/xubuntu/Livemamecab/g' /etc/hosts
-sudo sed -i 's/xubuntu/Livemamecab/g' /etc/hostname
 exit 0
