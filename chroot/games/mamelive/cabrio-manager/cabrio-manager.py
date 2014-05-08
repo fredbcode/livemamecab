@@ -144,6 +144,7 @@ class App(tk.Tk):
 				except:
 					self.genre.set("")
 		self.toplevel = tk.Toplevel(self.edit)
+		self.wait_visibility(self.toplevel)
 		self.toplevel.grab_set()
 		self.toplevel.title(self.editGameTitleStr)
 		self.frame = ttk.Frame(self.toplevel, borderwidth=10)
@@ -176,6 +177,7 @@ class App(tk.Tk):
 				self.okButtonStr = lang.find("okButton").text
 				self.cancelButtonStr = lang.find("cancelButton").text
 			self.toplevel = tk.Toplevel(self.edit)
+			self.wait_visibility(self.toplevel)
 			self.toplevel.grab_set()
 			self.frame = ttk.Frame(self.toplevel, borderwidth=10)
 			self.frame.grid()
@@ -225,6 +227,7 @@ class App(tk.Tk):
 		self.checkVar = tk.IntVar()
 		self.checkVar.set(0)
 		self.toplevel = tk.Toplevel(self.edit)
+		self.wait_visibility(self.toplevel)
 		self.toplevel.grab_set()
 		self.toplevel.title(self.name.get())
 		self.frame = ttk.Frame(self.toplevel, borderwidth=10)
@@ -349,6 +352,7 @@ class App(tk.Tk):
 		self.romPath = tk.StringVar()
 		self.romPath.set("")
 		self.toplevel = tk.Toplevel(self.create)
+		self.wait_visibility(self.toplevel)
 		self.toplevel.grab_set()
 		self.frame = ttk.Frame(self.toplevel, borderwidth=10)
 		self.frame.grid()
@@ -442,6 +446,7 @@ class App(tk.Tk):
 		self.romPath = tk.StringVar()
 		self.romPath.set("")
 		self.toplevel = tk.Toplevel(self.create)
+		self.wait_visibility(self.toplevel)
 		self.toplevel.grab_set()
 		self.frame = ttk.Frame(self.toplevel, borderwidth=10)
 		self.frame.grid()

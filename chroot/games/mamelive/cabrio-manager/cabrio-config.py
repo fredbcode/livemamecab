@@ -280,6 +280,7 @@ class App(tk.Tk):
 			self.confirmDeleteLabelStr = lang.find("confirmDeleteLabel").text#
 			self.okButtonStr = lang.find("okButton").text
 		self.toplevel = tk.Toplevel(self.emulatorsTab)
+		self.wait_visibility(self.toplevel)
 		self.toplevel.grab_set()
 		self.frame = ttk.Frame(self.toplevel, borderwidth=10)
 		self.frame.grid()
@@ -368,6 +369,7 @@ class App(tk.Tk):
 	def confirmDelete(self):
 		self.closeWindow()
 		self.toplevel = tk.Toplevel(self.emulatorsTab)
+		self.wait_visibility(self.toplevel)
 		self.toplevel.grab_set()
 		self.frame = ttk.Frame(self.toplevel, borderwidth=10)
 		self.frame.grid()
