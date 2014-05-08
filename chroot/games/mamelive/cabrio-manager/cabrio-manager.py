@@ -18,13 +18,19 @@ loc = locale.getdefaultlocale()
 class App(tk.Tk):
 	"""docstring for App"""
 	def __init__(self):
-		self.test = "simple test"
 		self.queue = Queue.Queue()
 		tk.Tk.__init__(self)
-		self.tree = ET.parse("lang.xml")
+		self.style = ttk.Style()
+		self.style.theme_use("clam")
+		try:
+			self.tree = ET.parse("cabrio-manager.xml")
+		except:
+			sys.exit("Error: cabrio-manager.xml not found, it should be in the same folder that this script.")
 		self.root = self.tree.getroot()
 		self.lang = loc[0]
 		if self.lang == None:
+			self.lang = "en_GB"
+		if self.root.findall(".//*[@code='"+self.lang+"']") == []:
 			self.lang = "en_GB"
 		for lang in self.root.findall(".//*[@code='"+self.lang+"']"):
 			self.titleStr = lang.find("title").text
@@ -36,12 +42,12 @@ class App(tk.Tk):
 			self.createLabelStr = lang.find("createLabel").text
 			self.createButtonStr = lang.find("createButton").text
 			self.listSelectLabelStr = lang.find("listSelectLabel").text
-			self.listEditButtonStr = lang.find("editButton").text
 			self.listDeleteButtonStr = lang.find("deleteButton").text
 			self.emuEditLabelStr = lang.find("emuEditLabel").text
 			self.aboutLabelStr = lang.find("aboutLabel").text
 			self.versionLabelStr = lang.find("versionLabel").text
 			self.translationLabelStr = lang.find("translationLabel").text
+			self.authorLabelStr = lang.find("authorLabel").text
 		self.path = expanduser('~') + '/.cabrio/'
 		self.title(self.titleStr)
 		self.notebook = ttk.Notebook(self)
@@ -84,7 +90,6 @@ class App(tk.Tk):
 						except:
 							pass
 		self.genres.sort()
-		self.gamesList = []
 		self.scrollbar = ttk.Scrollbar(self.edit)
 		self.scrollbar.grid(column=5, row=1, sticky="NS")
 		self.gamesListbox = tk.Listbox(self.edit, yscrollcommand = self.scrollbar.set, width=50, selectmode="single")
@@ -98,12 +103,10 @@ class App(tk.Tk):
 		self.listSelectCombo = ttk.Combobox(self.edit, width=10, values=self.gameLists, state="readonly")
 		self.listSelectCombo.bind("<<ComboboxSelected>>", self.getGames)
 		self.listSelectCombo.grid(column=1, row=0)
-		self.listEditButton = ttk.Button(self.edit, text=self.listEditButtonStr)
-		self.listEditButton.grid(column=2, row=0)
-		self.listDeleteButton = ttk.Button(self.edit, text=self.listDeleteButtonStr)
-		self.listDeleteButton.grid(column=3, row=0)
+		self.listDeleteButton = ttk.Button(self.edit, text=self.listDeleteButtonStr, command=lambda: self.askConfirmationList())
+		self.listDeleteButton.grid(column=2, row=0)
 
-		self.logoFile = tk.PhotoImage(file="cabrio_logo.gif")
+		self.logoFile = tk.PhotoImage(file="cabrio-manager.gif")
 		self.logo = ttk.Label(self.about, image=self.logoFile)
 		self.logo.grid(column=0, row=1, columnspan=3)
 		self.aboutLabel = ttk.Label(self.about, text=self.aboutLabelStr)
@@ -112,8 +115,9 @@ class App(tk.Tk):
 		self.versionLabel.grid(column=0, row=3, columnspan=3)
 		self.translationLabel = ttk.Label(self.about, text=self.translationLabelStr)
 		self.translationLabel.grid(column=0, row=4, columnspan=3)
-		self.treeConfig = ET.parse(self.path + 'config.xml')
-	def editGame(self, option =None):
+		self.authorLabel = ttk.Label(self.about, text=self.authorLabelStr)
+		self.authorLabel.grid(column=0, row=5, columnspan=3)
+	def editGame(self, option=None):
 		self.name = tk.StringVar()
 		self.name.set(self.gamesListbox.get("active"))
 		self.romFile = tk.StringVar()
@@ -127,6 +131,7 @@ class App(tk.Tk):
 			self.cancelButtonStr = lang.find("cancelButton").text
 			self.deleteButtonStr = lang.find("deleteButton").text
 			self.saveButtonStr = lang.find("saveButton").text
+			self.browseRomPopupStr = lang.find("browseRomPopup").text
 		for item in self.treeGames.findall(".//game"):
 			game = item.find("name")
 			if game.text == self.name.get():
@@ -139,13 +144,14 @@ class App(tk.Tk):
 				except:
 					self.genre.set("")
 		self.toplevel = tk.Toplevel(self.edit)
+		self.toplevel.grab_set()
 		self.toplevel.title(self.editGameTitleStr)
-		self.frame = ttk.Frame(self.toplevel)
+		self.frame = ttk.Frame(self.toplevel, borderwidth=10)
 		self.frame.grid()
 		self.nameLabel = ttk.Label(self.frame, text=self.nameLabelStr)
 		self.nameLabel.grid(column=0, row=0, sticky="W")
-		self.nameEntry = ttk.Entry(self.frame, text=self.name)
-		self.nameEntry.grid(column=1, row=0, sticky="W")
+		self.nameEntry = ttk.Entry(self.frame, text=self.name, width=30)
+		self.nameEntry.grid(column=1, row=0, columnspan=2, sticky="W")
 		self.romLabel = ttk.Label(self.frame, text=self.romLabelStr)
 		self.romLabel.grid(column=0, row=1, sticky="W")
 		self.browseRomsPath = ttk.Label(self.frame, text=self.romFile.get())
@@ -160,8 +166,37 @@ class App(tk.Tk):
 		self.saveButton.grid(column=0, row=3, sticky="E")
 		self.deleteButton = ttk.Button(self.frame, text=self.deleteButtonStr, command=lambda: self.askConfirmationGame())
 		self.deleteButton.grid(column=1, row=3)
-		self.cancelButton = ttk.Button(self.frame, text=self.cancelButtonStr, command=lambda: self.toplevel.destroy())
+		self.cancelButton = ttk.Button(self.frame, text=self.cancelButtonStr, command=lambda: self.closeWindow())
 		self.cancelButton.grid(column=2, row=3, sticky="W")
+	def askConfirmationList(self):
+		if self.listSelectCombo.current() != -1:
+			for lang in self.root.findall(".//*[@code='"+self.lang+"']"):
+				self.deleteListConfirmLabelStr = lang.find("deleteListConfirmLabel").text
+				self.deleteFileCheckStr = lang.find("deleteFileCheck").text
+				self.okButtonStr = lang.find("okButton").text
+				self.cancelButtonStr = lang.find("cancelButton").text
+			self.toplevel = tk.Toplevel(self.edit)
+			self.toplevel.grab_set()
+			self.frame = ttk.Frame(self.toplevel, borderwidth=10)
+			self.frame.grid()
+			self.warningLabel = ttk.Label(self.frame, text=self.deleteListConfirmLabelStr)
+			self.warningLabel.grid(column=0, row=0, columnspan=2)
+			self.okButton = ttk.Button(self.frame, text=self.okButtonStr, command=lambda: self.deleteList())
+			self.okButton.grid(column=0, row=2)
+			self.dontButton = ttk.Button(self.frame, text=self.cancelButtonStr, command=lambda: self.closeWindow())
+			self.dontButton.grid(column=1, row=2)
+	def deleteList(self):
+		current = self.listSelectCombo.current()
+		selected = self.gameLists[current]
+		self.gameLists.remove(selected)
+		self.listSelectCombo.configure(values=self.gameLists)
+		self.listSelectCombo.selection_clear()
+		self.gamesListbox.delete(0, "end")
+		os.remove(self.path+"Gamelist-"+selected+".xml")
+		self.closeWindow()
+	def closeWindow(self):
+		self.toplevel.grab_release()
+		self.toplevel.destroy()
 	def saveChanges(self):
 		self.element.find("name").text = self.name.get()
 		self.element.find("rom-image").text = self.romFile.get()
@@ -179,32 +214,33 @@ class App(tk.Tk):
 		for item in self.treeGames.findall(".//game-list"):
 			file = item.find("name").text
 		self.treeGames.write(self.path+"Gamelist-"+file+".xml")
-		self.toplevel.destroy()
+		self.closeWindow()
 	def askConfirmationGame(self):
-		self.toplevel.destroy()
+		self.closeWindow()
 		for lang in self.root.findall(".//*[@code='"+self.lang+"']"):
-			self.deleteConfirmLabelStr = lang.find("deleteConfirmLabel").text
+			self.deleteGameConfirmLabelStr = lang.find("deleteGameConfirmLabel").text
 			self.deleteFileCheckStr = lang.find("deleteFileCheck").text
 			self.okButtonStr = lang.find("okButton").text
 			self.cancelButtonStr = lang.find("cancelButton").text
 		self.checkVar = tk.IntVar()
 		self.checkVar.set(0)
 		self.toplevel = tk.Toplevel(self.edit)
+		self.toplevel.grab_set()
 		self.toplevel.title(self.name.get())
-		self.frame = ttk.Frame(self.toplevel)
+		self.frame = ttk.Frame(self.toplevel, borderwidth=10)
 		self.frame.grid()
-		self.warningLabel = ttk.Label(self.frame, text=self.deleteConfirmLabelStr)
+		self.warningLabel = ttk.Label(self.frame, text=self.deleteGameConfirmLabelStr)
 		self.warningLabel.grid(column=0, row=0, columnspan=2)
 		self.deleteFile = ttk.Checkbutton(self.frame, variable=self.checkVar, text=self.deleteFileCheckStr)
 		self.deleteFile.grid(column=0, row=1, columnspan=2)
 		self.okButton = ttk.Button(self.frame, text=self.okButtonStr, command=lambda: self.deleteGame())
 		self.okButton.grid(column=0, row=2)
-		self.dontButton = ttk.Button(self.frame, text=self.cancelButtonStr, command=lambda: self.toplevel.destroy())
+		self.dontButton = ttk.Button(self.frame, text=self.cancelButtonStr, command=lambda: self.closeWindow())
 		self.dontButton.grid(column=1, row=2)
 	def deleteGame(self):
 		items = self.gamesListbox.curselection()
 		pos = 0
-		self.toplevel.destroy()
+		self.closeWindow()
 		rootGames = self.treeGames.getroot()
 		for item in self.treeGames.findall(".//game-list"):
 			file = item.find("name").text
@@ -228,18 +264,18 @@ class App(tk.Tk):
 			name = item.find("name")
 			self.gamesListbox.insert("end", name.text)
 	def getRomPath(self):
-		path = tkFileDialog.askdirectory(title="Prout")
+		path = tkFileDialog.askdirectory(title=self.browseRomsLabel["text"], initialdir="/games/roms/")
 		self.romPath.set(path)
 	def getRomFile(self):
 		temp = self.romFile.get()
 		position = temp.rindex(".")
 		length = temp.__len__()
 		extension = temp[position:length]
-		rom = tkFileDialog.askopenfilename(title="Machin", defaultextension=extension, filetypes=[(extension+" files", extension),("All files", "*.*")])
+		rom = tkFileDialog.askopenfilename(title=self.browseRomPopupStr,defaultextension=extension, filetypes=[(extension+" files", extension),("All files", "*.*")])
 		self.romFile.set(rom)
 		self.browseRomsPath["text"] = rom
 	def getHSXML(self):
-		xml = tkFileDialog.askopenfilename(title="Machin", defaultextension=".zip", filetypes=[("XML files", ".xml"),("All files", "*.*")])
+		xml = tkFileDialog.askopenfilename(title=self.browseHSXMLLabel["text"], defaultextension=".zip", filetypes=[("XML files", ".xml"),("All files", "*.*")])
 		self.HSXmlFile.set(xml)
 		count = 0
 		tree = ET.parse(xml)
@@ -248,7 +284,7 @@ class App(tk.Tk):
 		self.max.set(count)
 	def checkConvertFields(self):
 		name = self.listNameEntry.get()
-		platform = self.platformEntry.get()
+		platform = self.platformCombobox.get()
 		xml = self.HSXmlFile.get()
 		roms = self.romPath.get()
 		extension = self.extensionEntry.get()
@@ -266,7 +302,7 @@ class App(tk.Tk):
 			self.convertThread(name, platform, xml, roms, extension)
 	def checkCreateFields(self):
 		name = self.listNameEntry.get()
-		platform = self.platformEntry.get()
+		platform = self.platformCombobox.get()
 		roms = self.romPath.get()
 		extension = self.extensionEntry.get()
 		if name == "":
@@ -279,11 +315,6 @@ class App(tk.Tk):
 			self.status.set(self.errorNoRomsStr)
 		else:
 			self.createThread(name, platform, roms, extension)
-	def activateButtons(self):
-		self.startButton.config(state="enabled")
-		self.convertButton.config(state="enabled")
-		self.createButton.config(state="enabled")
-		self.toplevel.destroy()
 	def convertList(self):
 		self.convertButton.config(state="disabled")
 		self.createButton.config(state="disabled")
@@ -303,6 +334,12 @@ class App(tk.Tk):
 			self.errorNoXMLStr = lang.find("errorNoXML").text
 			self.errorNoRomsStr = lang.find("errorNoRoms").text
 			self.errorNoExtensionStr = lang.find("errorNoExtension").text
+		self.configTree = ET.parse(self.path + "config.xml")
+		self.configRoot = self.configTree.getroot()
+		self.platformsList = []
+		for item in self.configRoot.findall(".//emulator"):
+			platform = item.find("platform")
+			self.platformsList.append(platform.text)
 		self.max = tk.IntVar()
 		self.max.set(100)
 		self.status = tk.StringVar()
@@ -312,8 +349,8 @@ class App(tk.Tk):
 		self.romPath = tk.StringVar()
 		self.romPath.set("")
 		self.toplevel = tk.Toplevel(self.create)
-		self.toplevel.protocol("WM_DELETE_WINDOW", self.activateButtons)
-		self.frame = ttk.Frame(self.toplevel)
+		self.toplevel.grab_set()
+		self.frame = ttk.Frame(self.toplevel, borderwidth=10)
 		self.frame.grid()
 		self.toplevel.title(self.convertTitleStr)
 		self.listNameLabel = ttk.Label(self.frame, text=self.listNameLabelStr)
@@ -322,8 +359,8 @@ class App(tk.Tk):
 		self.listNameEntry.grid(column=1, row=1, sticky="W")
 		self.platformLabel = ttk.Label(self.frame, text=self.platformLabelStr)
 		self.platformLabel.grid(column=0, row=2, sticky="W")
-		self.platformEntry = ttk.Entry(self.frame)
-		self.platformEntry.grid(column=1, row=2, sticky="W")
+		self.platformCombobox = ttk.Combobox(self.frame, values=self.platformsList, state="readonly")
+		self.platformCombobox.grid(column=1, row=2, sticky="W")
 		self.browseHSXMLLabel = ttk.Label(self.frame, text=self.browseHSXMLLabelStr)
 		self.browseHSXMLLabel.grid(column=0, row=3, sticky="W")
 		self.browseHSXMLButton = ttk.Button(self.frame, text=self.browseButtonStr, command=lambda: self.getHSXML())
@@ -369,7 +406,7 @@ class App(tk.Tk):
 					self.startButton.config(state="enabled")
 					self.convertButton.config(state="enabled")
 					self.createButton.config(state="enabled")
-					self.toplevel.destroy()
+					self.closeWindow()
 				else:
 					self.status.set(msg)
 			except Queue.Empty:
@@ -392,6 +429,12 @@ class App(tk.Tk):
 			self.errorNoXMLStr = lang.find("errorNoXML").text
 			self.errorNoRomsStr = lang.find("errorNoRoms").text
 			self.errorNoExtensionStr = lang.find("errorNoExtension").text
+		self.configTree = ET.parse(self.path + "config.xml")
+		self.configRoot = self.configTree.getroot()
+		self.platformsList = []
+		for item in self.configRoot.findall(".//emulator"):
+			platform = item.find("platform")
+			self.platformsList.append(platform.text)
 		self.max = tk.IntVar()
 		self.max.set(100)
 		self.status = tk.StringVar()
@@ -399,7 +442,8 @@ class App(tk.Tk):
 		self.romPath = tk.StringVar()
 		self.romPath.set("")
 		self.toplevel = tk.Toplevel(self.create)
-		self.frame = ttk.Frame(self.toplevel)
+		self.toplevel.grab_set()
+		self.frame = ttk.Frame(self.toplevel, borderwidth=10)
 		self.frame.grid()
 		self.toplevel.title(self.createTitleStr)
 		self.listNameLabel = ttk.Label(self.frame, text=self.listNameLabelStr)
@@ -408,8 +452,8 @@ class App(tk.Tk):
 		self.listNameEntry.grid(column=1, row=1, sticky="W")
 		self.platformLabel = ttk.Label(self.frame, text=self.platformLabelStr)
 		self.platformLabel.grid(column=0, row=2, sticky="W")
-		self.platformEntry = ttk.Entry(self.frame)
-		self.platformEntry.grid(column=1, row=2, sticky="W")
+		self.platformCombobox = ttk.Combobox(self.frame, values=self.platformsList, state="readonly")
+		self.platformCombobox.grid(column=1, row=2, sticky="W")
 		self.extensionLabel = ttk.Label(self.frame, text=self.extensionLabelStr)
 		self.extensionLabel.grid(column=0, row=3, sticky="W")
 		self.extensionEntry = ttk.Entry(self.frame)
@@ -437,7 +481,8 @@ class App(tk.Tk):
 		self.thread = createEngine(self.queue)
 		self.thread.start()
 		self.periodicCall()
-
+def test(machin, level=0):
+	print machin
 class convertEngine(threading.Thread):
 	"""docstring for convertEngine"""
 	def __init__(self, queue):
@@ -446,7 +491,7 @@ class convertEngine(threading.Thread):
 	def run(self, ):
 		self.path = expanduser('~') + '/.cabrio/'
 		name = app.listNameEntry.get()
-		platform = app.platformEntry.get()
+		platform = app.platformCombobox.get()
 		xml = app.browseHSXMLPath.cget("text")
 		romsPath = app.browseRomsPath.cget("text")
 		romsPath = romsPath + "/"
@@ -458,6 +503,7 @@ class convertEngine(threading.Thread):
 		GL = ET.SubElement(R, "game-list")
 		N = ET.SubElement(GL, "name")
 		N.text = name
+		app.gameLists.append(N.text)
 		G = ET.SubElement(GL, "games") 
 		for item in tree.findall(".//game"):
 			count = count + 1
@@ -491,25 +537,9 @@ class convertEngine(threading.Thread):
 		status = "Complete"
 		self.queue.put(status)
 		T = ET.ElementTree(R)
-		self.indent(R)
+		indent(R)
 		T.write(self.path+"Gamelist-"+N.text+".xml")
 		self.queue.put(True)
-		
-	def indent(self, elem, level=0):
-		i = "\n" + level*"  "
-		if len(elem):
-			if not elem.text or not elem.text.strip():
-				elem.text = i + "  "
-			if not elem.tail or not elem.tail.strip():
-				elem.tail = i
-			for elem in elem:
-				self.indent(elem, level+1)
-			if not elem.tail or not elem.tail.strip():
-				elem.tail = i
-		else:
-			if level and (not elem.tail or not elem.tail.strip()):
-				elem.tail = i
-
 class createEngine(threading.Thread):
 	"""docstring for createtEngine"""
 	def __init__(self, queue):
@@ -561,23 +591,22 @@ class createEngine(threading.Thread):
 		status = "Complete"
 		self.queue.put(status)
 		T = ET.ElementTree(R)
-		self.indent(R)
+		indent(R)
 		T.write(self.path+"Gamelist-"+N.text+".xml")
 		self.queue.put(True)
-	def indent(self, elem, level=0):
-		i = "\n" + level*"  "
-		if len(elem):
-			if not elem.text or not elem.text.strip():
-				elem.text = i + "  "
-			if not elem.tail or not elem.tail.strip():
-				elem.tail = i
-			for elem in elem:
-				self.indent(elem, level+1)
-			if not elem.tail or not elem.tail.strip():
-				elem.tail = i
-		else:
-			if level and (not elem.tail or not elem.tail.strip()):
-				elem.tail = i
-
+def indent(elem, level=0):
+	i = "\n" + level*"  "
+	if len(elem):
+		if not elem.text or not elem.text.strip():
+			elem.text = i + "  "
+		if not elem.tail or not elem.tail.strip():
+			elem.tail = i
+		for elem in elem:
+			indent(elem, level+1)
+		if not elem.tail or not elem.tail.strip():
+			elem.tail = i
+	else:
+		if level and (not elem.tail or not elem.tail.strip()):
+			elem.tail = i
 app = App()
 app.mainloop()

@@ -15,6 +15,7 @@
 			<addParameter>Add parameter</addParameter>
 			<delParameter>Remove parameter</delParameter>
 			<displayTab>Display</displayTab>
+			<pathTab>Locations</pathTab>
 			<controlsTab>Controls</controlsTab>
 			<emulatorsTab>Emulators</emulatorsTab>
 			<aboutTab>About</aboutTab>
@@ -52,6 +53,15 @@
 			<errorNoExecutable>You must specify an executable</errorNoExecutable>
 			<errorNoParameter>Parameter can't be empty</errorNoParameter>
 			<confirmDeleteLabel>Are you sure you want to delete this emulator?</confirmDeleteLabel>
+			<aboutLabel>2014 by Cucurbitacée</aboutLabel>
+			<versionLabel>version 0.3</versionLabel>
+			<translationLabel>English translation by Cucurbitacée</translationLabel>
+			<authorLabel>original Cabrio by Steve Madison</authorLabel>
+			<themesPathLabel>Themes</themesPathLabel>
+			<backgroundPathLabel>Backgrounds</backgroundPathLabel>
+			<logoPathLabel>Logos</logoPathLabel>
+			<videoPathLabel>Videos</videoPathLabel>
+			<screenshotPathLabel>Screenshots</screenshotPathLabel>
 		</lang>
 		<lang name="Français" code="fr_FR">
 			<title>Éditeur de configuration Cabrio</title>
@@ -68,6 +78,7 @@
 			<addParameter>Ajouter un paramètre</addParameter>
 			<delParameter>Supprimer un paramètre</delParameter>
 			<displayTab>Affichage</displayTab>
+			<pathTab>Emplacements</pathTab>
 			<controlsTab>Contrôles</controlsTab>
 			<emulatorsTab>Emulateurs</emulatorsTab>
 			<aboutTab>À propos</aboutTab>
@@ -105,6 +116,15 @@
 			<errorNoExecutable>L'exécutable est obligatoire</errorNoExecutable>
 			<errorNoParameter>Un paramètre ne peut pas être vide</errorNoParameter>
 			<confirmDeleteLabel>Êtes-vous sûr de vouloir supprimer cet émulateur ?</confirmDeleteLabel>
+			<aboutLabel>2014 par Cucurbitacée</aboutLabel>
+			<versionLabel>version 0.3</versionLabel>
+			<translationLabel>traduction française par Cucurbitacée</translationLabel>
+			<authorLabel>Cabrio a été créé par Steve Madison</authorLabel>
+			<themesPathLabel>Thèmes</themesPathLabel>
+			<backgroundPathLabel>Arrière-plans</backgroundPathLabel>
+			<logoPathLabel>Logos</logoPathLabel>
+			<videoPathLabel>Vidéos</videoPathLabel>
+			<screenshotPathLabel>Aperçus</screenshotPathLabel>
 		</lang>
 	</langs>
 </root>

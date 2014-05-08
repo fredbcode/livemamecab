@@ -21,7 +21,10 @@ class App(tk.Tk):
 		tk.Tk.__init__(self)
 		self.style = ttk.Style()
 		self.style.theme_use("clam")
-		self.tree = ET.parse("cabrio-config.xml")
+		try:
+			self.tree = ET.parse("cabrio-config.xml")
+		except:
+			sys.exit("Error: cabrio-config.xml not found, it should be in the same folder that this script.")
 		self.root = self.tree.getroot()
 		self.lang = loc[0]
 		if self.lang == None:
@@ -29,9 +32,11 @@ class App(tk.Tk):
 		if self.root.findall(".//*[@code='"+self.lang+"']") == []:
 			self.lang = "en_GB"
 		for lang in self.root.findall(".//*[@code='"+self.lang+"']"):
+			self.browseButtonStr = lang.find("browseButton").text
 			self.titleStr = lang.find("title").text
 			self.setButtonStr =lang.find("setButton").text
 			self.displayTabStr = lang.find("displayTab").text
+			self.pathTabStr = lang.find("pathTab").text
 			self.controlsTabStr = lang.find("controlsTab").text
 			self.emulatorsTabStr = lang.find("emulatorsTab").text
 			self.aboutTabStr = lang.find("aboutTab").text
@@ -56,72 +61,75 @@ class App(tk.Tk):
 			self.newEmulatorLabelStr = lang.find("newEmulatorLabel").text
 			self.addButtonStr = lang.find("addButton").text
 			self.editEmulatorLabelStr = lang.find("editEmulatorLabel").text
-
+			self.aboutLabelStr = lang.find("aboutLabel").text
+			self.versionLabelStr = lang.find("versionLabel").text
+			self.translationLabelStr = lang.find("translationLabel").text
+			self.authorLabelStr = lang.find("authorLabel").text
+			self.themesPathLabelStr = lang.find("themesPathLabel").text
+			self.backgroundPathLabelStr = lang.find("backgroundPathLabel").text
+			self.logoPathLabelStr = lang.find("logoPathLabel").text
+			self.videoPathLabelStr = lang.find("videoPathLabel").text
+			self.screenshotPathLabelStr = lang.find("screenshotPathLabel").text
 		self.path = expanduser("~") + "/.cabrio/"
-		self.configTree = ET.parse(self.path + "config.xml")
+		try:
+			self.configTree = ET.parse(self.path + "config.xml")
+		except:
+			sys.exit("Error: unable to find Cabrio config file, please start Cabrio to create it.")
 		self.configRoot = self.configTree.getroot()
-		self.fullscreenVar = tk.IntVar()
-		self.fullscreen = self.getNode("full-screen")
-		if self.fullscreen.text == "true":
-			self.fullscreenVar.set(1)
-		elif self.fullscreen == "false":
-			self.fullscreenVar.set(0)
-		self.framerate = self.getNode("frame-rate")
+		self.fullscreen = self.getNode("full-screen", "interface", "false")
+		self.fullscreenVar = self.setVar(self.fullscreen, int)
+		self.framerate = self.getNode("frame-rate", "interface", "60")
 		self.framerateVar = tk.StringVar()
 		self.framerateVar.set(self.framerate.text)
-		self.videoLoop = self.getNode("video-loop")
-		self.videoLoopVar = tk.IntVar()
-		if self.videoLoop.text == "true":
-			self.videoLoopVar.set(1)
-		elif self.videoLoop.text == "false":
-			self.videoLoopVar.set(0)
-		self.themesList = self.getFolders("/usr/share/cabrio/themes/")
-		self.theme = self.getNode("theme")
+		self.videoLoop = self.getNode("video-loop", "interface", "true")
+		self.videoLoopVar = self.setVar(self.videoLoop, int)
+		try:
+			self.themesList = self.getFolders("/usr/share/cabrio/themes/")
+		except:
+			sys.exit("Error: No themes found, please check your Cabrio installation.")
+		self.theme = self.getNode("theme", "interface", "carousel")
 		self.themeVar = tk.StringVar()
 		self.themeVar.set(self.theme.text)
-		self.width = self.getNode("width")
-		self.widthVar = tk.StringVar()
-		self.widthVar.set(self.width.text)
-		self.height = self.getNode("height")
-		self.heightVar = tk.StringVar()
-		self.heightVar.set(self.height.text)
-		self.rotation = self.getNode("rotation")
-		self.rotationVar = tk.StringVar()
-		self.rotationVar.set(self.rotation.text)
-		self.flipHorizontal = self.getNode("flip-horizontal")
-		self.flipHorizontalVar = tk.StringVar()
-		self.flipHorizontalVar.set(self.flipHorizontal.text)
-		self.flipVertical = self.getNode("flip-vertical")
-		self.flipVerticalVar = tk.StringVar()
-		self.flipVerticalVar.set(self.flipVertical.text)
-		self.quality = self.getNode("quality")
-		self.qualityVar = tk.StringVar()
-		self.qualityVar.set(self.quality.text)
-		self.maxImageWidth = self.getNode("max-image-width")
-		self.maxImageWidthVar = tk.StringVar()
-		self.maxImageWidthVar.set(self.maxImageWidth.text)
-		self.maxImageHeight = self.getNode("max-image-height")
-		self.maxImageHeightVar = tk.StringVar()
-		self.maxImageHeightVar.set(self.maxImageHeight.text)
+		screen = self.getNode("screen", "interface")
+		self.width = self.getNode("width", "screen", "1024")
+		self.widthVar = self.setVar(self.width, str)
+		self.height = self.getNode("height", "screen", "768")
+		self.heightVar = self.setVar(self.height, str)
+		self.rotation = self.getNode("rotation", "screen", "0")
+		self.rotationVar = self.setVar(self.rotation, str)
+		self.flipHorizontal = self.getNode("flip-horizontal", "screen", "0")
+		self.flipHorizontalVar = self.setVar(self.flipHorizontal, str)
+		self.flipVertical = self.getNode("flip-vertical", "screen", "0")
+		self.flipVerticalVar = self.setVar(self.flipVertical, str)
+		self.quality = self.getNode("quality", "graphics", "high")
+		self.qualityVar = self.setVar(self.quality, str)
+		self.maxImageWidth = self.getNode("max-image-width", "graphics", "512")
+		self.maxImageWidthVar = self.setVar(self.maxImageWidth, str)
+		self.maxImageHeight = self.getNode("max-image-height", "graphics", "512")
+		self.maxImageHeightVar = self.setVar(self.maxImageHeight, str)
 		self.emulatorBinary = tk.StringVar()
 		self.emulatorBinary.set("")
 		self.emulatorsList = []
-		
+		# Widgets declaration starts here.
 		self.title(self.titleStr)
 		self.notebook = ttk.Notebook(self)
 		self.notebook.grid(column=0, row=0)
 		self.displayTab = ttk.Frame(self.notebook)
-		self.controlsTab = ttk.Frame(self.notebook)
+		self.pathTab = ttk.Frame(self.notebook)
+		# self.controlsTab = ttk.Frame(self.notebook)
 		self.emulatorsTab = ttk.Frame(self.notebook)
 		self.aboutTab = ttk.Frame(self.notebook)
 		self.notebook.add(self.displayTab, text=self.displayTabStr)
-		self.notebook.add(self.controlsTab, text=self.controlsTabStr)
+		self.notebook.add(self.pathTab, text=self.pathTabStr)
+		# self.notebook.add(self.controlsTab, text=self.controlsTabStr)
 		self.notebook.add(self.emulatorsTab, text=self.emulatorsTabStr)
 		self.notebook.add(self.aboutTab, text=self.aboutTabStr)
+		# Display tab widgets declaration starts here.
 		self.displayPanedWindow = ttk.Panedwindow(self.displayTab, orient="vertical")
 		self.displayPanedWindow.grid()
 		self.interfaceLabelFrame = ttk.Labelframe(self.displayTab, text=self.interfaceLabelFrameStr)
 		self.displayPanedWindow.add(self.interfaceLabelFrame)
+		# Interface label frame widgets declaration starts here.
 		self.fsCheckButton = ttk.Checkbutton(self.interfaceLabelFrame, variable=self.fullscreenVar, text=self.fullscreenStr, command=lambda a=self.fullscreen, b=self.fullscreenVar: self.writeBool(a, b))
 		self.fsCheckButton.grid(column=0, row=0, sticky="W")
 		self.framerateLabel = ttk.Label(self.interfaceLabelFrame, text=self.framerateStr)
@@ -137,7 +145,7 @@ class App(tk.Tk):
 		self.themesCombobox = ttk.Combobox(self.interfaceLabelFrame, values=self.themesList, textvariable=self.themeVar, state="readonly")
 		self.themesCombobox.bind("<<ComboboxSelected>>", self.writeTheme)
 		self.themesCombobox.grid(column=1, row=3, sticky="W")
-		
+		# Screen label frame widgets declaration starts here.
 		self.screenLabelFrame = ttk.Labelframe(self.displayTab, text=self.screenLabelFrameStr)
 		self.displayPanedWindow.add(self.screenLabelFrame)
 		self.widthLabel = ttk.Label(self.screenLabelFrame, text=self.widthStr)
@@ -164,7 +172,7 @@ class App(tk.Tk):
 		self.flipHorizontalCheckbutton.grid(column=0, row=2, columnspan=3)
 		self.flipVerticalCheckbutton = ttk.Checkbutton(self.screenLabelFrame, variable=self.flipVerticalVar, text=self.flipVerticalStr, command=lambda a=self.flipVertical, b=self.flipVerticalVar: self.writeInt(a, b))
 		self.flipVerticalCheckbutton.grid(column=3, row=2, columnspan=3)
-
+		# Graphics label frame widgets declaration starts here.
 		self.graphicsLabelFrame = ttk.Labelframe(self.displayTab, text=self.graphicsLabelFrameStr)
 		self.displayPanedWindow.add(self.graphicsLabelFrame)
 		self.qualityLabel = ttk.Label(self.graphicsLabelFrame, text=self.qualityLabelStr)
@@ -185,7 +193,40 @@ class App(tk.Tk):
 		self.maxImageHeightEntry.grid(column=1, row=2, columnspan=2)
 		self.maxSetButton = ttk.Button(self.graphicsLabelFrame, text=self.setButtonStr, command=lambda a=self.maxImageWidth, b=self.maxImageWidthVar, c=self.maxImageHeight, d=self.maxImageHeightVar: self.writeString(a, b, c, d))
 		self.maxSetButton.grid(column=5, row=1, rowspan=2)
+		# Locations tab starts here
+		self.themesPathLabel = ttk.Label(self.pathTab, text=self.themesPathLabelStr)
+		self.themesPathLabel.grid(column=0, row=0, sticky="W")
+		self.themesPathEntry = ttk.Entry(self.pathTab)
+		self.themesPathEntry.grid(column=1, row=0)
+		self.themesPathBrowse = ttk.Button(self.pathTab, text=self.browseButtonStr)
+		self.themesPathBrowse.grid(column=2, row=0)
+		self.backgroundPathLabel = ttk.Label(self.pathTab, text=self.backgroundPathLabelStr)
+		self.backgroundPathLabel.grid(column=0, row=1, sticky="W")
+		self.backgroundPathEntry = ttk.Entry(self.pathTab)
+		self.backgroundPathEntry.grid(column=1, row=1)
+		self.backgroundPathBrowse = ttk.Button(self.pathTab, text=self.browseButtonStr)
+		self.backgroundPathBrowse.grid(column=2, row=1)
+		self.logoPathLabel = ttk.Label(self.pathTab, text=self.logoPathLabelStr)
+		self.logoPathLabel.grid(column=0, row=2, sticky="W")
+		self.logoPathEntry = ttk.Entry(self.pathTab)
+		self.logoPathEntry.grid(column=1, row=2)
+		self.logoPathBrowse = ttk.Button(self.pathTab, text=self.browseButtonStr)
+		self.logoPathBrowse.grid(column=2, row=2)
+		self.videoPathLabel = ttk.Label(self.pathTab, text=self.videoPathLabelStr)
+		self.videoPathLabel.grid(column=0, row=3, sticky="W")
+		self.videoPathEntry = ttk.Entry(self.pathTab)
+		self.videoPathEntry.grid(column=1, row=3)
+		self.videoPathBrowse = ttk.Button(self.pathTab, text=self.browseButtonStr)
+		self.videoPathBrowse.grid(column=2, row=3)
+		self.screenshotPathLabel = ttk.Label(self.pathTab, text=self.screenshotPathLabelStr)
+		self.screenshotPathLabel.grid(column=0, row=4, sticky="W")
+		self.screenshotPathEntry = ttk.Entry(self.pathTab)
+		self.screenshotPathEntry.grid(column=1, row=4)
+		self.screenshotPathBrowse = ttk.Button(self.pathTab, text=self.browseButtonStr)
+		self.screenshotPathBrowse.grid(column=2, row=4)
+		# Controls tab starts here
 
+		# Emulator tab widgets declaration starts here.
 		self.newEmulatorLabel = ttk.Label(self.emulatorsTab, text=self.newEmulatorLabelStr)
 		self.newEmulatorLabel.grid(column=0, row=0, sticky="W")
 		self.addEmulatorButton = ttk.Button(self.emulatorsTab, text=self.addButtonStr, command=lambda a="new": self.editEmulator(a))
@@ -202,14 +243,24 @@ class App(tk.Tk):
 		self.scrollbar.config(command=self.emulatorsListbox.yview)
 		self.editEmulatorLabel = ttk.Label(self.emulatorsTab, text=self.editEmulatorLabelStr)
 		self.editEmulatorLabel.grid(column=0, row=2, sticky="W")
-		
+		# About tab widgets starts here.
+		self.logoFile = tk.PhotoImage(file="cabrio-config.gif")
+		self.logo = ttk.Label(self.aboutTab, image=self.logoFile)
+		self.logo.grid(column=0, row=1, columnspan=3)
+		self.aboutLabel = ttk.Label(self.aboutTab, text=self.aboutLabelStr)
+		self.aboutLabel.grid(column=0, row=2, columnspan=3)
+		self.versionLabel = ttk.Label(self.aboutTab, text=self.versionLabelStr)
+		self.versionLabel.grid(column=0, row=3, columnspan=3)
+		self.translationLabel = ttk.Label(self.aboutTab, text=self.translationLabelStr)
+		self.translationLabel.grid(column=0, row=4, columnspan=3)
+		self.authorLabel = ttk.Label(self.aboutTab, text=self.authorLabelStr)
+		self.authorLabel.grid(column=0, row=5, columnspan=3)
 	def editEmulator(self, option=None):
 		self.displayName = tk.StringVar()
 		self.displayName.set(self.emulatorsListbox.get("active"))
 		for lang in self.root.findall(".//*[@code='"+self.lang+"']"):
 			self.newEmulatorTitleStr = lang.find("newEmulatorTitle").text
 			self.browseEmulatorLabelStr = lang.find("browseEmulatorLabel").text
-			self.browseButtonStr = lang.find("browseButton").text
 			# self.createScriptLabelStr = lang.find("createScriptLabel").text
 			# self.createScriptButtonStr = lang.find("createScriptButton").text
 			self.emulatorNameLabelStr = lang.find("emulatorNameLabel").text
@@ -229,6 +280,7 @@ class App(tk.Tk):
 			self.confirmDeleteLabelStr = lang.find("confirmDeleteLabel").text#
 			self.okButtonStr = lang.find("okButton").text
 		self.toplevel = tk.Toplevel(self.emulatorsTab)
+		self.toplevel.grab_set()
 		self.frame = ttk.Frame(self.toplevel, borderwidth=10)
 		self.frame.grid()
 		self.emulatorNameLabel = ttk.Label(self.frame, text=self.emulatorNameLabelStr)
@@ -307,25 +359,26 @@ class App(tk.Tk):
 		if option != "new":
 			self.deleteButton = ttk.Button(self.frame, text=self.deleteButtonStr, command=lambda: self.confirmDelete())
 			self.deleteButton.grid(column=1, row=99, columnspan=1)
-		self.cancelButton = ttk.Button(self.frame, text=self.cancelButtonStr, command=lambda: self.toplevel.destroy())
+		self.cancelButton = ttk.Button(self.frame, text=self.cancelButtonStr, command=lambda: self.closeWindow())
 		self.cancelButton.grid(column=2, row=99, columnspan=2)
 		self.separator = ttk.Separator(self.frame, orient="horizontal")
 		self.separator.grid(column=0, row=100, columnspan=4, sticky="EW")
 		self.statusLabel = ttk.Label(self.frame, textvariable=self.statusVar)
 		self.statusLabel.grid(column=0, row=101, columnspan=4, sticky="W")
 	def confirmDelete(self):
-		self.toplevel.destroy()
+		self.closeWindow()
 		self.toplevel = tk.Toplevel(self.emulatorsTab)
+		self.toplevel.grab_set()
 		self.frame = ttk.Frame(self.toplevel, borderwidth=10)
 		self.frame.grid()
 		self.confirmDeleteLabel = ttk.Label(self.frame, text=self.confirmDeleteLabelStr)
 		self.confirmDeleteLabel.grid(column=0, row=0, columnspan=2)
 		self.confirmButton = ttk.Button(self.frame, text=self.okButtonStr, command=lambda: self.deleteEmulator())
 		self.confirmButton.grid(column=0, row=1)
-		self.cancelButton = ttk.Button(self.frame, text=self.cancelButtonStr, command=lambda: self.toplevel.destroy())
+		self.cancelButton = ttk.Button(self.frame, text=self.cancelButtonStr, command=lambda: self.closeWindow())
 		self.cancelButton.grid(column=1, row=1)
 	def deleteEmulator(self):
-		self.toplevel.destroy()
+		self.closeWindow()
 		name = self.emulatorsListbox.get("active")
 		emulators = self.configRoot.find(".//emulators")
 		for item in emulators.findall(".//emulator"):
@@ -422,6 +475,9 @@ class App(tk.Tk):
 		self.configTree.write(self.path + "config.xml")
 		if not displayName.text in self.emulatorsList:
 			self.emulatorsListbox.insert("end", displayName.text)
+		self.closeWindow()
+	def closeWindow(self):
+		self.toplevel.grab_release()
 		self.toplevel.destroy()
 	def addParam(self, option=None):
 		if self.index == None:
@@ -458,9 +514,28 @@ class App(tk.Tk):
 		selected = self.themesList[current]
 		self.theme.text = selected
 		self.configTree.write(self.path + 'config.xml')
-	def getNode(self, name):
-		for node in self.configRoot.findall(".//"+name):
-			return node
+	def setVar(self, node, sourceType):
+		if sourceType == str:
+			var = tk.StringVar()
+			var.set(node.text)
+		elif sourceType == int:
+			var = tk.IntVar()
+			if node.text == "true":
+				var.set(1)
+			elif node.text == "false":
+				var.set(0)
+		return var
+	def getNode(self, name, parent, value=None):
+		node = self.configRoot.find(".//"+name)
+		if node == None:
+			p = self.configRoot.find(".//"+parent)
+			node = ET.SubElement(p, name)
+			if value == None:
+				value = ""
+			node.text = value
+		self.indent(self.configRoot)
+		self.configTree.write(self.path + "config.xml")
+		return node
 	def getFolders(self, dir):
 		return [name for name in os.listdir(dir)]
 	def indent(self, elem, level=0):
