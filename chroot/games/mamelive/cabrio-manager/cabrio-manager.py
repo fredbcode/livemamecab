@@ -319,8 +319,6 @@ class App(tk.Tk):
 		else:
 			self.createThread(name, platform, roms, extension)
 	def convertList(self):
-		self.convertButton.config(state="disabled")
-		self.createButton.config(state="disabled")
 		for lang in self.root.findall(".//*[@code='"+self.lang+"']"):
 			self.convertTitleStr = lang.find("convertTitle").text
 			self.browseButtonStr = lang.find("browseButton").text
@@ -337,6 +335,7 @@ class App(tk.Tk):
 			self.errorNoXMLStr = lang.find("errorNoXML").text
 			self.errorNoRomsStr = lang.find("errorNoRoms").text
 			self.errorNoExtensionStr = lang.find("errorNoExtension").text
+			self.cancelButtonStr = lang.find("cancelButton").text
 		self.configTree = ET.parse(self.path + "config.xml")
 		self.configRoot = self.configTree.getroot()
 		self.platformsList = []
@@ -383,6 +382,8 @@ class App(tk.Tk):
 		self.browseRomsPath.grid(column=0, row=7, columnspan=4, sticky="W")
 		self.startButton = ttk.Button(self.frame, text=self.startButtonStr, command=lambda: self.checkConvertFields())
 		self.startButton.grid(column=0, row=8, columnspan=2)
+		self.cancelButton = ttk.Button(self.frame, text=self.cancelButtonStr, command=lambda: self.closeWindow())
+		self.cancelButton.grid(column=1, row=8)
 		self.progressBar = ttk.Progressbar(self.frame, orient="horizontal", mode="determinate", maximum=self.max.get(), length=500)
 		self.progressBar.grid(column=0, row=9, columnspan=4, sticky="W")
 		self.separator = ttk.Separator(self.frame, orient="horizontal")
@@ -420,7 +421,7 @@ class App(tk.Tk):
 		self.max.set(count)
 	def createList(self):
 		for lang in self.root.findall(".//*[@code='"+self.lang+"']"):
-			self.createTitleStr = lang.find("convertTitle").text
+			self.createTitleStr = lang.find("createTitle").text
 			self.browseButtonStr = lang.find("browseButton").text
 			self.listNameLabelStr = lang.find("listNameLabel").text
 			self.platformLabelStr = lang.find("platformLabel").text
@@ -433,6 +434,7 @@ class App(tk.Tk):
 			self.errorNoXMLStr = lang.find("errorNoXML").text
 			self.errorNoRomsStr = lang.find("errorNoRoms").text
 			self.errorNoExtensionStr = lang.find("errorNoExtension").text
+			self.cancelButtonStr = lang.find("cancelButton").text
 		self.configTree = ET.parse(self.path + "config.xml")
 		self.configRoot = self.configTree.getroot()
 		self.platformsList = []
@@ -471,6 +473,8 @@ class App(tk.Tk):
 		self.browseRomsPath.grid(column=0, row=5, columnspan=4, sticky="W")
 		self.startButton = ttk.Button(self.frame, text=self.startButtonStr, command=lambda: self.checkCreateFields())
 		self.startButton.grid(column=0, row=6, columnspan=2)
+		self.cancelButton = ttk.Button(self.frame, text=self.cancelButtonStr, command=lambda: self.closeWindow())
+		self.cancelButton.grid(column=1, row=6)
 		self.progressBar = ttk.Progressbar(self.frame, orient="horizontal", mode="determinate", maximum=self.max.get(), length=500)
 		self.progressBar.grid(column=0, row=7, columnspan=4, sticky="W")
 		self.separator = ttk.Separator(self.frame, orient="horizontal")
@@ -486,8 +490,6 @@ class App(tk.Tk):
 		self.thread = createEngine(self.queue)
 		self.thread.start()
 		self.periodicCall()
-def test(machin, level=0):
-	print machin
 class convertEngine(threading.Thread):
 	"""docstring for convertEngine"""
 	def __init__(self, queue):

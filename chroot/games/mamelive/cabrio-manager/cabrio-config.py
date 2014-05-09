@@ -120,7 +120,7 @@ class App(tk.Tk):
 		self.emulatorsTab = ttk.Frame(self.notebook)
 		self.aboutTab = ttk.Frame(self.notebook)
 		self.notebook.add(self.displayTab, text=self.displayTabStr)
-		self.notebook.add(self.pathTab, text=self.pathTabStr)
+		# self.notebook.add(self.pathTab, text=self.pathTabStr)
 		# self.notebook.add(self.controlsTab, text=self.controlsTabStr)
 		self.notebook.add(self.emulatorsTab, text=self.emulatorsTabStr)
 		self.notebook.add(self.aboutTab, text=self.aboutTabStr)
@@ -194,36 +194,36 @@ class App(tk.Tk):
 		self.maxSetButton = ttk.Button(self.graphicsLabelFrame, text=self.setButtonStr, command=lambda a=self.maxImageWidth, b=self.maxImageWidthVar, c=self.maxImageHeight, d=self.maxImageHeightVar: self.writeString(a, b, c, d))
 		self.maxSetButton.grid(column=5, row=1, rowspan=2)
 		# Locations tab starts here
-		self.themesPathLabel = ttk.Label(self.pathTab, text=self.themesPathLabelStr)
-		self.themesPathLabel.grid(column=0, row=0, sticky="W")
-		self.themesPathEntry = ttk.Entry(self.pathTab)
-		self.themesPathEntry.grid(column=1, row=0)
-		self.themesPathBrowse = ttk.Button(self.pathTab, text=self.browseButtonStr)
-		self.themesPathBrowse.grid(column=2, row=0)
-		self.backgroundPathLabel = ttk.Label(self.pathTab, text=self.backgroundPathLabelStr)
-		self.backgroundPathLabel.grid(column=0, row=1, sticky="W")
-		self.backgroundPathEntry = ttk.Entry(self.pathTab)
-		self.backgroundPathEntry.grid(column=1, row=1)
-		self.backgroundPathBrowse = ttk.Button(self.pathTab, text=self.browseButtonStr)
-		self.backgroundPathBrowse.grid(column=2, row=1)
-		self.logoPathLabel = ttk.Label(self.pathTab, text=self.logoPathLabelStr)
-		self.logoPathLabel.grid(column=0, row=2, sticky="W")
-		self.logoPathEntry = ttk.Entry(self.pathTab)
-		self.logoPathEntry.grid(column=1, row=2)
-		self.logoPathBrowse = ttk.Button(self.pathTab, text=self.browseButtonStr)
-		self.logoPathBrowse.grid(column=2, row=2)
-		self.videoPathLabel = ttk.Label(self.pathTab, text=self.videoPathLabelStr)
-		self.videoPathLabel.grid(column=0, row=3, sticky="W")
-		self.videoPathEntry = ttk.Entry(self.pathTab)
-		self.videoPathEntry.grid(column=1, row=3)
-		self.videoPathBrowse = ttk.Button(self.pathTab, text=self.browseButtonStr)
-		self.videoPathBrowse.grid(column=2, row=3)
-		self.screenshotPathLabel = ttk.Label(self.pathTab, text=self.screenshotPathLabelStr)
-		self.screenshotPathLabel.grid(column=0, row=4, sticky="W")
-		self.screenshotPathEntry = ttk.Entry(self.pathTab)
-		self.screenshotPathEntry.grid(column=1, row=4)
-		self.screenshotPathBrowse = ttk.Button(self.pathTab, text=self.browseButtonStr)
-		self.screenshotPathBrowse.grid(column=2, row=4)
+		# self.themesPathLabel = ttk.Label(self.pathTab, text=self.themesPathLabelStr)
+		# self.themesPathLabel.grid(column=0, row=0, sticky="W")
+		# self.themesPathEntry = ttk.Entry(self.pathTab)
+		# self.themesPathEntry.grid(column=1, row=0)
+		# self.themesPathBrowse = ttk.Button(self.pathTab, text=self.browseButtonStr)
+		# self.themesPathBrowse.grid(column=2, row=0)
+		# self.backgroundPathLabel = ttk.Label(self.pathTab, text=self.backgroundPathLabelStr)
+		# self.backgroundPathLabel.grid(column=0, row=1, sticky="W")
+		# self.backgroundPathEntry = ttk.Entry(self.pathTab)
+		# self.backgroundPathEntry.grid(column=1, row=1)
+		# self.backgroundPathBrowse = ttk.Button(self.pathTab, text=self.browseButtonStr)
+		# self.backgroundPathBrowse.grid(column=2, row=1)
+		# self.logoPathLabel = ttk.Label(self.pathTab, text=self.logoPathLabelStr)
+		# self.logoPathLabel.grid(column=0, row=2, sticky="W")
+		# self.logoPathEntry = ttk.Entry(self.pathTab)
+		# self.logoPathEntry.grid(column=1, row=2)
+		# self.logoPathBrowse = ttk.Button(self.pathTab, text=self.browseButtonStr)
+		# self.logoPathBrowse.grid(column=2, row=2)
+		# self.videoPathLabel = ttk.Label(self.pathTab, text=self.videoPathLabelStr)
+		# self.videoPathLabel.grid(column=0, row=3, sticky="W")
+		# self.videoPathEntry = ttk.Entry(self.pathTab)
+		# self.videoPathEntry.grid(column=1, row=3)
+		# self.videoPathBrowse = ttk.Button(self.pathTab, text=self.browseButtonStr)
+		# self.videoPathBrowse.grid(column=2, row=3)
+		# self.screenshotPathLabel = ttk.Label(self.pathTab, text=self.screenshotPathLabelStr)
+		# self.screenshotPathLabel.grid(column=0, row=4, sticky="W")
+		# self.screenshotPathEntry = ttk.Entry(self.pathTab)
+		# self.screenshotPathEntry.grid(column=1, row=4)
+		# self.screenshotPathBrowse = ttk.Button(self.pathTab, text=self.browseButtonStr)
+		# self.screenshotPathBrowse.grid(column=2, row=4)
 		# Controls tab starts here
 
 		# Emulator tab widgets declaration starts here.
@@ -277,8 +277,9 @@ class App(tk.Tk):
 			self.errorNoPlatformStr = lang.find("errorNoPlatform").text
 			self.errorNoExecutableStr = lang.find("errorNoExecutable").text
 			self.errorNoParameterStr = lang.find("errorNoParameter").text
-			self.confirmDeleteLabelStr = lang.find("confirmDeleteLabel").text#
+			self.confirmDeleteLabelStr = lang.find("confirmDeleteLabel").text
 			self.okButtonStr = lang.find("okButton").text
+			self.browseExecLabelStr = lang.find("browseExecLabel").text
 		self.toplevel = tk.Toplevel(self.emulatorsTab)
 		self.wait_visibility(self.toplevel)
 		self.toplevel.grab_set()
@@ -300,7 +301,7 @@ class App(tk.Tk):
 		self.browseEmulatorLabel.grid(column=0, row=3, columnspan=2, sticky="W")
 		self.emulatorExecEntry = ttk.Entry(self.frame)
 		self.emulatorExecEntry.grid(column=0, row=4, sticky="W")
-		self.emulatorExecButton = ttk.Button(self.frame, text=self.browseButtonStr)
+		self.emulatorExecButton = ttk.Button(self.frame, text=self.browseButtonStr, command=lambda a=self.emulatorExecEntry: self.getFile(a))
 		self.emulatorExecButton.grid(column=1, row=4, sticky="W", columnspan=3)
 		# self.createScriptLabel = ttk.Label(self.frame, text=self.createScriptLabelStr)
 		# self.createScriptLabel.grid(column=0, row=5, sticky="W")
@@ -540,6 +541,9 @@ class App(tk.Tk):
 		return node
 	def getFolders(self, dir):
 		return [name for name in os.listdir(dir)]
+	def getFile(self, var):
+		target = tkFileDialog.askopenfilename(title=self.browseExecLabelStr)
+		var.insert(0, target)
 	def indent(self, elem, level=0):
 		i = "\n" + level*"  "
 		if len(elem):

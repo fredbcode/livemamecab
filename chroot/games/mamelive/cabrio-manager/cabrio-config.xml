@@ -62,6 +62,7 @@
 			<logoPathLabel>Logos</logoPathLabel>
 			<videoPathLabel>Videos</videoPathLabel>
 			<screenshotPathLabel>Screenshots</screenshotPathLabel>
+			<browseExecLabel>Select the executable</browseExecLabel>
 		</lang>
 		<lang name="Français" code="fr_FR">
 			<title>Éditeur de configuration Cabrio</title>
@@ -125,6 +126,7 @@
 			<logoPathLabel>Logos</logoPathLabel>
 			<videoPathLabel>Vidéos</videoPathLabel>
 			<screenshotPathLabel>Aperçus</screenshotPathLabel>
+			<browseExecLabel>Choisissez l'exécutable</browseExecLabel>
 		</lang>
 	</langs>
 </root>
