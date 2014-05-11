@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=Livemamecab Logo
+Description=A theme that features a background with a logo.
+ModuleName=script
+
+[script]
+ImageDir=/lib/plymouth/themes/livemamecab-logo
+ScriptFile=/lib/plymouth/themes/livemamecab-logo/xubuntu-logo.script
