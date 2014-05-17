@@ -3,32 +3,22 @@
       xmlns:bookmark="http://www.freedesktop.org/standards/desktop-bookmarks"
       xmlns:mime="http://www.freedesktop.org/standards/shared-mime-info"
 >
-  <bookmark href="file:///games/mamelive/cabrio-manager/cabrio-manager.py" added="2014-04-04T13:54:35Z" modified="2014-04-04T13:54:35Z" visited="2014-04-04T13:54:36Z">
+  <bookmark href="file:///games/artworks/xmame/videos/looping.flv" added="2014-04-26T11:26:40Z" modified="2014-04-26T11:29:55Z" visited="2014-04-26T11:26:40Z">
     <info>
       <metadata owner="http://freedesktop.org">
-        <mime:mime-type type="text/x-python"/>
+        <mime:mime-type type="video/x-flv"/>
         <bookmark:applications>
-          <bookmark:application name="exo-desktop-item-edit" exec="&apos;exo-desktop-item-edit %u&apos;" modified="2014-04-04T13:54:35Z" count="1"/>
+          <bookmark:application name="parole" exec="&apos;parole %u&apos;" modified="2014-04-26T11:29:55Z" count="3"/>
         </bookmark:applications>
       </metadata>
     </info>
   </bookmark>
-  <bookmark href="file:///games/mamelive/cabrio-manager/cabrio-config.py" added="2014-04-12T11:52:33Z" modified="2014-04-12T11:52:33Z" visited="2014-04-12T11:52:33Z">
+  <bookmark href="file:///games/artworks/xmame/videos/robby.flv" added="2014-04-26T11:26:52Z" modified="2014-04-26T13:09:13Z" visited="2014-04-26T11:26:52Z">
     <info>
       <metadata owner="http://freedesktop.org">
-        <mime:mime-type type="text/x-python"/>
+        <mime:mime-type type="video/x-flv"/>
         <bookmark:applications>
-          <bookmark:application name="exo-desktop-item-edit" exec="&apos;exo-desktop-item-edit %u&apos;" modified="2014-04-12T11:52:33Z" count="1"/>
-        </bookmark:applications>
-      </metadata>
-    </info>
-  </bookmark>
-  <bookmark href="file:///games/mamelive/cabrio-manager" added="2014-04-12T11:54:35Z" modified="2014-04-12T11:54:35Z" visited="2014-04-12T11:54:35.694638Z">
-    <info>
-      <metadata owner="http://freedesktop.org">
-        <mime:mime-type type="inode/directory"/>
-        <bookmark:applications>
-          <bookmark:application name="exo-desktop-item-edit" exec="&apos;exo-desktop-item-edit %u&apos;" modified="2014-04-12T11:54:35Z" count="1"/>
+          <bookmark:application name="parole" exec="&apos;parole %u&apos;" modified="2014-04-26T13:09:13Z" count="5"/>
         </bookmark:applications>
       </metadata>
     </info>

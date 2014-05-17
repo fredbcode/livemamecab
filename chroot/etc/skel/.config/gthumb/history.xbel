@@ -3,11 +3,61 @@
       xmlns:bookmark="http://www.freedesktop.org/standards/desktop-bookmarks"
       xmlns:mime="http://www.freedesktop.org/standards/shared-mime-info"
 >
-  <bookmark href="file:///lib/plymouth/themes/xubuntu-logo" added="2014-04-11T15:52:12Z" modified="2014-04-11T15:52:12Z" visited="2014-04-11T15:52:12.753132Z">
+  <bookmark href="file:///lib/plymouth" added="2014-05-10T17:20:23Z" modified="2014-05-10T17:20:23Z" visited="2014-05-10T17:20:23.814870Z">
     <info>
       <metadata owner="http://freedesktop.org">
         <bookmark:applications>
-          <bookmark:application name="gThumb" exec="&apos;gthumb %u&apos;" modified="2014-04-11T15:52:12Z" count="1"/>
+          <bookmark:application name="gThumb" exec="&apos;gthumb %u&apos;" modified="2014-05-10T17:20:23Z" count="1"/>
+        </bookmark:applications>
+        <bookmark:private/>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///games/mamelive/pic" added="2014-05-10T17:20:23Z" modified="2014-05-10T17:20:23Z" visited="2014-05-10T17:20:23.814917Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <bookmark:applications>
+          <bookmark:application name="gThumb" exec="&apos;gthumb %u&apos;" modified="2014-05-10T17:20:23Z" count="1"/>
+        </bookmark:applications>
+        <bookmark:private/>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///games/artworks/system/marquees" added="2014-05-10T17:20:23Z" modified="2014-05-10T17:20:23Z" visited="2014-05-10T17:20:23.814954Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <bookmark:applications>
+          <bookmark:application name="gThumb" exec="&apos;gthumb %u&apos;" modified="2014-05-10T17:20:23Z" count="1"/>
+        </bookmark:applications>
+        <bookmark:private/>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///games/artworks/system/snap" added="2014-05-10T17:20:23Z" modified="2014-05-10T17:20:23Z" visited="2014-05-10T17:20:23.814989Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <bookmark:applications>
+          <bookmark:application name="gThumb" exec="&apos;gthumb %u&apos;" modified="2014-05-10T17:20:23Z" count="1"/>
+        </bookmark:applications>
+        <bookmark:private/>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///usr/share/cabrio/pixmaps" added="2014-05-10T17:20:23Z" modified="2014-05-10T17:20:23Z" visited="2014-05-10T17:20:23.815021Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <bookmark:applications>
+          <bookmark:application name="gThumb" exec="&apos;gthumb %u&apos;" modified="2014-05-10T17:20:23Z" count="1"/>
+        </bookmark:applications>
+        <bookmark:private/>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///lib/plymouth/themes/xubuntu-logo" added="2014-05-10T17:20:23Z" modified="2014-05-10T17:20:23Z" visited="2014-05-10T17:20:23.815054Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <bookmark:applications>
+          <bookmark:application name="gThumb" exec="&apos;gthumb %u&apos;" modified="2014-05-10T17:20:23Z" count="1"/>
         </bookmark:applications>
         <bookmark:private/>
       </metadata>

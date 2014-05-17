@@ -1,0 +1,4 @@
+A button (Default PC: X): Accept/OK
+B button (Default PC: Z): Back/Cancel
+Start (Default PC: Return): Go to main settings menu
+Select (Default PC: Right shift): Set a setting to default

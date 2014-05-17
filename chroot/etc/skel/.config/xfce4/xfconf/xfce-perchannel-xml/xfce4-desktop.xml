@@ -7,7 +7,7 @@
         <property name="image-path" type="string" value="/games/mamelive/pic/wallpaper.jpg"/>
         <property name="last-image" type="string" value="/games/mamelive/pic/wallpaper.jpg"/>
         <property name="last-single-image" type="string" value="/games/mamelive/pic/wallpaper.jpg"/>
-        <property name="last-image-list" type="string" value="/home/ubuntu/.config/xfce4/desktop/backdrop.list"/>
+        <property name="last-image-list" type="string" value="/home/fred/.config/xfce4/desktop/backdrop.list"/>
         <property name="image-show" type="bool" value="true"/>
         <property name="workspace0" type="empty">
           <property name="color-style" type="int" value="0"/>

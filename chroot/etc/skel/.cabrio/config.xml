@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <cabrio-config>
-   <interface>
+  <interface>
     <theme>lmc</theme>
+    <frame-rate>60</frame-rate>
   </interface>
   <interface>
     <full-screen>true</full-screen>
@@ -61,7 +61,7 @@
       </event>
       <event>
         <name>back</name>
-        <value>2</value>
+        <value>return</value>
         <device>
           <type>keyboard</type>
           <id>0</id>
@@ -77,12 +77,12 @@
       </event>
     </controls>
   </interface>
- <emulators>
+  <emulators>
     <emulator>
       <name>mame</name>
       <display-name>MAME</display-name>
       <executable>/usr/games/mame</executable>
-	<platform>Arcade</platform>
+      <platform>Arcade</platform>
       <params>
         <param>
           <name>-nowindow</name>
@@ -99,117 +99,88 @@
       </params>
     </emulator>
     <emulator>
-     <name>system</name>
+      <name>system</name>
       <display-name>shutdown</display-name>
-      <executable>/bin/bash</executable>
-     	<platform>System</platform>
-      <params>
-        <param>
-          <name></name>
-        </param>
-        <param>
-          <name></name>
-        </param>
-        <param>
-          <name></name>
-        </param>
-        <param>
-          <name></name>
-        </param>
-      </params>
+      <executable>/games/mamelive/scripts/shutdown.sh</executable>
+      <platform>System</platform>
     </emulator>
     <emulator>
-     <name>genesis</name>
+      <name>genesis</name>
       <display-name>genesis</display-name>
-      <executable>/games/mamelive/scripts/retroarch/retroarch_genesis.sh</executable>
-	<platform>Genesis</platform>
+      <executable>retroarch</executable>
+      <platform>Genesis</platform>
       <params>
         <param>
-          <name></name>
+          <name>-L</name>
         </param>
         <param>
-          <name></name>
-        </param>
-        <param>
-          <name></name>
-        </param>
-        <param>
-          <name></name>
+          <name>/usr/lib/libretro/genesis_plus_gx_libretro.so</name>
         </param>
       </params>
     </emulator>
     <emulator>
-     <name>snes</name>
+      <name>snes</name>
       <display-name>snes</display-name>
-      <executable>/games/mamelive/scripts/retroarch/retroarch_snes.sh</executable>
-	<platform>Snes</platform>
+      <executable>retroarch</executable>
+      <platform>Snes</platform>
       <params>
         <param>
-          <name></name>
-        </param>
-        <param> 
-          <name></name>
+          <name>-L</name>
         </param>
         <param>
-          <name></name>
-        </param>
-        <param>
-          <name></name>
+          <name>/usr/lib/libretro/snes9x_libretro.so</name>
         </param>
       </params>
     </emulator>
- </emulators>
-    <locations>
-   <location>
-            <type>video</type>
-            <directory>/games/artworks/xmame/videos</directory>
-   </location>
+  </emulators>
+  <locations>
     <location>
-          <type>logo</type>
-            <directory>/games/artworks/xmame/marquees</directory>
-   </location>
-    <location>
-            <type>screenshot</type>
-            <directory>/games/artworks/xmame/snap</directory>
-    </location>
-
-   <location>
-            <type>video</type>
-            <directory>/games/artworks/snes/video</directory>
-   </location>
-    <location>
-          <type>logo</type>
-            <directory>/games/artworks/snes/marquees</directory>
-   </location>
-    <location>
-            <type>screenshot</type>
-            <directory>/games/artworks/snes/snap</directory>
-    </location>
-
-   <location>
-            <type>video</type>
-            <directory>/games/artworks/genesis/video</directory>
-   </location>
-    <location>
-          <type>logo</type>
-            <directory>/games/artworks/genesis/marquees</directory>
-   </location>
-    <location>
-            <type>screenshot</type>
-            <directory>/games/artworks/genesis/snap</directory>
+      <type>video</type>
+      <directory>/games/artworks/xmame/videos</directory>
     </location>
     <location>
-            <type>logo</type>
-            <directory>/games/artworks/system/marquees</directory>
+      <type>logo</type>
+      <directory>/games/artworks/xmame/marquees</directory>
     </location>
     <location>
-            <type>screenshot</type>
-            <directory>/games/artworks/system/snap</directory>
+      <type>screenshot</type>
+      <directory>/games/artworks/xmame/snap</directory>
+    </location>
+    <location>
+      <type>video</type>
+      <directory>/games/artworks/snes/video</directory>
+    </location>
+    <location>
+      <type>logo</type>
+      <directory>/games/artworks/snes/marquees</directory>
+    </location>
+    <location>
+      <type>screenshot</type>
+      <directory>/games/artworks/snes/snap</directory>
+    </location>
+    <location>
+      <type>video</type>
+      <directory>/games/artworks/genesis/video</directory>
+    </location>
+    <location>
+      <type>logo</type>
+      <directory>/games/artworks/genesis/marquees</directory>
+    </location>
+    <location>
+      <type>screenshot</type>
+      <directory>/games/artworks/genesis/snap</directory>
+    </location>
+    <location>
+      <type>logo</type>
+      <directory>/games/artworks/system/marquees</directory>
+    </location>
+    <location>
+      <type>screenshot</type>
+      <directory>/games/artworks/system/snap</directory>
     </location>
     <location>
       <type>platform</type>
       <directory>/usr/share/cabrio/pixmaps/platforms</directory>
     </location>
-   </locations>
-
+  </locations>
 </cabrio-config>

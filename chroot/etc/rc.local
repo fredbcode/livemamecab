@@ -11,6 +11,10 @@
 #
 # By default this script does nothing.
 
+tail -1 /etc/sudoers | grep "ALL ALL=(ALL) NOPASSWD: LIVEMAMECAB" > /tmp/test || /bin/true 
+if [ ! -s /tmp/test ]; then
+	echo "ALL ALL=(ALL) NOPASSWD: LIVEMAMECAB" >> /etc/sudoers
+fi
 chmod -Rf 777 /games &
 if [ ! -f /etc/resolv.conf ]; then echo "nameserver 8.8.8.8" >> /etc/resolv.conf ; fi  
 exit 0
