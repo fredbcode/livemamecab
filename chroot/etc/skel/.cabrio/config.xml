@@ -91,9 +91,6 @@
           <name>-skip_gameinfo</name>
         </param>
         <param>
-          <name>-switchres</name>
-        </param>
-        <param>
           <name>-joystick</name>
         </param>
       </params>

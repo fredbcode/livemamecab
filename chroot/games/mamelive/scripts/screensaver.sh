@@ -10,7 +10,7 @@ exit 0
 fi
 
 RANDOM=`date '+%s'`
-line0=$(grep rom_path $REP/.wahcade/ini/sdlmame.ini | cut -c9- |  sed -e "s/^ *//g")
+line0="/games/roms/mame/"
 cp $REP/.mame/mame.ini /tmp
 sed -i 's/$HOME\/.mame\/cfg/$HOME\/.xmame\/cfg/' /tmp/mame.ini
 sed -i 's/livemamecab/saver/' /tmp/mame.ini
@@ -33,7 +33,7 @@ echo $number
 line=`sed -n "$number"p $FILE`
 # joue le jeu
 /games/mamelive/scripts/xmamescreensaver -volume -15 -inipath /tmp/ $line0/$line  
-$REP/livemamecab/resolution.sh &
+$REP/configurations/livemamecab/resolution.sh &
 
 
 

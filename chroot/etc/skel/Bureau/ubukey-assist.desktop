@@ -1,9 +1,0 @@
-[Desktop Entry]
-Type=Application
-Encoding=UTF-8
-Version=1.0
-Name=Ubukey addons manager
-Name[fr_FR]=gestionnaire de modules Ubukey
-Exec=/usr/share/ubukey/scripts/ubukey-addons_manager.sh
-X-GNOME-Autostart-enabled=true
-Icon=/usr/share/pixmaps/usbkey.png
