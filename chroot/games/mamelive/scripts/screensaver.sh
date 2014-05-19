@@ -13,7 +13,6 @@ RANDOM=`date '+%s'`
 line0="/games/roms/mame/"
 cp $REP/.mame/mame.ini /tmp
 sed -i 's/$HOME\/.mame\/cfg/$HOME\/.xmame\/cfg/' /tmp/mame.ini
-sed -i 's/livemamecab/saver/' /tmp/mame.ini
 
 if pidof xmamescreensaver;
 then
