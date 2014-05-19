@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 set -evx
 PATH=/bin:/usr/bin:/sbin:/usr/sbin:/usr/games/:/usr/X11R6/bin/:/usr/bin/X11/:/games/mamelive/scripts
 REP="/home/$(whoami)"
@@ -12,6 +12,8 @@ fi
 RANDOM=`date '+%s'`
 line0="/games/roms/mame/"
 cp $REP/.mame/mame.ini /tmp
+cp $REP/.xmame/cfg/saver.cfg $REP/.xmame/cfg/default.cfg
+
 sed -i 's/$HOME\/.mame\/cfg/$HOME\/.xmame\/cfg/' /tmp/mame.ini
 
 if pidof xmamescreensaver;
