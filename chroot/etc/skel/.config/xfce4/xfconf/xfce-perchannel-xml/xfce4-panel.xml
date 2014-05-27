@@ -3,10 +3,10 @@
 <channel name="xfce4-panel" version="1.0">
   <property name="panels" type="uint" value="1">
     <property name="panel-0" type="empty">
-      <property name="size" type="uint" value="50"/>
+      <property name="size" type="uint" value="60"/>
       <property name="length" type="uint" value="0"/>
       <property name="locked" type="bool" value="true"/>
-      <property name="autohide" type="bool" value="false"/>
+      <property name="autohide" type="bool" value="true"/>
       <property name="plugin-ids" type="array">
         <value type="int" value="1"/>
         <value type="int" value="2"/>
