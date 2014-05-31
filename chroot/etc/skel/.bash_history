@@ -22,3 +22,12 @@ ls -la ../../.mame/cfg/
 ls -la
 more default.cfg 
 sudo su
+more ../.cabrio/config.xml 
+cabrio-config 
+cabrio-config | grep up
+sudo su
+plymouth show-plash
+plymouth show-splash
+sudo su
+retroarch -L /usr/lib/libretro/genesis_plus_gx_libretro.so /games/roms/genesis/qbert.sms 
+/games/mamelive/scripts/download_artworks.sh 

@@ -133,15 +133,15 @@
   <locations>
     <location>
       <type>video</type>
-      <directory>/games/artworks/xmame/videos</directory>
+      <directory>/games/artworks/mame/videos</directory>
     </location>
     <location>
       <type>logo</type>
-      <directory>/games/artworks/xmame/marquees</directory>
+      <directory>/games/artworks/mame/marquees</directory>
     </location>
     <location>
       <type>screenshot</type>
-      <directory>/games/artworks/xmame/snap</directory>
+      <directory>/games/artworks/mame/snap</directory>
     </location>
     <location>
       <type>video</type>
