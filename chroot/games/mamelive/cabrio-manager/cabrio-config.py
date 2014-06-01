@@ -730,6 +730,21 @@ class App(tk.Tk):
 		self.translationLabel.grid(column=0, row=4, columnspan=3)
 		self.authorLabel = ttk.Label(self.aboutTab, text=self.authorLabelStr)
 		self.authorLabel.grid(column=0, row=5, columnspan=3)
+		# Adjust the states
+		self.updateWidget(None, "up", "device")
+		self.updateWidget(None, "up", "control")
+		self.updateWidget(None, "down", "device")
+		self.updateWidget(None, "down", "control")
+		self.updateWidget(None, "left", "device")
+		self.updateWidget(None, "left", "control")
+		self.updateWidget(None, "right", "device")
+		self.updateWidget(None, "right", "control")
+		self.updateWidget(None, "select", "device")
+		self.updateWidget(None, "select", "control")
+		self.updateWidget(None, "back", "device")
+		self.updateWidget(None, "back", "control")
+		self.updateWidget(None, "quit", "device")
+		self.updateWidget(None, "quit", "control")
 	def updateWidget(self, event, control, target):
 		if control == "up":
 			x = self.upDeviceTypeCombobox.get()
