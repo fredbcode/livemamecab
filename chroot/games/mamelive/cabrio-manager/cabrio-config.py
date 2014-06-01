@@ -19,7 +19,8 @@ class App(tk.Tk):
 	"""docstring for App"""
 	def __init__(self):
 		tk.Tk.__init__(self)
-		self.SDLout = "up: joystick0 axis SDL_KEYCODE = -1 \ndown: joystick0 axis SDL_KEYCODE = 1 \nleft: joystick0 axis SDL_KEYCODE = -1 \nright: joystick0 axis SDL_KEYCODE = 1 \nselect: joystick0 button SDL_KEYCODE = 0 \nback: joystick0 button SDL_KEYCODE = 2\nquit: joystick0 button SDL_KEYCODE = 1"
+		# self.SDLout = "up: joystick0 axis SDL_KEYCODE = -1 \ndown: joystick0 axis SDL_KEYCODE = 1 \nleft: joystick0 axis SDL_KEYCODE = -1 \nright: joystick0 axis SDL_KEYCODE = 1 \nselect: joystick0 button SDL_KEYCODE = 0 \nback: joystick0 button SDL_KEYCODE = 2\nquit: joystick0 button SDL_KEYCODE = 1"
+		# self.SDLout = "up: joystick0 axis SDL_KEYCODE = 1 typeaxis = 1 \ndown: joystick0 axis SDL_KEYCODE = -1 typeaxis = 1 \nleft: joystick0 hat SDL_KEYCODE = 3 typeaxis = 0 \nright: joystick0 hat SDL_KEYCODE = 0 typeaxis = 0 \nselect: joystick0 button SDL_KEYCODE = 0 typeaxis = 0 \nback: joystick0 button SDL_KEYCODE = 3 typeaxis = 0 \nquit: joystick0 button SDL_KEYCODE = 5 typeaxis = 0 "
 		self.SDLkeys = [
 			"backspace",
 			"tab",
@@ -1438,10 +1439,13 @@ class App(tk.Tk):
 			var = tk.IntVar()
 			var.set(int(node.text))
 		return var
-	def updateControl(self, control, valueWidget, deviceWidget, deviceIdWidget, controlWidget, controlIdWidget):
+	def updateControl(self, control, valueWidget, deviceWidget, deviceIdVar, controlWidget, controlIdVar):
 		# Get control
-		t = control.find("=") + 2 # Store the position of the value
-		y = int(control[t:]) # extract the value and convert it to number 
+		t = control.find("E =") + 4 # Store the position of the value
+		y = int(control[t:t+2]) # extract the value and convert it to number
+		t = control.find("s =") + 4
+		a = int(control[t:t+1])
+		controlIdVar.set(a)
 		t = control.find("joystick")
 		if t > -1:
 			i = t + 8 # Get the position of the ID in the string
@@ -1460,7 +1464,7 @@ class App(tk.Tk):
  				controlWidget.set("hat")
 				z = self.translateValue(y, "joystick", "hat", fix)
 				valueWidget.set(z)
-			u = control.find("axis")
+			u = control.find(" axis")
 			if u > -1:
 				controlWidget.set("axis")
 				z = self.translateValue(y, "joystick", "axis")
@@ -1479,7 +1483,7 @@ class App(tk.Tk):
 		if t > -1:
 			i = t + 5 # Get the position of the ID in the string
 			deviceWidget.set("mouse")
-			u = control.find("axis")
+			u = control.find(" axis")
 			if u > -1:
 				controlWidget.set("axis")
 				z = self.translateValue(y, "mouse", "axis")
@@ -1498,7 +1502,7 @@ class App(tk.Tk):
 			valueWidget.set(z)
 		# Get id
 		x = control[i]
-		deviceIdWidget["value"] = x
+		deviceIdVar.set(x)
 	def translateValue(self, value, device, type=None, fix=None):
 		if device == "joystick":
 			if type == "hat":
@@ -1790,44 +1794,44 @@ class App(tk.Tk):
 		return v
 	def getControls(self):
 		# get data from the output of the console
-		# p = subprocess.Popen(["cabrio-config"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-		# raw, err = p.communicate()
-		raw = self.SDLout
+		p = subprocess.Popen(["cabrio-config"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+		raw, err = p.communicate()
+		# raw = self.SDLout
 		output = raw.split("\n")
 		for n in output:
 			t = n.find("up:")
 			if t > -1:
-				self.updateControl(n, self.upValueCombobox, self.upDeviceTypeCombobox, self.upDeviceIdSpinbox, self.upControlTypeCombobox)
+				self.updateControl(n, self.upValueCombobox, self.upDeviceTypeCombobox, self.upDeviceIdVar, self.upControlTypeCombobox, self.upControlIdVar)
 				self.updateWidget(None, "up", "device")
 				self.updateWidget(None, "up", "control")
 			t = n.find("down:")
 			if t > -1:
-				self.updateControl(n, self.downValueCombobox, self.downDeviceTypeCombobox, self.downDeviceIdSpinbox, self.downControlTypeCombobox)
+				self.updateControl(n, self.downValueCombobox, self.downDeviceTypeCombobox, self.downDeviceIdVar, self.downControlTypeCombobox, self.downControlIdVar)
 				self.updateWidget(None, "down", "device")
 				self.updateWidget(None, "down", "control")
 			t = n.find("left:")
 			if t > -1:
-				self.updateControl(n, self.leftValueCombobox, self.leftDeviceTypeCombobox, self.leftDeviceIdSpinbox, self.leftControlTypeCombobox)
+				self.updateControl(n, self.leftValueCombobox, self.leftDeviceTypeCombobox, self.leftDeviceIdVar, self.leftControlTypeCombobox, self.leftControlIdVar)
 				self.updateWidget(None, "left", "device")
 				self.updateWidget(None, "left", "control")
 			t = n.find("right:")
 			if t > -1:
-				self.updateControl(n, self.rightValueCombobox, self.rightDeviceTypeCombobox, self.rightDeviceIdSpinbox, self.rightControlTypeCombobox)
+				self.updateControl(n, self.rightValueCombobox, self.rightDeviceTypeCombobox, self.rightDeviceIdVar, self.rightControlTypeCombobox, self.rightControlIdVar)
 				self.updateWidget(None, "right", "device")
 				self.updateWidget(None, "right", "control")
 			t = n.find("select:")
 			if t > -1:
-				self.updateControl(n, self.selectValueCombobox, self.selectDeviceTypeCombobox, self.selectDeviceIdSpinbox, self.selectControlTypeCombobox)
+				self.updateControl(n, self.selectValueCombobox, self.selectDeviceTypeCombobox, self.selectDeviceIdVar, self.selectControlTypeCombobox, self.selectControlIdVar)
 				self.updateWidget(None, "select", "device")
 				self.updateWidget(None, "select", "control")
 			t = n.find("back:")
 			if t > -1:
-				self.updateControl(n, self.backValueCombobox, self.backDeviceTypeCombobox, self.backDeviceIdSpinbox, self.backControlTypeCombobox)
+				self.updateControl(n, self.backValueCombobox, self.backDeviceTypeCombobox, self.backDeviceIdVar, self.backControlTypeCombobox, self.backControlIdVar)
 				self.updateWidget(None, "back", "device")
 				self.updateWidget(None, "back", "control")
 			t = n.find("quit:")
 			if t > -1:
-				self.updateControl(n, self.quitValueCombobox, self.quitDeviceTypeCombobox, self.quitDeviceIdSpinbox, self.quitControlTypeCombobox)
+				self.updateControl(n, self.quitValueCombobox, self.quitDeviceTypeCombobox, self.quitDeviceIdVar, self.quitControlTypeCombobox, self.quitControlIdVar)
 				self.updateWidget(None, "quit", "device")
 				self.updateWidget(None, "quit", "control")
 	def getNode(self, tag, parent, value, name=None):
