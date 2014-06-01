@@ -19,6 +19,7 @@ class App(tk.Tk):
 	"""docstring for App"""
 	def __init__(self):
 		tk.Tk.__init__(self)
+		# self.SDLout = "up: joystick0 axis SDL_KEYCODE = -1 \ndown: joystick0 axis SDL_KEYCODE = 1 \nleft: joystick0 axis SDL_KEYCODE = -1 \nright: joystick0 axis SDL_KEYCODE = 1 \nselect: joystick0 button SDL_KEYCODE = 0 \nback: joystick0 button SDL_KEYCODE = 2\nquit: joystick0 button SDL_KEYCODE = 1"
 		self.SDLkeys = [
 			"backspace",
 			"tab",
@@ -1516,11 +1517,7 @@ class App(tk.Tk):
 					v = "error"
 				elif value == 1:
 					v = "plus"
-				elif value == 2:
-					v = "minus"
-				elif value == 3:
-					v = "plus"
-				elif value == 4:
+				elif value == -1:
 					v = "minus"
 			elif type == "button":
 				v = value
@@ -1795,6 +1792,7 @@ class App(tk.Tk):
 		# get data from the output of the console
 		p = subprocess.Popen(["cabrio-config"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 		raw, err = p.communicate()
+		# raw = self.SDLout
 		output = raw.split("\n")
 		for n in output:
 			t = n.find("up:")
