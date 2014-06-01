@@ -1857,6 +1857,7 @@ class App(tk.Tk):
 							u.text = value
 							self.indent(self.configRoot)
 							self.configTree.write(self.path + "config.xml")
+							node = u
 		return node
 	def getFolders(self, dir):
 		return [name for name in os.listdir(dir)]
