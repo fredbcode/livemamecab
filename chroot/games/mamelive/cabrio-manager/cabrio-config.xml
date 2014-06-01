@@ -63,6 +63,25 @@
 			<videoPathLabel>Videos</videoPathLabel>
 			<screenshotPathLabel>Screenshots</screenshotPathLabel>
 			<browseExecLabel>Select the executable</browseExecLabel>
+			<upLabel>Up</upLabel>
+			<downLabel>Down</downLabel>
+			<leftLabel>Left</leftLabel>
+			<rightLabel>Right</rightLabel>
+			<selectLabel>Select</selectLabel>
+			<backLabel>Back</backLabel>
+			<quitLabel>Quit</quitLabel>
+			<keyboard>Keyboard</keyboard>
+			<mouse>Mouse</mouse>
+			<joystick>Joystick</joystick>
+			<hat>Hat</hat>
+			<axis>Axis</axis>
+			<ball>Ball</ball>
+			<button>Button</button>
+			<device>Device</device>
+			<id>Id</id>
+			<type>Type</type>
+			<value>Value</value>
+			<setAllKeys>Set All Controls</setAllKeys>
 		</lang>
 		<lang name="Français" code="fr_FR">
 			<title>Éditeur de configuration Cabrio</title>
@@ -127,6 +146,25 @@
 			<videoPathLabel>Vidéos</videoPathLabel>
 			<screenshotPathLabel>Aperçus</screenshotPathLabel>
 			<browseExecLabel>Choisissez l'exécutable</browseExecLabel>
+			<upLabel>Haut</upLabel>
+			<downLabel>Bas</downLabel>
+			<leftLabel>Gauche</leftLabel>
+			<rightLabel>Droite</rightLabel>
+			<selectLabel>Choisir</selectLabel>
+			<backLabel>Retour</backLabel>
+			<quitLabel>Quitter</quitLabel>
+			<keyboard>Clavier</keyboard>
+			<mouse>Souris</mouse>
+			<joystick>Joystick</joystick>
+			<hat>hat</hat>
+			<axis>axe</axis>
+			<ball>balle</ball>
+			<button>bouton</button>
+			<device>Périphérique</device>
+			<id>Id.</id>
+			<type>Type</type>
+			<value>Valeur</value>
+			<setAllKeys>Définir tous les boutons</setAllKeys>
 		</lang>
 	</langs>
 </root>
