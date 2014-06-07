@@ -45,16 +45,17 @@ i=0
 if [ "$f" = "mame" ] 
 then	
 
-zenity --info --text "Please wait: generate files list" --timeout=2
-wget http://numsys.eu/livemamecab/$f/snap -O $f-snapfileslist.htm 2>&1 |  tr -d "\n" | zenity --title="Please wait - Snap -" --progress --pulsate --auto-kill --auto-close 
-zenity --info --text "Please Match Roms Files Names with Video or Image !" --timeout=3
-wget http://numsys.eu/livemamecab/$f/marquees -O $f-marqueesfileslist.htm  2>&1 |  tr -d "\n" | zenity --title="Please wait - Marquees -" --progress --pulsate --auto-kill --auto-close 
-zenity --info --text "Please Match Roms Files Names with Video or Image !" --timeout=3
-wget http://numsys.eu/livemamecab/$f/videos -O $f-videosfileslist.htm  2>&1 |  tr -d "\n" | zenity --title="Please wait - Videos -" --progress --pulsate --auto-kill --auto-close 
-zenity --info --text "Please Match Roms Files Names with Video or Image !" --timeout=3
-
 chemin="/games/artworks/mame"
 cd /games/roms/mame 
+
+zenity --info --text "Please wait check list" --timeout=2
+
+midori http://numsys.eu/livemamecab/$f/snap &
+sleep 2
+midori http://numsys.eu/livemamecab/$f/marquees &
+sleep 2
+midori http://numsys.eu/livemamecab/$f/videos &
+
 for i in *
 do
 	echo ${i%.*}
@@ -93,16 +94,17 @@ fi
 
 if [ "$f" = "genesis" ] 
 then	
-zenity --info --text "Please wait: generate files list" --timeout=2
-wget http://numsys.eu/livemamecab/$f/snap -O $f-snapfileslist.htm 2>&1 |  tr -d "\n" | zenity --title="Please wait - Snap -" --progress --pulsate --auto-kill --auto-close 
-zenity --info --text "Please Match Roms Files Names with Video or Image !" --timeout=3
-wget http://numsys.eu/livemamecab/$f/marquees -O $f-marqueesfileslist.htm  2>&1 |  tr -d "\n" | zenity --title="Please wait - Marquees -" --progress --pulsate --auto-kill --auto-close 
-zenity --info --text "Please Match Roms Files Names with Video or Image !" --timeout=3
-wget http://numsys.eu/livemamecab/$f/videos -O $f-videosfileslist.htm  2>&1 |  tr -d "\n" | zenity --title="Please wait - Videos -" --progress --pulsate --auto-kill --auto-close 
-zenity --info --text "Please Match Roms Files Names with Video or Image !" --timeout=3
 
 cd /games/roms/genesis 
 chemin="/games/artworks/genesis"
+
+zenity --info --text "Please wait check list" --timeout=2
+
+midori http://numsys.eu/livemamecab/$f/snap &
+sleep 2
+midori http://numsys.eu/livemamecab/$f/marquees &
+sleep 2
+midori http://numsys.eu/livemamecab/$f/videos &
 
 for i in *
 do
@@ -144,16 +146,17 @@ fi
 if [ "$f" = "snes" ] 
 then	
 
-zenity --info --text "Please wait: generate files list" --timeout=2
-wget http://numsys.eu/livemamecab/$f/snap -O $f-snapfileslist.htm 2>&1 |  tr -d "\n" | zenity --title="Please wait - Snap -" --progress --pulsate --auto-kill --auto-close 
-zenity --info --text "Please Match Roms Files Names with Video or Image !" --timeout=3
-wget http://numsys.eu/livemamecab/$f/marquees -O $f-marqueesfileslist.htm  2>&1 |  tr -d "\n" | zenity --title="Please wait - Marquees -" --progress --pulsate --auto-kill --auto-close 
-zenity --info --text "Please Match Roms Files Names with Video or Image !" --timeout=3
-wget http://numsys.eu/livemamecab/$f/videos -O $f-videosfileslist.htm  2>&1 |  tr -d "\n" | zenity --title="Please wait - Videos -" --progress --pulsate --auto-kill --auto-close 
-zenity --info --text "Please Match Roms Files Names with Video or Image !" --timeout=3
-
 cd /games/roms/snes
 chemin="/games/artworks/snes"
+
+zenity --info --text "Please wait check list" --timeout=2
+
+midori http://numsys.eu/livemamecab/$f/snap &
+sleep 2
+midori http://numsys.eu/livemamecab/$f/marquees &
+sleep 2
+midori http://numsys.eu/livemamecab/$f/videos &
+
 for i in *
 do
 	echo ${i%.*}
@@ -192,16 +195,17 @@ fi
 
 if [ "$f" = "pcengine" ] 
 then	
-zenity --info --text "Please wait: generate files list" --timeout=2
-wget http://numsys.eu/livemamecab/$f/snap -O $f-snapfileslist.htm 2>&1 |  tr -d "\n" | zenity --title="Please wait - Snap -" --progress --pulsate --auto-kill --auto-close 
-zenity --info --text "Please Match Roms Files Names with Video or Image !" --timeout=3
-wget http://numsys.eu/livemamecab/$f/marquees -O $f-marqueesfileslist.htm  2>&1 |  tr -d "\n" | zenity --title="Please wait - Marquees -" --progress --pulsate --auto-kill --auto-close 
-zenity --info --text "Please Match Roms Files Names with Video or Image !" --timeout=3
-wget http://numsys.eu/livemamecab/$f/videos -O $f-videosfileslist.htm  2>&1 |  tr -d "\n" | zenity --title="Please wait - Videos -" --progress --pulsate --auto-kill --auto-close 
-zenity --info --text "Please Match Roms Files Names with Video or Image !" --timeout=3
 
 cd /games/roms/pcengine
 chemin="/games/artworks/pcengine"
+
+zenity --info --text "Please wait check list" --timeout=2
+
+midori http://numsys.eu/livemamecab/$f/snap &
+sleep 2
+midori http://numsys.eu/livemamecab/$f/marquees &
+sleep 2
+midori http://numsys.eu/livemamecab/$f/videos &
 
 for i in *
 do
