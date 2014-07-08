@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xbel PUBLIC "+//IDN python.org//DTD XML Bookmark Exchange Language 1.0//EN//XML" "http://www.python.org/topics/xml/dtds/xbel-1.0.dtd">
+<xbel version="1.0" xmlns:midori="http://www.twotoasts.de">
+<info>
+<metadata owner="http://www.twotoasts.de"/>
+</info>
+<bookmark href="http://numsys.eu/livemamecab/mame/snap/">
+<title>‪http://numsys.eu/livemamecab/mame/snap/</title>
+<info>
+<metadata midori:delay="0" midori:icon="http://numsys.eu/favicon.ico" midori:history-step="1" owner="http://www.twotoasts.de"/>
+</info>
+</bookmark>
+<bookmark href="http://numsys.eu/livemamecab/mame/videos/">
+<title>‪http://numsys.eu/livemamecab/mame/videos/</title>
+<info>
+<metadata midori:icon="http://numsys.eu/favicon.ico" owner="http://www.twotoasts.de"/>
+</info>
+</bookmark>
+<bookmark href="http://numsys.eu/livemamecab/mame/marquees/">
+<title>‪http://numsys.eu/livemamecab/mame/marquees/</title>
+<info>
+<metadata midori:icon="http://numsys.eu/favicon.ico" owner="http://www.twotoasts.de"/>
+</info>
+</bookmark>
+<bookmark href="http://numsys.eu/livemamecab/mame/marquees/">
+<title>‪http://numsys.eu/livemamecab/mame/marquees/</title>
+<info>
+<metadata midori:delay="0" midori:icon="http://numsys.eu/favicon.ico" owner="http://www.twotoasts.de"/>
+</info>
+</bookmark>
+<bookmark href="http://numsys.eu/livemamecab/mame/videos/">
+<title>‪http://numsys.eu/livemamecab/mame/videos/</title>
+<info>
+<metadata midori:delay="0" midori:icon="http://numsys.eu/favicon.ico" owner="http://www.twotoasts.de"/>
+</info>
+</bookmark>
+</xbel>
