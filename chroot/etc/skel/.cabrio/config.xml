@@ -6,6 +6,9 @@
   <interface>
     <full-screen>true</full-screen>
     <video-loop>false</video-loop>
+    <video-loop>false/true</video-loop>
+    <video-sound>true</video-sound>
+    <theme-sound>true</theme-sound>
     <screen>
       <width>1024</width>
       <height>768</height>
@@ -26,6 +29,12 @@
           <type>keyboard</type>
           <id>0</id>
         </device>
+        <control>
+          <type>Default</type>
+        </control>
+        <control>
+          <id>0</id>
+        </control>
       </event>
       <event>
         <name>down</name>
@@ -34,6 +43,12 @@
           <type>keyboard</type>
           <id>0</id>
         </device>
+        <control>
+          <type>none</type>
+        </control>
+        <control>
+          <id>0</id>
+        </control>
       </event>
       <event>
         <name>left</name>
@@ -42,6 +57,12 @@
           <type>keyboard</type>
           <id>0</id>
         </device>
+        <control>
+          <type>none</type>
+        </control>
+        <control>
+          <id>0</id>
+        </control>
       </event>
       <event>
         <name>right</name>
@@ -50,6 +71,12 @@
           <type>keyboard</type>
           <id>0</id>
         </device>
+        <control>
+          <type>none</type>
+        </control>
+        <control>
+          <id>0</id>
+        </control>
       </event>
       <event>
         <name>select</name>
@@ -58,6 +85,12 @@
           <type>keyboard</type>
           <id>0</id>
         </device>
+        <control>
+          <type>none</type>
+        </control>
+        <control>
+          <id>0</id>
+        </control>
       </event>
       <event>
         <name>back</name>
@@ -66,6 +99,12 @@
           <type>keyboard</type>
           <id>0</id>
         </device>
+        <control>
+          <type>none</type>
+        </control>
+        <control>
+          <id>0</id>
+        </control>
       </event>
       <event>
         <name>quit</name>
@@ -74,6 +113,12 @@
           <type>keyboard</type>
           <id>0</id>
         </device>
+        <control>
+          <type>none</type>
+        </control>
+        <control>
+          <id>0</id>
+        </control>
       </event>
     </controls>
   </interface>
@@ -145,7 +190,7 @@
     </location>
     <location>
       <type>video</type>
-      <directory>/games/artworks/snes/video</directory>
+      <directory>/games/artworks/snes/videos</directory>
     </location>
     <location>
       <type>logo</type>
@@ -157,7 +202,7 @@
     </location>
     <location>
       <type>video</type>
-      <directory>/games/artworks/genesis/video</directory>
+      <directory>/games/artworks/genesis/videos</directory>
     </location>
     <location>
       <type>logo</type>

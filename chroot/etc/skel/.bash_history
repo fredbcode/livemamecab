@@ -32,3 +32,5 @@ sudo su
 retroarch -L /usr/lib/libretro/genesis_plus_gx_libretro.so /games/roms/genesis/qbert.sms 
 /games/mamelive/scripts/download_artworks.sh 
 sudo su
+more /etc/apt/preferences
+sudo su
