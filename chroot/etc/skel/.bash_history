@@ -34,3 +34,5 @@ retroarch -L /usr/lib/libretro/genesis_plus_gx_libretro.so /games/roms/genesis/q
 sudo su
 more /etc/apt/preferences
 sudo su
+sud su
+sudo su
