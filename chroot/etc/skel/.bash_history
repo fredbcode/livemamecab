@@ -36,3 +36,4 @@ more /etc/apt/preferences
 sudo su
 sud su
 sudo su
+cabrio-config 
