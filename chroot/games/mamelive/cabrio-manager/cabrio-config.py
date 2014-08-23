@@ -334,6 +334,7 @@ class App(tk.Tk):
 			self.themeSoundsStr = lang.find("themeSounds").text
 			self.videoSoundStr = lang.find("videoSound").text
 			self.musicVolumeStr = lang.find("musicVolume").text
+			self.hideButtonsStr = lang.find("hideButtons").text
 		self.path = expanduser("~") + "/.cabrio/"
 		try:
 			self.configTree = ET.parse(self.path + "config.xml")
@@ -347,8 +348,10 @@ class App(tk.Tk):
 		self.framerateVar.set(self.framerate.text)
 		self.videoLoop = self.getNode("video-loop", "interface", "true")
 		self.videoLoopVar = self.setVar(self.videoLoop, bool)
+		self.hideButtons = self.getNode("hide-buttons", "interface", "false")
+		self.hideButtonsVar = self.setVar(self.hideButtons, bool)
 		self.musicVolume = self.getNode("music-volume", "interface", "128")
-		self.musicVolumeVar = self.setVar(self.musicVolume, str)
+		self.musicVolumeVar = self.setVar(self.musicVolume, float)
 		self.videoSound = self.getNode("video-sound", "interface", "true")
 		self.videoSoundVar = self.setVar(self.videoSound, bool)
 		self.themeSounds = self.getNode("theme-sound", "interface", "true")
@@ -498,14 +501,16 @@ class App(tk.Tk):
 		# Interface label frame widgets declaration starts here.
 		self.fsCheckButton = ttk.Checkbutton(self.interfaceLabelFrame, variable=self.fullscreenVar, text=self.fullscreenStr, command=lambda a=self.fullscreen, b=self.fullscreenVar: self.writeBool(a, b))
 		self.fsCheckButton.grid(column=0, row=0, sticky="W")
-		self.framerateLabel = ttk.Label(self.interfaceLabelFrame, text=self.framerateStr)
-		self.framerateLabel.grid(column=0, row=1, sticky="W")
-		self.framerateEntry = ttk.Entry(self.interfaceLabelFrame, text=self.framerateVar)
-		self.framerateEntry.grid(column=1, row=1, sticky="W")
-		self.setFramerateButton = ttk.Button(self.interfaceLabelFrame, text=self.setButtonStr, command=lambda a=self.framerate, b= self.framerateVar: self.writeString(a, b))
-		self.setFramerateButton.grid(column=2, row=1)
+		self.hideButtonsCheckButton = ttk.Checkbutton(self.interfaceLabelFrame, variable=self.hideButtonsVar, text=self.hideButtonsStr, command=lambda a=self.hideButtons, b=self.hideButtonsVar: self.writeBool(a, b))
+		self.hideButtonsCheckButton.grid(column=1, row=0, sticky="W")
 		self.videoLoopCheckButton = ttk.Checkbutton(self.interfaceLabelFrame, variable=self.videoLoopVar, text=self.videoLoopStr, command=lambda a=self.videoLoop, b=self.videoLoopVar: self.writeBool(a, b))
-		self.videoLoopCheckButton.grid(column=0, row=2, columnspan=2, sticky="W")
+		self.videoLoopCheckButton.grid(column=0, row=1, columnspan=2, sticky="W")
+		self.framerateLabel = ttk.Label(self.interfaceLabelFrame, text=self.framerateStr)
+		self.framerateLabel.grid(column=0, row=2, sticky="W")
+		self.framerateEntry = ttk.Entry(self.interfaceLabelFrame, text=self.framerateVar)
+		self.framerateEntry.grid(column=1, row=2, sticky="W")
+		self.setFramerateButton = ttk.Button(self.interfaceLabelFrame, text=self.setButtonStr, command=lambda a=self.framerate, b= self.framerateVar: self.writeString(a, b))
+		self.setFramerateButton.grid(column=2, row=2)
 		self.themeLabel = ttk.Label(self.interfaceLabelFrame, text=self.themeStr)
 		self.themeLabel.grid(column=0, row=3, sticky="W")
 		self.themesCombobox = ttk.Combobox(self.interfaceLabelFrame, values=self.themesList, textvariable=self.themeVar, state="readonly")
@@ -568,10 +573,13 @@ class App(tk.Tk):
 		self.themeSoundsCheckButton.grid(column=0, row=1, sticky="W")
 		self.musicVolumeLabel = ttk.Label(self.audioLabelFrame, text=self.musicVolumeStr)
 		self.musicVolumeLabel.grid(column=0, row=2)
-		self.musicVolumeSpinbox = tk.Spinbox(self.audioLabelFrame, from_=1.0, to=128.0, textvariable=self.musicVolumeVar, width=3)
-		self.musicVolumeSpinbox.grid(column=1, row=2)
-		self.setFramerateButton = ttk.Button(self.audioLabelFrame, text=self.setButtonStr, command=lambda a=self.musicVolume, b= self.musicVolumeVar: self.writeString(a, b))
-		self.setFramerateButton.grid(column=2, row=2)
+		self.musicVolumeScale = ttk.Scale(self.audioLabelFrame, length=250, orient="horizontal", from_=1.0, to=128.0, variable=self.musicVolumeVar)
+		self.musicVolumeScale.bind("<ButtonRelease-1>", lambda a=None, b=self.musicVolume, c=self.musicVolumeScale: self.writeFloat(a, b, c))
+		self.musicVolumeScale.grid(column=1, row=2)
+		# self.musicVolumeSpinbox = tk.Spinbox(self.audioLabelFrame, from_=1.0, to=128.0, textvariable=self.musicVolumeVar, width=3)
+		# self.musicVolumeSpinbox.grid(column=1, row=2)
+		# self.setmusicVolumeButton = ttk.Button(self.audioLabelFrame, text=self.setButtonStr, command=lambda a=self.musicVolume, b= self.musicVolumeVar: self.writeString(a, b))
+		# self.setmusicVolumeButton.grid(column=2, row=2)
 		# Locations tab starts here
 		# self.themesPathLabel = ttk.Label(self.pathTab, text=self.themesPathLabelStr)
 		# self.themesPathLabel.grid(column=0, row=0, sticky="W")
@@ -1406,6 +1414,9 @@ class App(tk.Tk):
 	def writeInt(self, node, var):
 		node.text = str(var.get())
 		self.configTree.write(self.path + 'config.xml')
+	def writeFloat(self, event, node, var):
+		node.text = str(int(var.get()))
+		self.configTree.write(self.path + 'config.xml')
 	def writeBool(self, node, var):
 		if var.get() == 1:
 			node.text = "true"
@@ -1414,7 +1425,7 @@ class App(tk.Tk):
 		self.configTree.write(self.path + 'config.xml')
 	def writeString(self, node1, var1, node2=None, var2=None):
 		node1.text = var1.get()
-		if node2 != None:
+		if node2 != None: # For resolution it is necessary to save 2 values.
 			node2.text = var2.get()
 		self.configTree.write(self.path + 'config.xml')
 	def writeTheme(self, event):
@@ -1462,6 +1473,9 @@ class App(tk.Tk):
 		elif sourceType == int:
 			var = tk.IntVar()
 			var.set(int(node.text))
+		elif sourceType == float:
+			var = tk.DoubleVar()
+			var.set(float(node.text))
 		return var
 	def updateControl(self, control, valueWidget, deviceWidget, deviceIdVar, controlWidget, controlIdVar):
 		# Get control

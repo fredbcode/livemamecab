@@ -86,6 +86,7 @@
 			<videoSound>Video sound</videoSound>
 			<themeSounds>Theme sounds</themeSounds>
 			<musicVolume>Music volume</musicVolume>
+			<hideButtons>Hide buttons</hideButtons>
 		</lang>
 		<lang name="Français" code="fr_FR">
 			<title>Éditeur de configuration Cabrio</title>
@@ -173,6 +174,7 @@
 			<videoSound>Son de la vidéo</videoSound>
 			<themeSounds>Sons du thème</themeSounds>
 			<musicVolume>Volume de la musique</musicVolume>
+			<hideButtons>Cacher les boutons</hideButtons>
 		</lang>
 	</langs>
 </root>
