@@ -19,8 +19,9 @@ class App(tk.Tk):
 	"""docstring for App"""
 	def __init__(self):
 		tk.Tk.__init__(self)
+		# For test purpose only:
 		# self.SDLout = "up: joystick0 axis SDL_KEYCODE = -1 \ndown: joystick0 axis SDL_KEYCODE = 1 \nleft: joystick0 axis SDL_KEYCODE = -1 \nright: joystick0 axis SDL_KEYCODE = 1 \nselect: joystick0 button SDL_KEYCODE = 0 \nback: joystick0 button SDL_KEYCODE = 2\nquit: joystick0 button SDL_KEYCODE = 1"
-		# self.SDLout = "up: joystick0 axis SDL_KEYCODE = 1 typeaxis = 1 \ndown: joystick0 axis SDL_KEYCODE = -1 typeaxis = 1 \nleft: joystick0 hat SDL_KEYCODE = 3 typeaxis = 0 \nright: joystick0 hat SDL_KEYCODE = 0 typeaxis = 0 \nselect: joystick0 button SDL_KEYCODE = 0 typeaxis = 0 \nback: joystick0 button SDL_KEYCODE = 3 typeaxis = 0 \nquit: joystick0 button SDL_KEYCODE = 5 typeaxis = 0 "
+		# self.SDLout = "up: joystick0 axis SDL_KEYCODE = -1 typeaxis = 1 \ndown: joystick0 axis SDL_KEYCODE = 1 typeaxis = 1 \nleft: joystick0 axis SDL_KEYCODE = -1 typeaxis = 0 \nright: joystick0 axis SDL_KEYCODE = 1 typeaxis = 0 \nselect: joystick0 button SDL_KEYCODE = 1 typeaxis = 0 \nback: joystick0 button SDL_KEYCODE = 3 typeaxis = 0 \nquit: joystick0 button SDL_KEYCODE = 2 typeaxis = 0"
 		self.SDLkeys = [
 			"backspace",
 			"tab",
@@ -329,6 +330,10 @@ class App(tk.Tk):
 			self.typeStr = lang.find("type").text
 			self.valueStr = lang.find("value").text
 			self.setAllKeysStr = lang.find("setAllKeys").text
+			self.audioLabelFrameStr = lang.find("audio").text
+			self.themeSoundsStr = lang.find("themeSounds").text
+			self.videoSoundStr = lang.find("videoSound").text
+			self.musicVolumeStr = lang.find("musicVolume").text
 		self.path = expanduser("~") + "/.cabrio/"
 		try:
 			self.configTree = ET.parse(self.path + "config.xml")
@@ -342,6 +347,12 @@ class App(tk.Tk):
 		self.framerateVar.set(self.framerate.text)
 		self.videoLoop = self.getNode("video-loop", "interface", "true")
 		self.videoLoopVar = self.setVar(self.videoLoop, bool)
+		self.musicVolume = self.getNode("music-volume", "interface", "128")
+		self.musicVolumeVar = self.setVar(self.musicVolume, str)
+		self.videoSound = self.getNode("video-sound", "interface", "true")
+		self.videoSoundVar = self.setVar(self.videoSound, bool)
+		self.themeSounds = self.getNode("theme-sound", "interface", "true")
+		self.themeSoundsVar = self.setVar(self.themeSounds, bool)
 		try:
 			self.themesList = self.getFolders("/usr/share/cabrio/themes/")
 		except:
@@ -527,7 +538,7 @@ class App(tk.Tk):
 		self.flipHorizontalCheckbutton.grid(column=0, row=2, columnspan=3)
 		self.flipVerticalCheckbutton = ttk.Checkbutton(self.screenLabelFrame, variable=self.flipVerticalVar, text=self.flipVerticalStr, command=lambda a=self.flipVertical, b=self.flipVerticalVar: self.writeInt(a, b))
 		self.flipVerticalCheckbutton.grid(column=3, row=2, columnspan=3)
-		# Graphics label frame widgets declaration starts here.
+		# Graphics label frame widget declaration starts here.
 		self.graphicsLabelFrame = ttk.Labelframe(self.displayTab, text=self.graphicsLabelFrameStr)
 		self.displayPanedWindow.add(self.graphicsLabelFrame)
 		self.qualityLabel = ttk.Label(self.graphicsLabelFrame, text=self.qualityLabelStr)
@@ -548,6 +559,19 @@ class App(tk.Tk):
 		self.maxImageHeightEntry.grid(column=1, row=2, columnspan=2)
 		self.maxSetButton = ttk.Button(self.graphicsLabelFrame, text=self.setButtonStr, command=lambda a=self.maxImageWidth, b=self.maxImageWidthVar, c=self.maxImageHeight, d=self.maxImageHeightVar: self.writeString(a, b, c, d))
 		self.maxSetButton.grid(column=5, row=1, rowspan=2)
+		# Audio label frame widgets declaration starts here.
+		self.audioLabelFrame = ttk.Labelframe(self.displayTab, text=self.audioLabelFrameStr)
+		self.displayPanedWindow.add(self.audioLabelFrame)
+		self.videoSoundCheckButton = ttk.Checkbutton(self.audioLabelFrame, variable=self.videoSoundVar, text=self.videoSoundStr, command=lambda a=self.videoSound, b=self.videoSoundVar: self.writeBool(a, b))
+		self.videoSoundCheckButton.grid(column=0, row=0, sticky="W")
+		self.themeSoundsCheckButton = ttk.Checkbutton(self.audioLabelFrame, variable=self.themeSoundsVar, text=self.themeSoundsStr, command=lambda a=self.themeSounds, b=self.themeSoundsVar: self.writeBool(a, b))
+		self.themeSoundsCheckButton.grid(column=0, row=1, sticky="W")
+		self.musicVolumeLabel = ttk.Label(self.audioLabelFrame, text=self.musicVolumeStr)
+		self.musicVolumeLabel.grid(column=0, row=2)
+		self.musicVolumeSpinbox = tk.Spinbox(self.audioLabelFrame, from_=1.0, to=128.0, textvariable=self.musicVolumeVar, width=3)
+		self.musicVolumeSpinbox.grid(column=1, row=2)
+		self.setFramerateButton = ttk.Button(self.audioLabelFrame, text=self.setButtonStr, command=lambda a=self.musicVolume, b= self.musicVolumeVar: self.writeString(a, b))
+		self.setFramerateButton.grid(column=2, row=2)
 		# Locations tab starts here
 		# self.themesPathLabel = ttk.Label(self.pathTab, text=self.themesPathLabelStr)
 		# self.themesPathLabel.grid(column=0, row=0, sticky="W")
@@ -1794,9 +1818,9 @@ class App(tk.Tk):
 		return v
 	def getControls(self):
 		# get data from the output of the console
-		p = subprocess.Popen(["cabrio-config"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-		raw, err = p.communicate()
-		# raw = self.SDLout
+		# p = subprocess.Popen(["cabrio-config"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+		# raw, err = p.communicate()
+		raw = self.SDLout
 		output = raw.split("\n")
 		for n in output:
 			t = n.find("up:")

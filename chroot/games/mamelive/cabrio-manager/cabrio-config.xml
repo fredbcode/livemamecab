@@ -82,6 +82,10 @@
 			<type>Type</type>
 			<value>Value</value>
 			<setAllKeys>Set All Controls</setAllKeys>
+			<audio>Audio</audio>
+			<videoSound>Video sound</videoSound>
+			<themeSounds>Theme sounds</themeSounds>
+			<musicVolume>Music volume</musicVolume>
 		</lang>
 		<lang name="Français" code="fr_FR">
 			<title>Éditeur de configuration Cabrio</title>
@@ -165,6 +169,10 @@
 			<type>Type</type>
 			<value>Valeur</value>
 			<setAllKeys>Définir tous les boutons</setAllKeys>
+			<audio>Audio</audio>
+			<videoSound>Son de la vidéo</videoSound>
+			<themeSounds>Sons du thème</themeSounds>
+			<musicVolume>Volume de la musique</musicVolume>
 		</lang>
 	</langs>
 </root>
