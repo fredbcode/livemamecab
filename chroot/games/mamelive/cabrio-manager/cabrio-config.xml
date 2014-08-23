@@ -70,6 +70,11 @@
 			<selectLabel>Select</selectLabel>
 			<backLabel>Back</backLabel>
 			<quitLabel>Quit</quitLabel>
+			<list1Label>List 1</list1Label>
+			<list2Label>List 2</list2Label>
+			<list3Label>List 3</list3Label>
+			<list4Label>List 4</list4Label>
+			<list5Label>List 5</list5Label>
 			<keyboard>Keyboard</keyboard>
 			<mouse>Mouse</mouse>
 			<joystick>Joystick</joystick>
@@ -158,6 +163,11 @@
 			<selectLabel>Choisir</selectLabel>
 			<backLabel>Retour</backLabel>
 			<quitLabel>Quitter</quitLabel>
+			<list1Label>Liste 1</list1Label>
+			<list2Label>Liste 2</list2Label>
+			<list3Label>Liste 3</list3Label>
+			<list4Label>Liste 4</list4Label>
+			<list5Label>Liste 5</list5Label>
 			<keyboard>Clavier</keyboard>
 			<mouse>Souris</mouse>
 			<joystick>Joystick</joystick>

@@ -322,6 +322,11 @@ class App(tk.Tk):
 			self.selectLabelStr = lang.find("selectLabel").text
 			self.backLabelStr = lang.find("backLabel").text
 			self.quitLabelStr = lang.find("quitLabel").text
+			self.list1LabelStr = lang.find("list1Label").text
+			self.list2LabelStr = lang.find("list2Label").text
+			self.list3LabelStr = lang.find("list3Label").text
+			self.list4LabelStr = lang.find("list4Label").text
+			self.list5LabelStr = lang.find("list5Label").text
 			self.keyboardStr = lang.find("keyboard").text
 			self.mouseStr = lang.find("mouse").text
 			self.joystickStr = lang.find("joystick").text
@@ -393,83 +398,148 @@ class App(tk.Tk):
 		self.upControlList = self.setControlList(self.upDeviceTypeVar)
 		self.upValueList = self.setValueList(self.upDeviceTypeVar.get(), self.upControlTypeVar.get())
 
-		self.downValue = self.getNode("value", "", "up", "down")
+		self.downValue = self.getNode("value", "", "down", "down")
 		self.downValueVar = self.setVar(self.downValue, str)
 		self.downDeviceType = self.getNode("type", "device", "keyboard", "down")
 		self.downDeviceTypeVar = self.setVar(self.downDeviceType, str)
 		self.downDeviceId  = self.getNode("id", "device", "0", "down")
 		self.downDeviceIdVar = self.setVar(self.downDeviceId, int)
-		self.downControlType = self.getNode("type", "control", "none", "down")
+		self.downControlType = self.getNode("type", "control", "Default", "down")
 		self.downControlTypeVar = self.setVar(self.downControlType, str)
 		self.downControlId = self.getNode("id", "control", "0", "down")
 		self.downControlIdVar = self.setVar(self.downControlId, int)
 		self.downControlList = self.setControlList(self.downDeviceTypeVar)
 		self.downValueList = self.setValueList(self.downDeviceTypeVar.get(), self.downControlTypeVar.get())
 
-		self.leftValue = self.getNode("value", "", "up", "left")
+		self.leftValue = self.getNode("value", "", "left", "left")
 		self.leftValueVar = self.setVar(self.leftValue, str)
 		self.leftDeviceType = self.getNode("type", "device", "keyboard", "left")
 		self.leftDeviceTypeVar = self.setVar(self.leftDeviceType, str)
 		self.leftDeviceId  = self.getNode("id", "device", "0", "left")
 		self.leftDeviceIdVar = self.setVar(self.leftDeviceId, int)
-		self.leftControlType = self.getNode("type", "control", "none", "left")
+		self.leftControlType = self.getNode("type", "control", "Default", "left")
 		self.leftControlTypeVar = self.setVar(self.leftControlType, str)
 		self.leftControlId = self.getNode("id", "control", "0", "left")
 		self.leftControlIdVar = self.setVar(self.leftControlId, int)
 		self.leftControlList = self.setControlList(self.leftDeviceTypeVar)
 		self.leftValueList = self.setValueList(self.leftDeviceTypeVar.get(), self.leftControlTypeVar.get())
 
-		self.rightValue = self.getNode("value", "", "up", "right")
+		self.rightValue = self.getNode("value", "", "right", "right")
 		self.rightValueVar = self.setVar(self.rightValue, str)
 		self.rightDeviceType = self.getNode("type", "device", "keyboard", "right")
 		self.rightDeviceTypeVar = self.setVar(self.rightDeviceType, str)
 		self.rightDeviceId  = self.getNode("id", "device", "0", "right")
 		self.rightDeviceIdVar = self.setVar(self.rightDeviceId, int)
-		self.rightControlType = self.getNode("type", "control", "none", "right")
+		self.rightControlType = self.getNode("type", "control", "Default", "right")
 		self.rightControlTypeVar = self.setVar(self.rightControlType, str)
 		self.rightControlId = self.getNode("id", "control", "0", "right")
 		self.rightControlIdVar = self.setVar(self.rightControlId, int)
 		self.rightControlList = self.setControlList(self.rightDeviceTypeVar)
 		self.rightValueList = self.setValueList(self.rightDeviceTypeVar.get(), self.rightControlTypeVar.get())
 
-		self.selectValue = self.getNode("value", "", "up", "select")
+		self.selectValue = self.getNode("value", "", "return", "select")
 		self.selectValueVar = self.setVar(self.selectValue, str)
 		self.selectDeviceType = self.getNode("type", "device", "keyboard", "select")
 		self.selectDeviceTypeVar = self.setVar(self.selectDeviceType, str)
 		self.selectDeviceId  = self.getNode("id", "device", "0", "select")
 		self.selectDeviceIdVar = self.setVar(self.selectDeviceId, int)
-		self.selectControlType = self.getNode("type", "control", "none", "select")
+		self.selectControlType = self.getNode("type", "control", "Default", "select")
 		self.selectControlTypeVar = self.setVar(self.selectControlType, str)
 		self.selectControlId = self.getNode("id", "control", "0", "select")
 		self.selectControlIdVar = self.setVar(self.selectControlId, int)
 		self.selectControlList = self.setControlList(self.selectDeviceTypeVar)
 		self.selectValueList = self.setValueList(self.selectDeviceTypeVar.get(), self.selectControlTypeVar.get())
 
-		self.backValue = self.getNode("value", "", "up", "back")
+		self.backValue = self.getNode("value", "", "backspace", "back")
 		self.backValueVar = self.setVar(self.backValue, str)
 		self.backDeviceType = self.getNode("type", "device", "keyboard", "back")
 		self.backDeviceTypeVar = self.setVar(self.backDeviceType, str)
 		self.backDeviceId  = self.getNode("id", "device", "0", "back")
 		self.backDeviceIdVar = self.setVar(self.backDeviceId, int)
-		self.backControlType = self.getNode("type", "control", "none", "back")
+		self.backControlType = self.getNode("type", "control", "Default", "back")
 		self.backControlTypeVar = self.setVar(self.backControlType, str)
 		self.backControlId = self.getNode("id", "control", "0", "back")
 		self.backControlIdVar = self.setVar(self.backControlId, int)
 		self.backControlList = self.setControlList(self.backDeviceTypeVar)
 		self.backValueList = self.setValueList(self.backDeviceTypeVar.get(), self.backControlTypeVar.get())
 
-		self.quitValue = self.getNode("value", "", "up", "quit")
+		self.quitValue = self.getNode("value", "", "escape", "quit")
 		self.quitValueVar = self.setVar(self.quitValue, str)
 		self.quitDeviceType = self.getNode("type", "device", "keyboard", "quit")
 		self.quitDeviceTypeVar = self.setVar(self.quitDeviceType, str)
 		self.quitDeviceId  = self.getNode("id", "device", "0", "quit")
 		self.quitDeviceIdVar = self.setVar(self.quitDeviceId, int)
-		self.quitControlType = self.getNode("type", "control", "none", "quit")
+		self.quitControlType = self.getNode("type", "control", "Default", "quit")
 		self.quitControlTypeVar = self.setVar(self.quitControlType, str)
 		self.quitControlId = self.getNode("id", "control", "0", "quit")
 		self.quitControlIdVar = self.setVar(self.quitControlId, int)
 		self.quitControlList = self.setControlList(self.quitDeviceTypeVar)
 		self.quitValueList = self.setValueList(self.quitDeviceTypeVar.get(), self.quitControlTypeVar.get())
+
+		self.list1Value = self.getNode("value", "", "LSHIFT", "list1")
+		self.list1ValueVar = self.setVar(self.list1Value, str)
+		self.list1DeviceType = self.getNode("type", "device", "keyboard", "list1")
+		self.list1DeviceTypeVar = self.setVar(self.list1DeviceType, str)
+		self.list1DeviceId  = self.getNode("id", "device", "0", "list1")
+		self.list1DeviceIdVar = self.setVar(self.list1DeviceId, int)
+		self.list1ControlType = self.getNode("type", "control", "Default", "list1")
+		self.list1ControlTypeVar = self.setVar(self.list1ControlType, str)
+		self.list1ControlId = self.getNode("id", "control", "0", "list1")
+		self.list1ControlIdVar = self.setVar(self.list1ControlId, int)
+		self.list1ControlList = self.setControlList(self.list1DeviceTypeVar)
+		self.list1ValueList = self.setValueList(self.list1DeviceTypeVar.get(), self.list1ControlTypeVar.get())
+
+		self.list2Value = self.getNode("value", "", "LCTRL", "list2")
+		self.list2ValueVar = self.setVar(self.list2Value, str)
+		self.list2DeviceType = self.getNode("type", "device", "keyboard", "list2")
+		self.list2DeviceTypeVar = self.setVar(self.list2DeviceType, str)
+		self.list2DeviceId  = self.getNode("id", "device", "0", "list2")
+		self.list2DeviceIdVar = self.setVar(self.list2DeviceId, int)
+		self.list2ControlType = self.getNode("type", "control", "Default", "list2")
+		self.list2ControlTypeVar = self.setVar(self.list2ControlType, str)
+		self.list2ControlId = self.getNode("id", "control", "0", "list2")
+		self.list2ControlIdVar = self.setVar(self.list2ControlId, int)
+		self.list2ControlList = self.setControlList(self.list2DeviceTypeVar)
+		self.list2ValueList = self.setValueList(self.list2DeviceTypeVar.get(), self.list2ControlTypeVar.get())
+
+		self.list3Value = self.getNode("value", "", "LALT", "list3")
+		self.list3ValueVar = self.setVar(self.list3Value, str)
+		self.list3DeviceType = self.getNode("type", "device", "keyboard", "list3")
+		self.list3DeviceTypeVar = self.setVar(self.list3DeviceType, str)
+		self.list3DeviceId  = self.getNode("id", "device", "0", "list3")
+		self.list3DeviceIdVar = self.setVar(self.list3DeviceId, int)
+		self.list3ControlType = self.getNode("type", "control", "Default", "list3")
+		self.list3ControlTypeVar = self.setVar(self.list3ControlType, str)
+		self.list3ControlId = self.getNode("id", "control", "0", "list3")
+		self.list3ControlIdVar = self.setVar(self.list3ControlId, int)
+		self.list3ControlList = self.setControlList(self.list3DeviceTypeVar)
+		self.list3ValueList = self.setValueList(self.list3DeviceTypeVar.get(), self.list3ControlTypeVar.get())
+
+		self.list4Value = self.getNode("value", "", "space", "list4")
+		self.list4ValueVar = self.setVar(self.list4Value, str)
+		self.list4DeviceType = self.getNode("type", "device", "keyboard", "list4")
+		self.list4DeviceTypeVar = self.setVar(self.list4DeviceType, str)
+		self.list4DeviceId  = self.getNode("id", "device", "0", "list4")
+		self.list4DeviceIdVar = self.setVar(self.list4DeviceId, int)
+		self.list4ControlType = self.getNode("type", "control", "Default", "list4")
+		self.list4ControlTypeVar = self.setVar(self.list4ControlType, str)
+		self.list4ControlId = self.getNode("id", "control", "0", "list4")
+		self.list4ControlIdVar = self.setVar(self.list4ControlId, int)
+		self.list4ControlList = self.setControlList(self.list4DeviceTypeVar)
+		self.list4ValueList = self.setValueList(self.list4DeviceTypeVar.get(), self.list4ControlTypeVar.get())
+
+		self.list5Value = self.getNode("value", "", "RALT", "list5")
+		self.list5ValueVar = self.setVar(self.list5Value, str)
+		self.list5DeviceType = self.getNode("type", "device", "keyboard", "list5")
+		self.list5DeviceTypeVar = self.setVar(self.list5DeviceType, str)
+		self.list5DeviceId  = self.getNode("id", "device", "0", "list5")
+		self.list5DeviceIdVar = self.setVar(self.list5DeviceId, int)
+		self.list5ControlType = self.getNode("type", "control", "Default", "list5")
+		self.list5ControlTypeVar = self.setVar(self.list5ControlType, str)
+		self.list5ControlId = self.getNode("id", "control", "0", "list5")
+		self.list5ControlIdVar = self.setVar(self.list5ControlId, int)
+		self.list5ControlList = self.setControlList(self.list5DeviceTypeVar)
+		self.list5ValueList = self.setValueList(self.list5DeviceTypeVar.get(), self.list5ControlTypeVar.get())
 
 		self.emulatorBinary = tk.StringVar()
 		self.emulatorBinary.set("")
@@ -734,7 +804,84 @@ class App(tk.Tk):
 		self.quitValueCombobox = ttk.Combobox(self.controlsTab, values=self.quitValueList, textvariable=self.quitValueVar, state="readonly", width=17)
 		self.quitValueCombobox.grid(column=7, row=8, sticky="W")
 		self.saveButton = ttk.Button(self.controlsTab, text="Save", command=lambda: self.saveControlsChange())
-		self.saveButton.grid(column=0, row=9, columnspan=8)
+		# List 1 widgets declaration
+		self.list1Label = ttk.Label(self.controlsTab, text=self.list1LabelStr)
+		self.list1Label.grid(column=0, row=8, sticky="W")
+		self.list1DeviceTypeCombobox = ttk.Combobox(self.controlsTab, values=self.devicesList, textvariable=self.list1DeviceTypeVar, state="readonly", width=7)
+		self.list1DeviceTypeCombobox.bind("<<ComboboxSelected>>", lambda a=None, b="list1", c="device": self.updateWidget(a, b, c))
+		self.list1DeviceTypeCombobox.grid(column=1, row=8)
+		self.list1DeviceIdSpinbox = tk.Spinbox(self.controlsTab, from_=0.0, to=99.0, textvariable=self.list1DeviceIdVar, width=2)
+		self.list1DeviceIdSpinbox.grid(column=2, row=8)
+		self.list1ControlTypeCombobox = ttk.Combobox(self.controlsTab, values=self.list1ControlList, textvariable=self.list1ControlTypeVar, state="readonly", width=7)
+		self.list1ControlTypeCombobox.bind("<<ComboboxSelected>>", lambda a=None, b="list1", c="control": self.updateWidget(a, b, c))
+		self.list1ControlTypeCombobox.grid(column=4, row=8)
+		self.list1ControlIdSpinbox = tk.Spinbox(self.controlsTab, from_=0.0, to=99, textvariable=self.list1ControlIdVar, width=2)
+		self.list1ControlIdSpinbox.grid(column=5, row=8, sticky="W")
+		self.list1ValueCombobox = ttk.Combobox(self.controlsTab, values=self.list1ValueList, textvariable=self.list1ValueVar, state="readonly", width=17)
+		self.list1ValueCombobox.grid(column=7, row=8, sticky="W")
+		# List 2 widgets declaration
+		self.list2Label = ttk.Label(self.controlsTab, text=self.list2LabelStr)
+		self.list2Label.grid(column=0, row=9, sticky="W")
+		self.list2DeviceTypeCombobox = ttk.Combobox(self.controlsTab, values=self.devicesList, textvariable=self.list2DeviceTypeVar, state="readonly", width=7)
+		self.list2DeviceTypeCombobox.bind("<<ComboboxSelected>>", lambda a=None, b="list2", c="device": self.updateWidget(a, b, c))
+		self.list2DeviceTypeCombobox.grid(column=1, row=9)
+		self.list2DeviceIdSpinbox = tk.Spinbox(self.controlsTab, from_=0.0, to=99.0, textvariable=self.list2DeviceIdVar, width=2)
+		self.list2DeviceIdSpinbox.grid(column=2, row=9)
+		self.list2ControlTypeCombobox = ttk.Combobox(self.controlsTab, values=self.list2ControlList, textvariable=self.list2ControlTypeVar, state="readonly", width=7)
+		self.list2ControlTypeCombobox.bind("<<ComboboxSelected>>", lambda a=None, b="list2", c="control": self.updateWidget(a, b, c))
+		self.list2ControlTypeCombobox.grid(column=4, row=9)
+		self.list2ControlIdSpinbox = tk.Spinbox(self.controlsTab, from_=0.0, to=99, textvariable=self.list2ControlIdVar, width=2)
+		self.list2ControlIdSpinbox.grid(column=5, row=9, sticky="W")
+		self.list2ValueCombobox = ttk.Combobox(self.controlsTab, values=self.list2ValueList, textvariable=self.list2ValueVar, state="readonly", width=17)
+		self.list2ValueCombobox.grid(column=7, row=9, sticky="W")
+		# List 3 widgets declaration
+		self.list3Label = ttk.Label(self.controlsTab, text=self.list3LabelStr)
+		self.list3Label.grid(column=0, row=10, sticky="W")
+		self.list3DeviceTypeCombobox = ttk.Combobox(self.controlsTab, values=self.devicesList, textvariable=self.list3DeviceTypeVar, state="readonly", width=7)
+		self.list3DeviceTypeCombobox.bind("<<ComboboxSelected>>", lambda a=None, b="list3", c="device": self.updateWidget(a, b, c))
+		self.list3DeviceTypeCombobox.grid(column=1, row=10)
+		self.list3DeviceIdSpinbox = tk.Spinbox(self.controlsTab, from_=0.0, to=99.0, textvariable=self.list3DeviceIdVar, width=2)
+		self.list3DeviceIdSpinbox.grid(column=2, row=10)
+		self.list3ControlTypeCombobox = ttk.Combobox(self.controlsTab, values=self.list3ControlList, textvariable=self.list3ControlTypeVar, state="readonly", width=7)
+		self.list3ControlTypeCombobox.bind("<<ComboboxSelected>>", lambda a=None, b="list3", c="control": self.updateWidget(a, b, c))
+		self.list3ControlTypeCombobox.grid(column=4, row=10)
+		self.list3ControlIdSpinbox = tk.Spinbox(self.controlsTab, from_=0.0, to=99, textvariable=self.list3ControlIdVar, width=2)
+		self.list3ControlIdSpinbox.grid(column=5, row=10, sticky="W")
+		self.list3ValueCombobox = ttk.Combobox(self.controlsTab, values=self.list3ValueList, textvariable=self.list3ValueVar, state="readonly", width=17)
+		self.list3ValueCombobox.grid(column=7, row=10, sticky="W")
+		# List 4 widgets declaration
+		self.list4Label = ttk.Label(self.controlsTab, text=self.list4LabelStr)
+		self.list4Label.grid(column=0, row=11, sticky="W")
+		self.list4DeviceTypeCombobox = ttk.Combobox(self.controlsTab, values=self.devicesList, textvariable=self.list4DeviceTypeVar, state="readonly", width=7)
+		self.list4DeviceTypeCombobox.bind("<<ComboboxSelected>>", lambda a=None, b="list4", c="device": self.updateWidget(a, b, c))
+		self.list4DeviceTypeCombobox.grid(column=1, row=11)
+		self.list4DeviceIdSpinbox = tk.Spinbox(self.controlsTab, from_=0.0, to=99.0, textvariable=self.list4DeviceIdVar, width=2)
+		self.list4DeviceIdSpinbox.grid(column=2, row=11)
+		self.list4ControlTypeCombobox = ttk.Combobox(self.controlsTab, values=self.list4ControlList, textvariable=self.list4ControlTypeVar, state="readonly", width=7)
+		self.list4ControlTypeCombobox.bind("<<ComboboxSelected>>", lambda a=None, b="list4", c="control": self.updateWidget(a, b, c))
+		self.list4ControlTypeCombobox.grid(column=4, row=11)
+		self.list4ControlIdSpinbox = tk.Spinbox(self.controlsTab, from_=0.0, to=99, textvariable=self.list4ControlIdVar, width=2)
+		self.list4ControlIdSpinbox.grid(column=5, row=11, sticky="W")
+		self.list4ValueCombobox = ttk.Combobox(self.controlsTab, values=self.list4ValueList, textvariable=self.list4ValueVar, state="readonly", width=17)
+		self.list4ValueCombobox.grid(column=7, row=11, sticky="W")
+		# List 5 widgets declaration
+		self.list5Label = ttk.Label(self.controlsTab, text=self.list5LabelStr)
+		self.list5Label.grid(column=0, row=12, sticky="W")
+		self.list5DeviceTypeCombobox = ttk.Combobox(self.controlsTab, values=self.devicesList, textvariable=self.list5DeviceTypeVar, state="readonly", width=7)
+		self.list5DeviceTypeCombobox.bind("<<ComboboxSelected>>", lambda a=None, b="list5", c="device": self.updateWidget(a, b, c))
+		self.list5DeviceTypeCombobox.grid(column=1, row=12)
+		self.list5DeviceIdSpinbox = tk.Spinbox(self.controlsTab, from_=0.0, to=99.0, textvariable=self.list5DeviceIdVar, width=2)
+		self.list5DeviceIdSpinbox.grid(column=2, row=12)
+		self.list5ControlTypeCombobox = ttk.Combobox(self.controlsTab, values=self.list5ControlList, textvariable=self.list5ControlTypeVar, state="readonly", width=7)
+		self.list5ControlTypeCombobox.bind("<<ComboboxSelected>>", lambda a=None, b="list5", c="control": self.updateWidget(a, b, c))
+		self.list5ControlTypeCombobox.grid(column=4, row=12)
+		self.list5ControlIdSpinbox = tk.Spinbox(self.controlsTab, from_=0.0, to=99, textvariable=self.list5ControlIdVar, width=2)
+		self.list5ControlIdSpinbox.grid(column=5, row=12, sticky="W")
+		self.list5ValueCombobox = ttk.Combobox(self.controlsTab, values=self.list5ValueList, textvariable=self.list5ValueVar, state="readonly", width=17)
+		self.list5ValueCombobox.grid(column=7, row=12, sticky="W")
+		# save button
+		self.saveButton = ttk.Button(self.controlsTab, text="Save", command=lambda: self.saveControlsChange())
+		self.saveButton.grid(column=0, row=13, columnspan=8)
 		# Emulator tab widgets declaration starts here.
 		self.newEmulatorLabel = ttk.Label(self.emulatorsTab, text=self.newEmulatorLabelStr)
 		self.newEmulatorLabel.grid(column=0, row=0, sticky="W")
@@ -779,6 +926,16 @@ class App(tk.Tk):
 		self.updateWidget(None, "back", "control")
 		self.updateWidget(None, "quit", "device")
 		self.updateWidget(None, "quit", "control")
+		self.updateWidget(None, "list1", "device")
+		self.updateWidget(None, "list1", "control")
+		self.updateWidget(None, "list2", "device")
+		self.updateWidget(None, "list2", "control")
+		self.updateWidget(None, "list3", "device")
+		self.updateWidget(None, "list3", "control")
+		self.updateWidget(None, "list4", "device")
+		self.updateWidget(None, "list4", "control")
+		self.updateWidget(None, "list5", "device")
+		self.updateWidget(None, "list5", "control")
 	def updateWidget(self, event, control, target):
 		if control == "up":
 			x = self.upDeviceTypeCombobox.get()
@@ -1130,6 +1287,256 @@ class App(tk.Tk):
 					self.quitValueCombobox["values"] = self.SDLcardinals
 					if event != None:
 						self.quitValueCombobox.set("right")
+		elif control == "list1":
+			x = self.list1DeviceTypeCombobox.get()
+			if target == "device":
+				if x == "keyboard":
+					self.list1ValueCombobox["values"] = self.SDLkeys
+					self.list1ControlTypeCombobox["values"] = self.kbTypes
+					self.list1ControlTypeCombobox.state(["disabled"])
+					self.list1ControlIdSpinbox["state"] = "disabled"
+					if event != None:
+						self.list1ControlTypeCombobox.set("Default")
+						self.list1ValueCombobox.set("LSHIFT")
+				elif x == "mouse":
+					self.list1ValueCombobox["values"] = self.SDLcardinals
+					self.list1ControlTypeCombobox["values"] = self.mouseTypes
+					self.list1ControlTypeCombobox.state(["!disabled"])
+					self.list1ControlIdSpinbox["state"] = "normal"
+					if event != None:
+						self.list1ControlTypeCombobox.set("button")
+						self.list1ValueCombobox.set("4")
+				elif x == "joystick":
+					self.list1ValueCombobox["values"] = self.SDLpolarity
+					self.list1ControlTypeCombobox["values"] = self.joyTypes
+					self.list1ControlTypeCombobox.state(["!disabled"])
+					self.list1ControlIdSpinbox["state"] = "normal"
+					if event != None:
+						self.list1ControlTypeCombobox.set("button")
+						self.list1ValueCombobox.set("4")
+			elif target == "control":
+				y = self.list1ControlTypeCombobox.get()
+				if y == "axis":
+					if x == "joystick":
+						self.list1ValueCombobox["values"] = self.SDLpolarity
+						if event != None:
+							self.list1ValueCombobox.set("plus")
+					elif x == "mouse":
+						self.list1ValueCombobox["values"] = self.SDLcardinals
+						if event != None:
+							self.list1ValueCombobox.set("right")
+				elif y == "button":
+					self.list1ValueCombobox["values"] = self.SDLbuttons
+					if event != None:
+						self.list1ValueCombobox.set("4")
+				elif y == "hat":
+					self.list1ValueCombobox["values"] = self.SDLcardinals
+					if event != None:
+						self.list1ValueCombobox.set("right")
+				elif y == "ball":
+					self.list1ValueCombobox["values"] = self.SDLcardinals
+					if event != None:
+						self.list1ValueCombobox.set("right")
+		elif control == "list2":
+			x = self.list2DeviceTypeCombobox.get()
+			if target == "device":
+				if x == "keyboard":
+					self.list2ValueCombobox["values"] = self.SDLkeys
+					self.list2ControlTypeCombobox["values"] = self.kbTypes
+					self.list2ControlTypeCombobox.state(["disabled"])
+					self.list2ControlIdSpinbox["state"] = "disabled"
+					if event != None:
+						self.list2ControlTypeCombobox.set("Default")
+						self.list2ValueCombobox.set("LCTRL")
+				elif x == "mouse":
+					self.list2ValueCombobox["values"] = self.SDLcardinals
+					self.list2ControlTypeCombobox["values"] = self.mouseTypes
+					self.list2ControlTypeCombobox.state(["!disabled"])
+					self.list2ControlIdSpinbox["state"] = "normal"
+					if event != None:
+						self.list2ControlTypeCombobox.set("button")
+						self.list2ValueCombobox.set("5")
+				elif x == "joystick":
+					self.list2ValueCombobox["values"] = self.SDLpolarity
+					self.list2ControlTypeCombobox["values"] = self.joyTypes
+					self.list2ControlTypeCombobox.state(["!disabled"])
+					self.list2ControlIdSpinbox["state"] = "normal"
+					if event != None:
+						self.list2ControlTypeCombobox.set("button")
+						self.list2ValueCombobox.set("5")
+			elif target == "control":
+				y = self.list2ControlTypeCombobox.get()
+				if y == "axis":
+					if x == "joystick":
+						self.list2ValueCombobox["values"] = self.SDLpolarity
+						if event != None:
+							self.list2ValueCombobox.set("plus")
+					elif x == "mouse":
+						self.list2ValueCombobox["values"] = self.SDLcardinals
+						if event != None:
+							self.list2ValueCombobox.set("right")
+				elif y == "button":
+					self.list2ValueCombobox["values"] = self.SDLbuttons
+					if event != None:
+						self.list2ValueCombobox.set("5")
+				elif y == "hat":
+					self.list2ValueCombobox["values"] = self.SDLcardinals
+					if event != None:
+						self.list2ValueCombobox.set("right")
+				elif y == "ball":
+					self.list2ValueCombobox["values"] = self.SDLcardinals
+					if event != None:
+						self.list2ValueCombobox.set("right")
+		elif control == "list3":
+			x = self.list3DeviceTypeCombobox.get()
+			if target == "device":
+				if x == "keyboard":
+					self.list3ValueCombobox["values"] = self.SDLkeys
+					self.list3ControlTypeCombobox["values"] = self.kbTypes
+					self.list3ControlTypeCombobox.state(["disabled"])
+					self.list3ControlIdSpinbox["state"] = "disabled"
+					if event != None:
+						self.list3ControlTypeCombobox.set("Default")
+						self.list3ValueCombobox.set("LALT")
+				elif x == "mouse":
+					self.list3ValueCombobox["values"] = self.SDLcardinals
+					self.list3ControlTypeCombobox["values"] = self.mouseTypes
+					self.list3ControlTypeCombobox.state(["!disabled"])
+					self.list3ControlIdSpinbox["state"] = "normal"
+					if event != None:
+						self.list3ControlTypeCombobox.set("button")
+						self.list3ValueCombobox.set("5")
+				elif x == "joystick":
+					self.list3ValueCombobox["values"] = self.SDLpolarity
+					self.list3ControlTypeCombobox["values"] = self.joyTypes
+					self.list3ControlTypeCombobox.state(["!disabled"])
+					self.list3ControlIdSpinbox["state"] = "normal"
+					if event != None:
+						self.list3ControlTypeCombobox.set("button")
+						self.list3ValueCombobox.set("5")
+			elif target == "control":
+				y = self.list3ControlTypeCombobox.get()
+				if y == "axis":
+					if x == "joystick":
+						self.list3ValueCombobox["values"] = self.SDLpolarity
+						if event != None:
+							self.list3ValueCombobox.set("plus")
+					elif x == "mouse":
+						self.list3ValueCombobox["values"] = self.SDLcardinals
+						if event != None:
+							self.list3ValueCombobox.set("right")
+				elif y == "button":
+					self.list3ValueCombobox["values"] = self.SDLbuttons
+					if event != None:
+						self.list3ValueCombobox.set("5")
+				elif y == "hat":
+					self.list3ValueCombobox["values"] = self.SDLcardinals
+					if event != None:
+						self.list3ValueCombobox.set("right")
+				elif y == "ball":
+					self.list3ValueCombobox["values"] = self.SDLcardinals
+					if event != None:
+						self.list3ValueCombobox.set("right")
+		elif control == "list4":
+			x = self.list4DeviceTypeCombobox.get()
+			if target == "device":
+				if x == "keyboard":
+					self.list4ValueCombobox["values"] = self.SDLkeys
+					self.list4ControlTypeCombobox["values"] = self.kbTypes
+					self.list4ControlTypeCombobox.state(["disabled"])
+					self.list4ControlIdSpinbox["state"] = "disabled"
+					if event != None:
+						self.list4ControlTypeCombobox.set("Default")
+						self.list4ValueCombobox.set("space")
+				elif x == "mouse":
+					self.list4ValueCombobox["values"] = self.SDLcardinals
+					self.list4ControlTypeCombobox["values"] = self.mouseTypes
+					self.list4ControlTypeCombobox.state(["!disabled"])
+					self.list4ControlIdSpinbox["state"] = "normal"
+					if event != None:
+						self.list4ControlTypeCombobox.set("button")
+						self.list4ValueCombobox.set("5")
+				elif x == "joystick":
+					self.list4ValueCombobox["values"] = self.SDLpolarity
+					self.list4ControlTypeCombobox["values"] = self.joyTypes
+					self.list4ControlTypeCombobox.state(["!disabled"])
+					self.list4ControlIdSpinbox["state"] = "normal"
+					if event != None:
+						self.list4ControlTypeCombobox.set("button")
+						self.list4ValueCombobox.set("5")
+			elif target == "control":
+				y = self.list4ControlTypeCombobox.get()
+				if y == "axis":
+					if x == "joystick":
+						self.list4ValueCombobox["values"] = self.SDLpolarity
+						if event != None:
+							self.list4ValueCombobox.set("plus")
+					elif x == "mouse":
+						self.list4ValueCombobox["values"] = self.SDLcardinals
+						if event != None:
+							self.list4ValueCombobox.set("right")
+				elif y == "button":
+					self.list4ValueCombobox["values"] = self.SDLbuttons
+					if event != None:
+						self.list4ValueCombobox.set("5")
+				elif y == "hat":
+					self.list4ValueCombobox["values"] = self.SDLcardinals
+					if event != None:
+						self.list4ValueCombobox.set("right")
+				elif y == "ball":
+					self.list4ValueCombobox["values"] = self.SDLcardinals
+					if event != None:
+						self.list4ValueCombobox.set("right")
+		elif control == "list5":
+			x = self.list5DeviceTypeCombobox.get()
+			if target == "device":
+				if x == "keyboard":
+					self.list5ValueCombobox["values"] = self.SDLkeys
+					self.list5ControlTypeCombobox["values"] = self.kbTypes
+					self.list5ControlTypeCombobox.state(["disabled"])
+					self.list5ControlIdSpinbox["state"] = "disabled"
+					if event != None:
+						self.list5ControlTypeCombobox.set("Default")
+						self.list5ValueCombobox.set("RALT")
+				elif x == "mouse":
+					self.list5ValueCombobox["values"] = self.SDLcardinals
+					self.list5ControlTypeCombobox["values"] = self.mouseTypes
+					self.list5ControlTypeCombobox.state(["!disabled"])
+					self.list5ControlIdSpinbox["state"] = "normal"
+					if event != None:
+						self.list5ControlTypeCombobox.set("button")
+						self.list5ValueCombobox.set("5")
+				elif x == "joystick":
+					self.list5ValueCombobox["values"] = self.SDLpolarity
+					self.list5ControlTypeCombobox["values"] = self.joyTypes
+					self.list5ControlTypeCombobox.state(["!disabled"])
+					self.list5ControlIdSpinbox["state"] = "normal"
+					if event != None:
+						self.list5ControlTypeCombobox.set("button")
+						self.list5ValueCombobox.set("5")
+			elif target == "control":
+				y = self.list5ControlTypeCombobox.get()
+				if y == "axis":
+					if x == "joystick":
+						self.list5ValueCombobox["values"] = self.SDLpolarity
+						if event != None:
+							self.list5ValueCombobox.set("plus")
+					elif x == "mouse":
+						self.list5ValueCombobox["values"] = self.SDLcardinals
+						if event != None:
+							self.list5ValueCombobox.set("right")
+				elif y == "button":
+					self.list5ValueCombobox["values"] = self.SDLbuttons
+					if event != None:
+						self.list5ValueCombobox.set("5")
+				elif y == "hat":
+					self.list5ValueCombobox["values"] = self.SDLcardinals
+					if event != None:
+						self.list5ValueCombobox.set("right")
+				elif y == "ball":
+					self.list5ValueCombobox["values"] = self.SDLcardinals
+					if event != None:
+						self.list5ValueCombobox.set("right")
 	def editEmulator(self, option=None):
 		self.displayName = tk.StringVar()
 		self.displayName.set(self.emulatorsListbox.get("active"))
@@ -1872,6 +2279,31 @@ class App(tk.Tk):
 				self.updateControl(n, self.quitValueCombobox, self.quitDeviceTypeCombobox, self.quitDeviceIdVar, self.quitControlTypeCombobox, self.quitControlIdVar)
 				self.updateWidget(None, "quit", "device")
 				self.updateWidget(None, "quit", "control")
+			t = n.find("list1:")
+			if t > -1:
+				self.updateControl(n, self.list1ValueCombobox, self.list1DeviceTypeCombobox, self.list1DeviceIdVar, self.list1ControlTypeCombobox, self.list1ControlIdVar)
+				self.updateWidget(None, "list1", "device")
+				self.updateWidget(None, "list1", "control")
+			t = n.find("list2:")
+			if t > -1:
+				self.updateControl(n, self.list2ValueCombobox, self.list2DeviceTypeCombobox, self.list2DeviceIdVar, self.list2ControlTypeCombobox, self.list2ControlIdVar)
+				self.updateWidget(None, "list2", "device")
+				self.updateWidget(None, "list2", "control")
+			t = n.find("list3:")
+			if t > -1:
+				self.updateControl(n, self.list3ValueCombobox, self.list3DeviceTypeCombobox, self.list3DeviceIdVar, self.list3ControlTypeCombobox, self.list3ControlIdVar)
+				self.updateWidget(None, "list3", "device")
+				self.updateWidget(None, "list3", "control")
+			t = n.find("list4:")
+			if t > -1:
+				self.updateControl(n, self.list4ValueCombobox, self.list4DeviceTypeCombobox, self.list4DeviceIdVar, self.list4ControlTypeCombobox, self.list4ControlIdVar)
+				self.updateWidget(None, "list4", "device")
+				self.updateWidget(None, "list4", "control")
+			t = n.find("list5:")
+			if t > -1:
+				self.updateControl(n, self.list5ValueCombobox, self.list5DeviceTypeCombobox, self.list5DeviceIdVar, self.list5ControlTypeCombobox, self.list5ControlIdVar)
+				self.updateWidget(None, "list5", "device")
+				self.updateWidget(None, "list5", "control")
 	def getNode(self, tag, parent, value, name=None):
 		if name == None:
 			node = self.configRoot.find(".//"+tag)
@@ -1884,20 +2316,35 @@ class App(tk.Tk):
 				self.indent(self.configRoot)
 				self.configTree.write(self.path + "config.xml")
 		else:
+			trick = 0
 			for p in self.configRoot.findall(".//event"):
 				n = p.find("name")
 				if n.text == name:
+					trick = 1
 					if parent == "":
 						node = p.find(tag)
 					else:
 						node = p.find(parent+"/"+tag)
 						if node == None:
-							t = ET.SubElement(p, "control")
-							u = ET.SubElement(t, tag)
-							u.text = value
+							if p.find(parent) == None:
+								p = ET.SubElement(p, parent)
+							else:
+								p = p.find(parent)
+							t = ET.SubElement(p, tag)
+							t.text = value
 							self.indent(self.configRoot)
 							self.configTree.write(self.path + "config.xml")
-							node = u
+							node = t
+			if trick == 0:
+				p = self.configRoot.find(".//controls")
+				e = ET.SubElement(p, "event")
+				n = ET.SubElement(e, "name")
+				n.text = name
+				t = ET.SubElement(e, tag)
+				t.text = value
+				self.indent(self.configRoot)
+				self.configTree.write(self.path + "config.xml")
+				node = e
 		return node
 	def getFolders(self, dir):
 		return [name for name in os.listdir(dir)]
