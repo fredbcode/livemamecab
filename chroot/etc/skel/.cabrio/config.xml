@@ -7,6 +7,7 @@
     <full-screen>true</full-screen>
     <video-loop>false</video-loop>
     <video-sound>true</video-sound>
+    <hide-buttons>false</hide-buttons>
     <theme-sound>true</theme-sound>
     <music-volume>128</music-volume>
     <screen>

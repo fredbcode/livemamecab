@@ -37,3 +37,6 @@ sudo su
 sud su
 sudo su
 cabrio-config 
+dpkg -l | grep linux
+synaptic
+sudo su
