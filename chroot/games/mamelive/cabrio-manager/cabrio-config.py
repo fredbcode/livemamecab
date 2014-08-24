@@ -340,6 +340,7 @@ class App(tk.Tk):
 			self.videoSoundStr = lang.find("videoSound").text
 			self.musicVolumeStr = lang.find("musicVolume").text
 			self.hideButtonsStr = lang.find("hideButtons").text
+			self.themeTabStr = lang.find("themeTab").text
 		self.path = expanduser("~") + "/.cabrio/"
 		try:
 			self.configTree = ET.parse(self.path + "config.xml")
@@ -364,6 +365,7 @@ class App(tk.Tk):
 		try:
 			self.themesList = self.getFolders("/usr/share/cabrio/themes/")
 		except:
+			print "test"
 			sys.exit("Error: No themes found, please check your Cabrio installation.")
 		self.theme = self.getNode("theme", "interface", "carousel")
 		self.themeVar = tk.StringVar()
@@ -554,15 +556,23 @@ class App(tk.Tk):
 		self.notebook = ttk.Notebook(self)
 		self.notebook.grid(column=0, row=0)
 		self.displayTab = ttk.Frame(self.notebook)
-		self.pathTab = ttk.Frame(self.notebook)
+		# self.pathTab = ttk.Frame(self.notebook)
 		self.controlsTab = ttk.Frame(self.notebook)
 		self.emulatorsTab = ttk.Frame(self.notebook)
+		self.themeTab = ttk.Frame(self.notebook)
 		self.aboutTab = ttk.Frame(self.notebook)
 		self.notebook.add(self.displayTab, text=self.displayTabStr)
 		# self.notebook.add(self.pathTab, text=self.pathTabStr)
 		self.notebook.add(self.controlsTab, text=self.controlsTabStr)
 		self.notebook.add(self.emulatorsTab, text=self.emulatorsTabStr)
+		self.notebook.add(self.themeTab, text=self.themeTabStr)
 		self.notebook.add(self.aboutTab, text=self.aboutTabStr)
+		# Theme label frame widgets declaration starts here.
+		self.themeLabel = ttk.Label(self.themeTab, text=self.themeStr)
+		self.themeLabel.grid(column=0, row=0, sticky="W")
+		self.themesCombobox = ttk.Combobox(self.themeTab, values=self.themesList, textvariable=self.themeVar, state="readonly")
+		self.themesCombobox.bind("<<ComboboxSelected>>", self.writeTheme)
+		self.themesCombobox.grid(column=1, row=0, sticky="W")
 		# Display tab widgets declaration starts here.
 		self.displayPanedWindow = ttk.Panedwindow(self.displayTab, orient="vertical")
 		self.displayPanedWindow.grid()
@@ -581,11 +591,6 @@ class App(tk.Tk):
 		self.framerateEntry.grid(column=1, row=2, sticky="W")
 		self.setFramerateButton = ttk.Button(self.interfaceLabelFrame, text=self.setButtonStr, command=lambda a=self.framerate, b= self.framerateVar: self.writeString(a, b))
 		self.setFramerateButton.grid(column=2, row=2)
-		self.themeLabel = ttk.Label(self.interfaceLabelFrame, text=self.themeStr)
-		self.themeLabel.grid(column=0, row=3, sticky="W")
-		self.themesCombobox = ttk.Combobox(self.interfaceLabelFrame, values=self.themesList, textvariable=self.themeVar, state="readonly")
-		self.themesCombobox.bind("<<ComboboxSelected>>", self.writeTheme)
-		self.themesCombobox.grid(column=1, row=3, sticky="W")
 		# Screen label frame widgets declaration starts here.
 		self.screenLabelFrame = ttk.Labelframe(self.displayTab, text=self.screenLabelFrameStr)
 		self.displayPanedWindow.add(self.screenLabelFrame)
@@ -2264,9 +2269,9 @@ class App(tk.Tk):
 		return v
 	def getControls(self):
 		# get data from the output of the console
-		# p = subprocess.Popen(["cabrio-config"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-		# raw, err = p.communicate()
-		raw = self.SDLout
+		p = subprocess.Popen(["cabrio-config"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+		raw, err = p.communicate()
+		# raw = self.SDLout
 		output = raw.split("\n")
 		for n in output:
 			t = n.find("up:")

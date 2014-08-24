@@ -18,6 +18,7 @@
 			<pathTab>Locations</pathTab>
 			<controlsTab>Controls</controlsTab>
 			<emulatorsTab>Emulators</emulatorsTab>
+			<themeTab>Theme</themeTab>
 			<aboutTab>About</aboutTab>
 			<interfaceLabelFrame>Interface</interfaceLabelFrame>
 			<fullscreen>Fullscreen</fullscreen>
@@ -110,7 +111,8 @@
 			<displayTab>Affichage</displayTab>
 			<pathTab>Emplacements</pathTab>
 			<controlsTab>Contrôles</controlsTab>
-			<emulatorsTab>Emulateurs</emulatorsTab>
+			<emulatorsTab>Émulateurs</emulatorsTab>
+			<themeTab>Thème</themeTab>
 			<aboutTab>À propos</aboutTab>
 			<interfaceLabelFrame>Interface</interfaceLabelFrame>
 			<fullscreen>Plein écran</fullscreen>
