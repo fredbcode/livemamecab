@@ -4,3 +4,4 @@ It is used as a live CD, USB, or more traditionally as the primary OS
 - Forum (french) http://gamoover.net - 
 - Personnal website http://numsys.eu -
 - Video http://www.youtube.com/user/MrRootabaga -
+- Cabrio "Livemamecab edition" https://github.com/fredbcode/cabrio
