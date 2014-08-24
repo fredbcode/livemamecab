@@ -40,3 +40,18 @@ cabrio-config
 dpkg -l | grep linux
 synaptic
 sudo su
+retroarch -L /usr/lib/libretro/genesis_plus_gx_libretro.so /games/roms/genesis/wolf.sms 
+sudo su
+cabrio
+retroarch -L /usr/lib/libretro/genesis_plus_gx_libretro.so /games/roms/genesis/qbert.sms
+sudo su
+retroarch -L /usr/lib/libretro/genesis_plus_gx_libretro.so /games/roms/genesis/Shinobi\ 3\ -\ Return\ of\ the\ Ninja\ Master\ \(U\)\ \[\!\].zip 
+retroarch -L /usr/lib/libretro/genesis_plus_gx_libretro.so /games/roms/genesis/wolf.zip 
+retroarch -L /usr/lib/libretro/genesis_plus_gx_libretro.so /games/roms/genesis/wolf.bin
+cabrio-config 
+python /games/mamelive/cabrio-manager/cabrio-config.py
+cd /games/mamelive/cabrio-manager/
+python cabrio-config.py
+cabrio-config 
+python cabrio-config.py
+sudo su

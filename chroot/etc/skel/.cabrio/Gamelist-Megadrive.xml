@@ -3,9 +3,9 @@
     <name>Megadrive</name>
     <games>
       <game>
-        <name>qbert</name>
+        <name>wolf</name>
         <platform>Genesis</platform>
-        <rom-image>/games/roms/genesis/qbert.sms</rom-image>
+        <rom-image>/games/roms/genesis/wolf.zip</rom-image>
       </game>
     </games>
   </game-list>

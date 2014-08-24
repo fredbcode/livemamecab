@@ -1,6 +1,18 @@
-/games/roms/genesis/qbert.sms
+/games/roms/genesis/wolf.zip
+/usr/lib/libretro/genesis_plus_gx_libretro.so
+Genesis Plus GX
+/games/roms/genesis/wolf.bin
+/usr/lib/libretro/genesis_plus_gx_libretro.so
+Genesis Plus GX
+/games/roms/genesis/Shinobi 3 - Return of the Ninja Master (U) [!].zip
+/usr/lib/libretro/genesis_plus_gx_libretro.so
+Genesis Plus GX
+/games/roms/genesis/wolf.sms
 /usr/lib/libretro/genesis_plus_gx_libretro.so
 Genesis Plus GX
 /games/roms/snes/columns.smc
 /usr/lib/libretro/snes9x_libretro.so
 SNES9x
+/games/roms/genesis/qbert.sms
+/usr/lib/libretro/genesis_plus_gx_libretro.so
+Genesis Plus GX
