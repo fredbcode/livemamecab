@@ -365,7 +365,6 @@ class App(tk.Tk):
 		try:
 			self.themesList = self.getFolders("/usr/share/cabrio/themes/")
 		except:
-			print "test"
 			sys.exit("Error: No themes found, please check your Cabrio installation.")
 		self.theme = self.getNode("theme", "interface", "carousel")
 		self.themeVar = tk.StringVar()
@@ -478,7 +477,7 @@ class App(tk.Tk):
 		self.quitControlList = self.setControlList(self.quitDeviceTypeVar)
 		self.quitValueList = self.setValueList(self.quitDeviceTypeVar.get(), self.quitControlTypeVar.get())
 
-		self.list1Value = self.getNode("value", "", "LSHIFT", "list1")
+		self.list1Value = self.getNode("value", "", "a", "list1")
 		self.list1ValueVar = self.setVar(self.list1Value, str)
 		self.list1DeviceType = self.getNode("type", "device", "keyboard", "list1")
 		self.list1DeviceTypeVar = self.setVar(self.list1DeviceType, str)
@@ -491,7 +490,7 @@ class App(tk.Tk):
 		self.list1ControlList = self.setControlList(self.list1DeviceTypeVar)
 		self.list1ValueList = self.setValueList(self.list1DeviceTypeVar.get(), self.list1ControlTypeVar.get())
 
-		self.list2Value = self.getNode("value", "", "LCTRL", "list2")
+		self.list2Value = self.getNode("value", "", "b", "list2")
 		self.list2ValueVar = self.setVar(self.list2Value, str)
 		self.list2DeviceType = self.getNode("type", "device", "keyboard", "list2")
 		self.list2DeviceTypeVar = self.setVar(self.list2DeviceType, str)
@@ -504,7 +503,7 @@ class App(tk.Tk):
 		self.list2ControlList = self.setControlList(self.list2DeviceTypeVar)
 		self.list2ValueList = self.setValueList(self.list2DeviceTypeVar.get(), self.list2ControlTypeVar.get())
 
-		self.list3Value = self.getNode("value", "", "LALT", "list3")
+		self.list3Value = self.getNode("value", "", "c", "list3")
 		self.list3ValueVar = self.setVar(self.list3Value, str)
 		self.list3DeviceType = self.getNode("type", "device", "keyboard", "list3")
 		self.list3DeviceTypeVar = self.setVar(self.list3DeviceType, str)
@@ -517,7 +516,7 @@ class App(tk.Tk):
 		self.list3ControlList = self.setControlList(self.list3DeviceTypeVar)
 		self.list3ValueList = self.setValueList(self.list3DeviceTypeVar.get(), self.list3ControlTypeVar.get())
 
-		self.list4Value = self.getNode("value", "", "space", "list4")
+		self.list4Value = self.getNode("value", "", "d", "list4")
 		self.list4ValueVar = self.setVar(self.list4Value, str)
 		self.list4DeviceType = self.getNode("type", "device", "keyboard", "list4")
 		self.list4DeviceTypeVar = self.setVar(self.list4DeviceType, str)
@@ -530,7 +529,7 @@ class App(tk.Tk):
 		self.list4ControlList = self.setControlList(self.list4DeviceTypeVar)
 		self.list4ValueList = self.setValueList(self.list4DeviceTypeVar.get(), self.list4ControlTypeVar.get())
 
-		self.list5Value = self.getNode("value", "", "RALT", "list5")
+		self.list5Value = self.getNode("value", "", "e", "list5")
 		self.list5ValueVar = self.setVar(self.list5Value, str)
 		self.list5DeviceType = self.getNode("type", "device", "keyboard", "list5")
 		self.list5DeviceTypeVar = self.setVar(self.list5DeviceType, str)
@@ -811,82 +810,82 @@ class App(tk.Tk):
 		self.saveButton = ttk.Button(self.controlsTab, text="Save", command=lambda: self.saveControlsChange())
 		# List 1 widgets declaration
 		self.list1Label = ttk.Label(self.controlsTab, text=self.list1LabelStr)
-		self.list1Label.grid(column=0, row=8, sticky="W")
+		self.list1Label.grid(column=0, row=9, sticky="W")
 		self.list1DeviceTypeCombobox = ttk.Combobox(self.controlsTab, values=self.devicesList, textvariable=self.list1DeviceTypeVar, state="readonly", width=7)
 		self.list1DeviceTypeCombobox.bind("<<ComboboxSelected>>", lambda a=None, b="list1", c="device": self.updateWidget(a, b, c))
-		self.list1DeviceTypeCombobox.grid(column=1, row=8)
+		self.list1DeviceTypeCombobox.grid(column=1, row=9)
 		self.list1DeviceIdSpinbox = tk.Spinbox(self.controlsTab, from_=0.0, to=99.0, textvariable=self.list1DeviceIdVar, width=2)
-		self.list1DeviceIdSpinbox.grid(column=2, row=8)
+		self.list1DeviceIdSpinbox.grid(column=2, row=9)
 		self.list1ControlTypeCombobox = ttk.Combobox(self.controlsTab, values=self.list1ControlList, textvariable=self.list1ControlTypeVar, state="readonly", width=7)
 		self.list1ControlTypeCombobox.bind("<<ComboboxSelected>>", lambda a=None, b="list1", c="control": self.updateWidget(a, b, c))
-		self.list1ControlTypeCombobox.grid(column=4, row=8)
+		self.list1ControlTypeCombobox.grid(column=4, row=9)
 		self.list1ControlIdSpinbox = tk.Spinbox(self.controlsTab, from_=0.0, to=99, textvariable=self.list1ControlIdVar, width=2)
-		self.list1ControlIdSpinbox.grid(column=5, row=8, sticky="W")
+		self.list1ControlIdSpinbox.grid(column=5, row=9, sticky="W")
 		self.list1ValueCombobox = ttk.Combobox(self.controlsTab, values=self.list1ValueList, textvariable=self.list1ValueVar, state="readonly", width=17)
-		self.list1ValueCombobox.grid(column=7, row=8, sticky="W")
+		self.list1ValueCombobox.grid(column=7, row=9, sticky="W")
 		# List 2 widgets declaration
 		self.list2Label = ttk.Label(self.controlsTab, text=self.list2LabelStr)
-		self.list2Label.grid(column=0, row=9, sticky="W")
+		self.list2Label.grid(column=0, row=10, sticky="W")
 		self.list2DeviceTypeCombobox = ttk.Combobox(self.controlsTab, values=self.devicesList, textvariable=self.list2DeviceTypeVar, state="readonly", width=7)
 		self.list2DeviceTypeCombobox.bind("<<ComboboxSelected>>", lambda a=None, b="list2", c="device": self.updateWidget(a, b, c))
-		self.list2DeviceTypeCombobox.grid(column=1, row=9)
+		self.list2DeviceTypeCombobox.grid(column=1, row=10)
 		self.list2DeviceIdSpinbox = tk.Spinbox(self.controlsTab, from_=0.0, to=99.0, textvariable=self.list2DeviceIdVar, width=2)
-		self.list2DeviceIdSpinbox.grid(column=2, row=9)
+		self.list2DeviceIdSpinbox.grid(column=2, row=10)
 		self.list2ControlTypeCombobox = ttk.Combobox(self.controlsTab, values=self.list2ControlList, textvariable=self.list2ControlTypeVar, state="readonly", width=7)
 		self.list2ControlTypeCombobox.bind("<<ComboboxSelected>>", lambda a=None, b="list2", c="control": self.updateWidget(a, b, c))
-		self.list2ControlTypeCombobox.grid(column=4, row=9)
+		self.list2ControlTypeCombobox.grid(column=4, row=10)
 		self.list2ControlIdSpinbox = tk.Spinbox(self.controlsTab, from_=0.0, to=99, textvariable=self.list2ControlIdVar, width=2)
-		self.list2ControlIdSpinbox.grid(column=5, row=9, sticky="W")
+		self.list2ControlIdSpinbox.grid(column=5, row=10, sticky="W")
 		self.list2ValueCombobox = ttk.Combobox(self.controlsTab, values=self.list2ValueList, textvariable=self.list2ValueVar, state="readonly", width=17)
-		self.list2ValueCombobox.grid(column=7, row=9, sticky="W")
+		self.list2ValueCombobox.grid(column=7, row=10, sticky="W")
 		# List 3 widgets declaration
 		self.list3Label = ttk.Label(self.controlsTab, text=self.list3LabelStr)
-		self.list3Label.grid(column=0, row=10, sticky="W")
+		self.list3Label.grid(column=0, row=11, sticky="W")
 		self.list3DeviceTypeCombobox = ttk.Combobox(self.controlsTab, values=self.devicesList, textvariable=self.list3DeviceTypeVar, state="readonly", width=7)
 		self.list3DeviceTypeCombobox.bind("<<ComboboxSelected>>", lambda a=None, b="list3", c="device": self.updateWidget(a, b, c))
-		self.list3DeviceTypeCombobox.grid(column=1, row=10)
+		self.list3DeviceTypeCombobox.grid(column=1, row=11)
 		self.list3DeviceIdSpinbox = tk.Spinbox(self.controlsTab, from_=0.0, to=99.0, textvariable=self.list3DeviceIdVar, width=2)
-		self.list3DeviceIdSpinbox.grid(column=2, row=10)
+		self.list3DeviceIdSpinbox.grid(column=2, row=11)
 		self.list3ControlTypeCombobox = ttk.Combobox(self.controlsTab, values=self.list3ControlList, textvariable=self.list3ControlTypeVar, state="readonly", width=7)
 		self.list3ControlTypeCombobox.bind("<<ComboboxSelected>>", lambda a=None, b="list3", c="control": self.updateWidget(a, b, c))
-		self.list3ControlTypeCombobox.grid(column=4, row=10)
+		self.list3ControlTypeCombobox.grid(column=4, row=11)
 		self.list3ControlIdSpinbox = tk.Spinbox(self.controlsTab, from_=0.0, to=99, textvariable=self.list3ControlIdVar, width=2)
-		self.list3ControlIdSpinbox.grid(column=5, row=10, sticky="W")
+		self.list3ControlIdSpinbox.grid(column=5, row=11, sticky="W")
 		self.list3ValueCombobox = ttk.Combobox(self.controlsTab, values=self.list3ValueList, textvariable=self.list3ValueVar, state="readonly", width=17)
-		self.list3ValueCombobox.grid(column=7, row=10, sticky="W")
+		self.list3ValueCombobox.grid(column=7, row=11, sticky="W")
 		# List 4 widgets declaration
 		self.list4Label = ttk.Label(self.controlsTab, text=self.list4LabelStr)
-		self.list4Label.grid(column=0, row=11, sticky="W")
+		self.list4Label.grid(column=0, row=12, sticky="W")
 		self.list4DeviceTypeCombobox = ttk.Combobox(self.controlsTab, values=self.devicesList, textvariable=self.list4DeviceTypeVar, state="readonly", width=7)
 		self.list4DeviceTypeCombobox.bind("<<ComboboxSelected>>", lambda a=None, b="list4", c="device": self.updateWidget(a, b, c))
-		self.list4DeviceTypeCombobox.grid(column=1, row=11)
+		self.list4DeviceTypeCombobox.grid(column=1, row=12)
 		self.list4DeviceIdSpinbox = tk.Spinbox(self.controlsTab, from_=0.0, to=99.0, textvariable=self.list4DeviceIdVar, width=2)
-		self.list4DeviceIdSpinbox.grid(column=2, row=11)
+		self.list4DeviceIdSpinbox.grid(column=2, row=12)
 		self.list4ControlTypeCombobox = ttk.Combobox(self.controlsTab, values=self.list4ControlList, textvariable=self.list4ControlTypeVar, state="readonly", width=7)
 		self.list4ControlTypeCombobox.bind("<<ComboboxSelected>>", lambda a=None, b="list4", c="control": self.updateWidget(a, b, c))
-		self.list4ControlTypeCombobox.grid(column=4, row=11)
+		self.list4ControlTypeCombobox.grid(column=4, row=12)
 		self.list4ControlIdSpinbox = tk.Spinbox(self.controlsTab, from_=0.0, to=99, textvariable=self.list4ControlIdVar, width=2)
-		self.list4ControlIdSpinbox.grid(column=5, row=11, sticky="W")
+		self.list4ControlIdSpinbox.grid(column=5, row=12, sticky="W")
 		self.list4ValueCombobox = ttk.Combobox(self.controlsTab, values=self.list4ValueList, textvariable=self.list4ValueVar, state="readonly", width=17)
-		self.list4ValueCombobox.grid(column=7, row=11, sticky="W")
+		self.list4ValueCombobox.grid(column=7, row=12, sticky="W")
 		# List 5 widgets declaration
 		self.list5Label = ttk.Label(self.controlsTab, text=self.list5LabelStr)
-		self.list5Label.grid(column=0, row=12, sticky="W")
+		self.list5Label.grid(column=0, row=13, sticky="W")
 		self.list5DeviceTypeCombobox = ttk.Combobox(self.controlsTab, values=self.devicesList, textvariable=self.list5DeviceTypeVar, state="readonly", width=7)
 		self.list5DeviceTypeCombobox.bind("<<ComboboxSelected>>", lambda a=None, b="list5", c="device": self.updateWidget(a, b, c))
-		self.list5DeviceTypeCombobox.grid(column=1, row=12)
+		self.list5DeviceTypeCombobox.grid(column=1, row=13)
 		self.list5DeviceIdSpinbox = tk.Spinbox(self.controlsTab, from_=0.0, to=99.0, textvariable=self.list5DeviceIdVar, width=2)
-		self.list5DeviceIdSpinbox.grid(column=2, row=12)
+		self.list5DeviceIdSpinbox.grid(column=2, row=13)
 		self.list5ControlTypeCombobox = ttk.Combobox(self.controlsTab, values=self.list5ControlList, textvariable=self.list5ControlTypeVar, state="readonly", width=7)
 		self.list5ControlTypeCombobox.bind("<<ComboboxSelected>>", lambda a=None, b="list5", c="control": self.updateWidget(a, b, c))
-		self.list5ControlTypeCombobox.grid(column=4, row=12)
+		self.list5ControlTypeCombobox.grid(column=4, row=13)
 		self.list5ControlIdSpinbox = tk.Spinbox(self.controlsTab, from_=0.0, to=99, textvariable=self.list5ControlIdVar, width=2)
-		self.list5ControlIdSpinbox.grid(column=5, row=12, sticky="W")
+		self.list5ControlIdSpinbox.grid(column=5, row=13, sticky="W")
 		self.list5ValueCombobox = ttk.Combobox(self.controlsTab, values=self.list5ValueList, textvariable=self.list5ValueVar, state="readonly", width=17)
-		self.list5ValueCombobox.grid(column=7, row=12, sticky="W")
+		self.list5ValueCombobox.grid(column=7, row=13, sticky="W")
 		# save button
 		self.saveButton = ttk.Button(self.controlsTab, text="Save", command=lambda: self.saveControlsChange())
-		self.saveButton.grid(column=0, row=13, columnspan=8)
+		self.saveButton.grid(column=0, row=14, columnspan=8)
 		# Emulator tab widgets declaration starts here.
 		self.newEmulatorLabel = ttk.Label(self.emulatorsTab, text=self.newEmulatorLabelStr)
 		self.newEmulatorLabel.grid(column=0, row=0, sticky="W")
@@ -1917,9 +1916,10 @@ class App(tk.Tk):
 	def updateControl(self, control, valueWidget, deviceWidget, deviceIdVar, controlWidget, controlIdVar):
 		# Get control
 		t = control.find("E =") + 4 # Store the position of the value
-		y = int(control[t:t+2]) # extract the value and convert it to number
+		l = control.find("typeaxis") - 1
+		y = int(control[t:l]) # extract the value and convert it to number
 		t = control.find("s =") + 4
-		a = int(control[t:t+1])
+		a = int(control[t:len(control)])
 		controlIdVar.set(a)
 		t = control.find("joystick")
 		if t > -1:
@@ -2374,7 +2374,7 @@ class App(tk.Tk):
 				t.text = value
 				self.indent(self.configRoot)
 				self.configTree.write(self.path + "config.xml")
-				node = e
+				node = t
 		return node
 	def getFolders(self, dir):
 		return [name for name in os.listdir(dir)]
