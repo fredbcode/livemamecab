@@ -369,6 +369,11 @@ class App(tk.Tk):
 		self.theme = self.getNode("theme", "interface", "carousel")
 		self.themeVar = tk.StringVar()
 		self.themeVar.set(self.theme.text)
+		# try:
+		# 	self.themeTree = ET.parse("/usr/share/cabrio/themes/"+self.themeVar.get()+"/theme.xml")
+		# except:
+		# 	self.themeVar.set("Default")
+		# self.themeRoot = self.themeTree.getroot()
 		self.width = self.getNode("width", "interface/screen", "1024")
 		self.widthVar = self.setVar(self.width, str)
 		self.height = self.getNode("height", "interface/screen", "768")
@@ -940,6 +945,10 @@ class App(tk.Tk):
 		self.updateWidget(None, "list4", "control")
 		self.updateWidget(None, "list5", "device")
 		self.updateWidget(None, "list5", "control")
+	# def getThemeOptions(self):
+	# 	r = self.themeRoot.find(".//theme")
+	# 	if r == None:
+	# 		print "Error"
 	def updateWidget(self, event, control, target):
 		if control == "up":
 			x = self.upDeviceTypeCombobox.get()

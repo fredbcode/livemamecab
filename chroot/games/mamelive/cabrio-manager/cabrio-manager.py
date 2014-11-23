@@ -398,7 +398,7 @@ class App(tk.Tk):
 	def periodicCall(self):
 		self.checkQueue()
 		if self.thread.is_alive():
-			self.after(100, self.periodicCall)
+			self.after(500, self.periodicCall)
 	def checkQueue(self):
 		while self.queue.qsize():
 			try:
