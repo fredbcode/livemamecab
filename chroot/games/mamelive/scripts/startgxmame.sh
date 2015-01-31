@@ -45,7 +45,7 @@ done
 mount | grep sd | grep "on / " | grep -v vfat 
 if [ $? = 0 ]
 then
-	zenity --info  --text="Livemamecab on HDD" --timeout=2 &
+	zenity --info  --text="Livemamecab on HDD" --timeout=1 &
 	usb=NULL
 fi
 
