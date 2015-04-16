@@ -43,7 +43,18 @@ do
 		killall xmamescreensaver
 		killall screensaver.sh 
 		exit 0
-	fi
-	inc=`expr $inc + 1`
-	sleep 3 
+	else
+		inc=`expr $inc + 1`
+		sleep 3
+		break
+	fi 
 done
+
+# Auto restart cabrio
+
+if pidof cabrio;
+then
+	exit 1
+else
+	cabrio
+fi
