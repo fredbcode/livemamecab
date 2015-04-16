@@ -53,8 +53,8 @@ ls $usb
 if [ $? != 0 ]
 then
 	zenity --info  --text="Ok USB drive not found" --timeout=1 &
-	cabrio &
 	thunar -q 
+	cabrio
 	exit 0
 fi
 
@@ -153,7 +153,7 @@ fi
 
 thunar -q 
 zenity --info --text="Enjoy !" --timeout=2 &
-cabrio &
+cabrio
 
 
 
